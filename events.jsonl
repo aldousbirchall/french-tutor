@@ -1,0 +1,2 @@
+{"ts":"2026-02-28T21:45:02Z","phase":"initiation","agent":"orchestrator","event":"build_started","detail":"french-tutor web-frontend build initiated"}
+{"ts":"2026-02-28T21:45:02Z","phase":"specification","agent":"spec","event":"agent_dispatched","detail":"Spec agent dispatched for french-tutor"}
