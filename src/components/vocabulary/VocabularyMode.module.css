@@ -1,0 +1,15 @@
+.page {
+  padding: var(--space-4) 0;
+}
+
+.heading {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.loading {
+  text-align: center;
+  padding: var(--space-8);
+  color: var(--color-text-muted);
+}
