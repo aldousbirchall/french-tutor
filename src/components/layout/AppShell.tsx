@@ -8,10 +8,9 @@ function isCompatibleBrowser(): boolean {
 }
 
 function isSpeechRecognitionSupported(): boolean {
-  return !!(
-    (window as Record<string, unknown>).SpeechRecognition ||
-    (window as Record<string, unknown>).webkitSpeechRecognition
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const w = window as any;
+  return !!(w.SpeechRecognition || w.webkitSpeechRecognition);
 }
 
 const AppShell: React.FC = () => {
