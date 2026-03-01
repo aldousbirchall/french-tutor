@@ -1,0 +1,73 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: French Tutor
+    - navigation [ref=e6]:
+      - link "📖 Vocabulary" [ref=e7] [cursor=pointer]:
+        - /url: /vocabulary
+        - generic [ref=e8]: 📖
+        - generic [ref=e9]: Vocabulary
+      - link "💬 Conversation" [ref=e10] [cursor=pointer]:
+        - /url: /conversation
+        - generic [ref=e11]: 💬
+        - generic [ref=e12]: Conversation
+      - link "📝 Exam" [active] [ref=e13] [cursor=pointer]:
+        - /url: /exam
+        - generic [ref=e14]: 📝
+        - generic [ref=e15]: Exam
+      - link "📊 Dashboard" [ref=e16] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e17]: 📊
+        - generic [ref=e18]: Dashboard
+    - button "⚙ Settings" [ref=e19] [cursor=pointer]:
+      - generic [ref=e20]: ⚙
+      - generic [ref=e21]: Settings
+  - main [ref=e22]:
+    - generic [ref=e23]: For the best experience with voice features, use Chrome or Edge.
+    - generic [ref=e25]:
+      - heading "Exam Practice" [level=1] [ref=e26]
+      - generic [ref=e27]:
+        - button "Full Oral Mock (40 min)" [ref=e28] [cursor=pointer]
+        - button "Full Written Mock (60 min)" [ref=e29] [cursor=pointer]
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - heading "Oral" [level=2] [ref=e32]
+          - generic [ref=e33]:
+            - generic [ref=e34] [cursor=pointer]:
+              - generic [ref=e35]: Self-Introduction
+              - generic [ref=e36]: The examiner asks background questions. The candidate introduces themselves and answers follow-up questions about their life in Switzerland.
+              - generic [ref=e37]: A2 · 3 min
+            - generic [ref=e38] [cursor=pointer]:
+              - generic [ref=e39]: Image Description
+              - generic [ref=e40]: The candidate describes a photograph or illustration showing a scene from everyday life in Switzerland. The examiner may ask follow-up questions.
+              - generic [ref=e41]: A2 · 3 min
+            - generic [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]: Dialogue Role-Play
+              - generic [ref=e44]: The candidate participates in a role-play simulating a common everyday situation in Switzerland. The examiner plays the other person (shopkeeper, doctor, postal worker, etc.).
+              - generic [ref=e45]: A2 · 4 min
+            - generic [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]: Open Discussion
+              - generic [ref=e48]: The candidate discusses a familiar topic, giving opinions and personal experiences. The examiner asks open questions to encourage elaboration.
+              - generic [ref=e49]: A2 · 4 min
+            - generic [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]: Sequential Image Description
+              - generic [ref=e52]: The candidate is shown 4-6 images telling a story. They narrate what happens in sequence, using appropriate tenses and connectors.
+              - generic [ref=e53]: A1-A2 · 3 min
+            - generic [ref=e54] [cursor=pointer]:
+              - generic [ref=e55]: Listening Comprehension
+              - generic [ref=e56]: The candidate listens to short audio passages (read via SpeechSynthesis) and answers questions. Passages increase in difficulty from A1 to A2.
+              - generic [ref=e57]: A1-A2 · 15 min
+        - generic [ref=e58]:
+          - heading "Written" [level=2] [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]:
+              - generic [ref=e62]: Form Filling
+              - generic [ref=e63]: The candidate fills in a form based on information given in a prompt. Tests ability to extract and write personal/practical information correctly.
+              - generic [ref=e64]: A1 · 10 min
+            - generic [ref=e65] [cursor=pointer]:
+              - generic [ref=e66]: Letter/Email Writing
+              - generic [ref=e67]: The candidate writes a short message (email or letter) in response to a situation. 30-50 words for A1, 50-80 words for A2.
+              - generic [ref=e68]: A1 · 15 min
+```

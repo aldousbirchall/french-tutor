@@ -60,9 +60,7 @@ describe('Bundled Data: vocabulary.json', () => {
     const vocabPath = findFile('vocabulary.json');
     if (!vocabPath) return;
 
-    const raw = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
-    // Support both flat array and wrapper object with .words
-    const data = Array.isArray(raw) ? raw : raw.words;
+    const data = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
     expect(Array.isArray(data)).toBe(true);
     expect(data.length).toBeGreaterThan(0);
   });
@@ -71,8 +69,7 @@ describe('Bundled Data: vocabulary.json', () => {
     const vocabPath = findFile('vocabulary.json');
     if (!vocabPath) return;
 
-    const raw = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
-    const data = Array.isArray(raw) ? raw : raw.words;
+    const data = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
     const requiredFields = ['id', 'french', 'english', 'example_fr', 'example_en', 'topic', 'level', 'pos'];
 
     for (const word of data.slice(0, 20)) {
@@ -86,8 +83,7 @@ describe('Bundled Data: vocabulary.json', () => {
     const vocabPath = findFile('vocabulary.json');
     if (!vocabPath) return;
 
-    const raw = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
-    const data = Array.isArray(raw) ? raw : raw.words;
+    const data = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
     for (const word of data) {
       expect(['A1', 'A2']).toContain(word.level);
     }
@@ -97,8 +93,7 @@ describe('Bundled Data: vocabulary.json', () => {
     const vocabPath = findFile('vocabulary.json');
     if (!vocabPath) return;
 
-    const raw = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
-    const data = Array.isArray(raw) ? raw : raw.words;
+    const data = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
     const topics = new Set(data.map((w: any) => w.topic));
     expect(topics.size).toBeGreaterThanOrEqual(5);
   });
@@ -107,8 +102,7 @@ describe('Bundled Data: vocabulary.json', () => {
     const vocabPath = findFile('vocabulary.json');
     if (!vocabPath) return;
 
-    const raw = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
-    const data = Array.isArray(raw) ? raw : raw.words;
+    const data = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
     const ids = data.map((w: any) => w.id);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(ids.length);
@@ -118,8 +112,7 @@ describe('Bundled Data: vocabulary.json', () => {
     const vocabPath = findFile('vocabulary.json');
     if (!vocabPath) return;
 
-    const raw = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
-    const data = Array.isArray(raw) ? raw : raw.words;
+    const data = JSON.parse(fs.readFileSync(vocabPath, 'utf-8'));
     for (const word of data) {
       expect(word.french.trim().length).toBeGreaterThan(0);
       expect(word.english.trim().length).toBeGreaterThan(0);
@@ -234,29 +227,18 @@ describe('Bundled Data: Exam Scenarios', () => {
     const dataDir = findDataDir();
     if (!dataDir) return;
 
-    // Known scenario file names (by type, not necessarily containing "scenario" in the name)
-    const scenarioFileNames = [
-      'self-introduction.json', 'image-description.json', 'role-play.json',
-      'open-discussion.json', 'sequential-images.json', 'listening-comprehension.json',
-      'form-filling.json', 'letter-writing.json',
-    ];
-
+    // Look for scenario files
     function findScenarios(dir: string): string[] {
       const results: string[] = [];
-      try {
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        for (const entry of entries) {
-          const full = path.join(dir, entry.name);
-          if (entry.isFile() && entry.name.endsWith('.json') &&
-              (entry.name.includes('scenario') || scenarioFileNames.includes(entry.name))) {
-            results.push(full);
-          }
-          if (entry.isDirectory()) {
-            results.push(...findScenarios(full));
-          }
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      for (const entry of entries) {
+        const full = path.join(dir, entry.name);
+        if (entry.isFile() && entry.name.includes('scenario') && entry.name.endsWith('.json')) {
+          results.push(full);
         }
-      } catch {
-        // ignore
+        if (entry.isDirectory()) {
+          results.push(...findScenarios(full));
+        }
       }
       return results;
     }
@@ -266,20 +248,13 @@ describe('Bundled Data: Exam Scenarios', () => {
   });
 
   it('scenario definitions have required structure', () => {
-    const scenarioFileNames = [
-      'self-introduction.json', 'image-description.json', 'role-play.json',
-      'open-discussion.json', 'sequential-images.json', 'listening-comprehension.json',
-      'form-filling.json', 'letter-writing.json',
-    ];
-
     function findScenarios(dir: string): string[] {
       const results: string[] = [];
       try {
         const entries = fs.readdirSync(dir, { withFileTypes: true });
         for (const entry of entries) {
           const full = path.join(dir, entry.name);
-          if (entry.isFile() && entry.name.endsWith('.json') &&
-              (entry.name.includes('scenario') || scenarioFileNames.includes(entry.name))) {
+          if (entry.isFile() && entry.name.includes('scenario') && entry.name.endsWith('.json')) {
             results.push(full);
           }
           if (entry.isDirectory()) {
