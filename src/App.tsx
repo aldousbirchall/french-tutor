@@ -8,14 +8,8 @@ import ErrorBoundary from './components/shared/ErrorBoundary';
 import VocabularyMode from './components/vocabulary/VocabularyMode';
 import ConversationMode from './components/conversation/ConversationMode';
 import ExamMode from './components/exam/ExamMode';
+import DashboardMode from './components/dashboard/DashboardMode';
 import { getApiKey } from './utils/apiKey';
-
-const Placeholder: React.FC<{ name: string }> = ({ name }) => (
-  <div>
-    <h1>{name}</h1>
-    <p>Coming soon...</p>
-  </div>
-);
 
 const RootRedirect: React.FC = () => {
   const hasKey = !!getApiKey();
@@ -55,7 +49,14 @@ const App: React.FC = () => {
                     </ErrorBoundary>
                   }
                 />
-                <Route path="dashboard" element={<Placeholder name="Dashboard" />} />
+                <Route
+                  path="dashboard"
+                  element={
+                    <ErrorBoundary>
+                      <DashboardMode />
+                    </ErrorBoundary>
+                  }
+                />
                 <Route path="settings" element={<SettingsPage />} />
               </Route>
             </Routes>
