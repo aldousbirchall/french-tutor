@@ -1,0 +1,36 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: var(--space-8);
+  transition: margin-left var(--transition-normal);
+}
+
+.content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.compatWarning {
+  background: var(--color-warning);
+  color: #ffffff;
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: var(--sidebar-width-collapsed);
+  }
+}
+
+@media (min-width: 1440px) {
+  .content {
+    margin: 0 auto;
+  }
+}
