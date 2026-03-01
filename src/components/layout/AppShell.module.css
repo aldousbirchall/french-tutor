@@ -5,8 +5,10 @@
 
 .main {
   flex: 1;
-  margin-left: var(--sidebar-width);
-  transition: margin-left var(--transition-normal);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding-left: var(--sidebar-width);
+  transition: padding-left var(--transition-normal);
 }
 
 .content {
@@ -38,6 +40,6 @@
 
 @media (max-width: 768px) {
   .main {
-    margin-left: var(--sidebar-width-collapsed);
+    padding-left: var(--sidebar-width-collapsed);
   }
 }
