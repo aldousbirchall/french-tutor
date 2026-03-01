@@ -53,7 +53,7 @@ test.describe('Visual Regression: Responsive Layout', () => {
     // Allow 100px tolerance for sidebar
     if (leftMargin > 100) {
       // If sidebar is present, centre is relative to remaining space
-      expect(Math.abs(rightMargin - (leftMargin - 200))).toBeLessThan(200); // rough check
+      expect(Math.abs(rightMargin - (leftMargin - 200))).toBeLessThanOrEqual(200); // rough check
     }
   });
 

@@ -44,7 +44,7 @@ test.describe('REQ-001: Settings and API Key Management', () => {
     await keyInput.fill('sk-ant-test-valid-key-abcdef1234567890');
 
     // Find and click the submit/save button
-    const submitButton = page.getByRole('button', { name: /save|submit|continue|confirm|set/i }).first();
+    const submitButton = page.getByRole('button', { name: /^save$|submit|continue|confirm/i }).first();
     await submitButton.click();
     await page.waitForTimeout(500);
 
@@ -100,17 +100,23 @@ test.describe('REQ-001: Settings and API Key Management', () => {
     await settingsButton.click();
     await page.waitForTimeout(300);
 
-    // Clear the key
-    const keyInput = page.getByPlaceholder(/key|api/i).or(
-      page.locator('input[type="password"]').first()
-    ).or(
-      page.locator('input').first()
-    );
-    await keyInput.clear();
+    // Clear the key — implementation may show a "Clear" button or an input to empty
+    const clearButton = page.getByRole('button', { name: /^clear$|remove|delete/i }).first();
+    const hasClearButton = await clearButton.isVisible().catch(() => false);
 
-    // Submit
-    const submitButton = page.getByRole('button', { name: /save|submit|clear|remove|update|confirm/i }).first();
-    await submitButton.click();
+    if (hasClearButton) {
+      await clearButton.click();
+    } else {
+      // Fallback: find input, clear it, and submit
+      const keyInput = page.getByPlaceholder(/key|api/i).or(
+        page.locator('input[type="password"]').first()
+      ).or(
+        page.locator('input').first()
+      );
+      await keyInput.clear();
+      const submitButton = page.getByRole('button', { name: /^save$|submit|confirm/i }).first();
+      await submitButton.click();
+    }
     await page.waitForTimeout(300);
 
     // Verify key is removed

@@ -130,7 +130,7 @@ test.describe('REQ-006: Conversation Practice Mode', () => {
     }
 
     // Click End Conversation
-    const endButton = page.getByRole('button', { name: /end|finish|stop|close/i }).first();
+    const endButton = page.getByRole('button', { name: /\bend\b|finish|stop conversation|close/i }).first();
     const isEndVisible = await endButton.isVisible().catch(() => false);
 
     if (isEndVisible) {
@@ -170,7 +170,7 @@ test.describe('REQ-006: Conversation Practice Mode', () => {
     await page.waitForTimeout(1000);
 
     // End conversation
-    const endButton = page.getByRole('button', { name: /end|finish|stop|close/i }).first();
+    const endButton = page.getByRole('button', { name: /\bend\b|finish|stop conversation|close/i }).first();
     const isEndVisible = await endButton.isVisible().catch(() => false);
 
     if (isEndVisible) {
