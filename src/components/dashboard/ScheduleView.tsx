@@ -1,5 +1,5 @@
 import { useSchedule } from '../../hooks/useSchedule';
-import { formatDate } from '../../utils/dateUtils';
+import { formatDate, isWeekend } from '../../utils/dateUtils';
 import ActivityItem from './ActivityItem';
 import styles from './ScheduleView.module.css';
 
@@ -7,13 +7,18 @@ const ScheduleView: React.FC = () => {
   const { currentDay, studyDayNumber, getPhase, isActivityComplete, markComplete } = useSchedule();
 
   if (!studyDayNumber || !currentDay) {
+    const today = new Date();
+    const isRestDay = isWeekend(today);
+
     return (
       <div className={styles.container}>
         <h3 className={styles.heading}>Today&apos;s Schedule</h3>
         <div className={styles.notStarted}>
-          {studyDayNumber === null
-            ? 'Study period has not started yet or is complete.'
-            : 'No schedule data for today.'}
+          {isRestDay
+            ? 'Rest day — enjoy your weekend!'
+            : studyDayNumber === null
+              ? 'Study period has not started yet or is complete.'
+              : 'No schedule data for today.'}
         </div>
       </div>
     );
