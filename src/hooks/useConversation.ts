@@ -7,11 +7,11 @@ const MAX_TURNS = 20;
 
 const SYSTEM_PROMPT = `You are a French conversation partner. Speak only in French. Use vocabulary and grammar appropriate to CEFR A1-A2 level. Keep sentences short and clear. If the student makes an error, gently correct it in your next response.`;
 
-const SCAFFOLDING_HIGH = `\n\nProvide heavy scaffolding: after each response, suggest what the student could say next by offering 2-3 example phrases in French. Correct all errors explicitly.`;
+const SCAFFOLDING_HIGH = `\n\nProvide heavy scaffolding: after each response, provide sentence starters and vocabulary words with translations to help the student respond. Include a translation of your response in parentheses. Correct all errors explicitly.`;
 
-const SCAFFOLDING_MEDIUM = `\n\nProvide moderate scaffolding: if the student hesitates or makes repeated errors, offer a hint or rephrase. Only correct significant errors.`;
+const SCAFFOLDING_MEDIUM = `\n\nProvide moderate scaffolding: correct errors by rephrasing the student's sentence correctly in your response. Do not provide translations. Only intervene when the student hesitates or makes repeated errors.`;
 
-const SCAFFOLDING_LOW = `\n\nProvide minimal scaffolding: let the student speak freely. Only correct errors if they impede understanding. Do not suggest phrases.`;
+const SCAFFOLDING_LOW = `\n\nProvide minimal scaffolding: respond naturally at A2 level. Only correct errors that significantly impede communication. Do not suggest phrases or provide translations.`;
 
 export type ScaffoldingLevel = 'high' | 'medium' | 'low';
 
