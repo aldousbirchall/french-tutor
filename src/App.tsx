@@ -18,52 +18,54 @@ const RootRedirect: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <ClaudeProvider>
-        <SpeechProvider>
-          <DatabaseProvider>
-            <Routes>
-              <Route path="/" element={<AppShell />}>
-                <Route index element={<RootRedirect />} />
-                <Route
-                  path="vocabulary"
-                  element={
-                    <ErrorBoundary>
-                      <VocabularyMode />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route
-                  path="conversation"
-                  element={
-                    <ErrorBoundary>
-                      <ConversationMode />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route
-                  path="exam"
-                  element={
-                    <ErrorBoundary>
-                      <ExamMode />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route
-                  path="dashboard"
-                  element={
-                    <ErrorBoundary>
-                      <DashboardMode />
-                    </ErrorBoundary>
-                  }
-                />
-                <Route path="settings" element={<SettingsPage />} />
-              </Route>
-            </Routes>
-          </DatabaseProvider>
-        </SpeechProvider>
-      </ClaudeProvider>
-    </BrowserRouter>
+    <ErrorBoundary fallbackMessage="The application encountered an unexpected error. Please refresh the page.">
+      <BrowserRouter>
+        <ClaudeProvider>
+          <SpeechProvider>
+            <DatabaseProvider>
+              <Routes>
+                <Route path="/" element={<AppShell />}>
+                  <Route index element={<RootRedirect />} />
+                  <Route
+                    path="vocabulary"
+                    element={
+                      <ErrorBoundary>
+                        <VocabularyMode />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="conversation"
+                    element={
+                      <ErrorBoundary>
+                        <ConversationMode />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="exam"
+                    element={
+                      <ErrorBoundary>
+                        <ExamMode />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="dashboard"
+                    element={
+                      <ErrorBoundary>
+                        <DashboardMode />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route path="settings" element={<SettingsPage />} />
+                </Route>
+              </Routes>
+            </DatabaseProvider>
+          </SpeechProvider>
+        </ClaudeProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 };
 
