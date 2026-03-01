@@ -46,7 +46,7 @@ const LetterWritingUI: React.FC<LetterWritingUIProps> = ({ scenarioId, onBack })
           <div key={p.id} className={styles.promptCard} style={{ cursor: 'pointer' }} onClick={() => setSelectedPrompt(p.id)}>
             <strong>{p.situation}</strong>
             <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>
-              {p.level} &middot; {p.register} &middot; {p.word_target[0]}-{p.word_target[1]} words
+              {p.level} · {p.register} · {p.word_target[0]}-{p.word_target[1]} words
             </p>
           </div>
         ))}

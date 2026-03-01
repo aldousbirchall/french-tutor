@@ -1,9 +1,21 @@
 import { useState, useCallback, useRef } from 'react';
 import { useClaudeService } from '../contexts/ClaudeContext';
 import { useDatabaseService } from '../contexts/DatabaseContext';
+import schedule from '../data/schedule';
+import { getCurrentStudyDay } from '../utils/dateUtils';
 import type { AppError, ConversationSession } from '../services/types';
 
 const MAX_TURNS = 20;
+
+function getDefaultScaffolding(): ScaffoldingLevel {
+  const dayNum = getCurrentStudyDay(schedule.start_date, new Date(), schedule.total_days);
+  if (dayNum === null) return 'high';
+  const phase = schedule.phases.find((p) => dayNum >= p.days[0] && dayNum <= p.days[1]);
+  const name = phase?.name?.toLowerCase() ?? '';
+  if (name.includes('exam')) return 'low';
+  if (name.includes('fluency')) return 'medium';
+  return 'high';
+}
 
 const SYSTEM_PROMPT = `You are a French conversation partner. Speak only in French. Use vocabulary and grammar appropriate to CEFR A1-A2 level. Keep sentences short and clear. If the student makes an error, gently correct it in your next response.`;
 
@@ -28,7 +40,7 @@ export function useConversation() {
   const [streamingText, setStreamingText] = useState('');
   const [assessment, setAssessment] = useState<string | null>(null);
   const [error, setError] = useState<AppError | null>(null);
-  const [scaffolding, setScaffolding] = useState<ScaffoldingLevel>('high');
+  const [scaffolding, setScaffolding] = useState<ScaffoldingLevel>(getDefaultScaffolding());
   const abortRef = useRef<AbortController | null>(null);
   const startTimeRef = useRef<number>(Date.now());
   const wordCountRef = useRef<number>(0);

@@ -159,9 +159,9 @@ export class DatabaseService {
     const averageDuration = totalSessions > 0
       ? all.reduce((sum, c) => sum + c.duration, 0) / totalSessions
       : 0;
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 14);
-    const recentSessions = all.filter((c) => new Date(c.timestamp) > sevenDaysAgo);
+    const twoWeeksAgo = new Date();
+    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+    const recentSessions = all.filter((c) => new Date(c.timestamp) > twoWeeksAgo);
     return { totalSessions, averageDuration, recentSessions };
   }
 

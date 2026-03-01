@@ -30,7 +30,7 @@ const ScheduleView: React.FC = () => {
         Day {studyDayNumber}: {currentDay.title}
       </h3>
       <div className={styles.dayInfo}>
-        {formatDate(currentDay.date)} &middot; {getPhase()} phase &middot; {currentDay.grammar_focus}
+        {formatDate(currentDay.date)} · {getPhase()} phase · {currentDay.grammar_focus}
       </div>
       <div className={styles.activities}>
         {currentDay.activities.map((activity, idx) => (

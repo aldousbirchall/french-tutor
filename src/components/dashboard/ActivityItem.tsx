@@ -58,8 +58,8 @@ const ActivityItem: React.FC<ActivityItemProps> = ({
           {activity.task}
         </div>
         <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>
-          {activity.mode} &middot; {activity.minutes} min
-          {activity.new_words ? ` &middot; ${activity.new_words} new words` : ''}
+          {activity.mode} · {activity.minutes} min
+          {activity.new_words ? ` · ${activity.new_words} new words` : ''}
         </div>
       </div>
     </div>

@@ -113,7 +113,9 @@ Return ONLY valid JSON: {"scores": {"task_completion": N, "register_appropriaten
               if (!jsonMatch) throw new Error('No JSON found');
               const parsed = JSON.parse(jsonMatch[0]);
               const scores = parsed.scores as Record<string, number>;
-              const maxTotal = Object.values(scores).length * 20;
+              // Written exams have variable max per category (20, 15, 15, 20, 15, 15 = 100)
+              // Oral exams have 5 × 20 = 100. Use 100 as max for both.
+              const maxTotal = 100;
               const actualTotal = Object.values(scores).reduce((a: number, b: number) => a + b, 0);
               const totalPercent = Math.round((actualTotal / maxTotal) * 100);
 

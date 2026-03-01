@@ -28,7 +28,7 @@ const ExamTaskList: React.FC<ExamTaskListProps> = ({ onSelect }) => {
               <div className={styles.taskTitle}>{s.title}</div>
               <div className={styles.taskDesc}>{s.description}</div>
               <div className={styles.taskMeta}>
-                {s.level} &middot; {s.duration_minutes} min
+                {s.level} · {s.duration_minutes} min
               </div>
             </div>
           ))}
@@ -46,7 +46,7 @@ const ExamTaskList: React.FC<ExamTaskListProps> = ({ onSelect }) => {
               <div className={styles.taskTitle}>{s.title}</div>
               <div className={styles.taskDesc}>{s.description}</div>
               <div className={styles.taskMeta}>
-                {s.level} &middot; {s.duration_minutes} min
+                {s.level} · {s.duration_minutes} min
               </div>
             </div>
           ))}
