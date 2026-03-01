@@ -1,0 +1,380 @@
+{
+  "version": "1.1",
+  "exam_date": "2026-04-02",
+  "start_date": "2026-03-02",
+  "total_days": 23,
+  "weekends_off": true,
+  "calendar_note": "Study days are weekdays only (Mon-Fri). Start: Mon 2 March. Exam: Thu 2 April.",
+  "phases": [
+    {
+      "name": "Foundation",
+      "days": [1, 8],
+      "focus": "Build vocabulary base, establish SRS habit, introduce conversation with heavy scaffolding",
+      "daily_time_minutes": 60
+    },
+    {
+      "name": "Fluency",
+      "days": [9, 17],
+      "focus": "Increase speaking fluency, reduce scaffolding, introduce exam-format exercises",
+      "daily_time_minutes": 75
+    },
+    {
+      "name": "Exam Prep",
+      "days": [18, 23],
+      "focus": "Full exam simulations, targeted weak-area practice, consolidation",
+      "daily_time_minutes": 80
+    }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-03-02",
+      "weekday": "Monday",
+      "phase": "Foundation",
+      "title": "Getting Started",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: greetings, personal info basics", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Self-introduction practice with heavy scaffolding", "minutes": 15},
+        {"mode": "exam", "task": "Form filling: personal details registration form", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review any due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Present tense of etre and avoir",
+      "topics": ["greetings", "personal_info"]
+    },
+    {
+      "day": 2,
+      "date": "2026-03-03",
+      "weekday": "Tuesday",
+      "phase": "Foundation",
+      "title": "Family & People",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: family members, descriptions", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Describe your family to the tutor", "minutes": 15},
+        {"mode": "exam", "task": "Letter writing: introduce yourself to a new neighbour", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Possessive adjectives (mon, ma, mes)",
+      "topics": ["family", "personal_info"]
+    },
+    {
+      "day": 3,
+      "date": "2026-03-04",
+      "weekday": "Wednesday",
+      "phase": "Foundation",
+      "title": "Daily Routine & Time",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: daily activities, time expressions", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Describe your typical day", "minutes": 15},
+        {"mode": "exam", "task": "Form filling: appointment booking form", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Reflexive verbs (se lever, se coucher), telling time",
+      "topics": ["daily_routine", "numbers_dates"]
+    },
+    {
+      "day": 4,
+      "date": "2026-03-05",
+      "weekday": "Thursday",
+      "phase": "Foundation",
+      "title": "Housing & Home",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: rooms, furniture, housing terms", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Describe where you live", "minutes": 15},
+        {"mode": "exam", "task": "Letter writing: report a problem to your landlord", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Prepositions of place (dans, sur, sous, devant, derriere)",
+      "topics": ["housing"]
+    },
+    {
+      "day": 5,
+      "date": "2026-03-06",
+      "weekday": "Friday",
+      "phase": "Foundation",
+      "title": "Shopping & Food",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: food items, shops, prices", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Order food at a restaurant", "minutes": 15},
+        {"mode": "exam", "task": "Form filling: supermarket loyalty card application", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Partitive articles (du, de la, des, de l')",
+      "topics": ["shopping", "food"]
+    },
+    {
+      "day": 6,
+      "date": "2026-03-09",
+      "weekday": "Monday",
+      "phase": "Foundation",
+      "title": "Health & Body",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: body parts, symptoms, doctor visit", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Explain symptoms to a doctor", "minutes": 15},
+        {"mode": "exam", "task": "Letter writing: cancel a medical appointment", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Avoir mal a (body parts), negation (ne...pas, ne...plus)",
+      "topics": ["health", "body"]
+    },
+    {
+      "day": 7,
+      "date": "2026-03-10",
+      "weekday": "Tuesday",
+      "phase": "Foundation",
+      "title": "Transport, Work & Admin",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 25 new words: transport, workplace, post office", "minutes": 20, "new_words": 25},
+        {"mode": "conversation", "task": "Ask for directions and buy a train ticket", "minutes": 15},
+        {"mode": "exam", "task": "Form filling: change of address at commune", "minutes": 10},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Imperative mood (tournez, allez, prenez)",
+      "topics": ["transport", "work", "admin"]
+    },
+    {
+      "day": 8,
+      "date": "2026-03-11",
+      "weekday": "Wednesday",
+      "phase": "Foundation",
+      "title": "Foundation Review & Past Tense",
+      "activities": [
+        {"mode": "vocabulary", "task": "Extended review of all due cards", "minutes": 20, "new_words": 0},
+        {"mode": "conversation", "task": "Free conversation covering all topics, past tense intro", "minutes": 15},
+        {"mode": "exam", "task": "Mini mock: form filling + letter + image description", "minutes": 25}
+      ],
+      "grammar_focus": "Passe compose introduction (avoir + etre verbs)",
+      "topics": ["review"]
+    },
+    {
+      "day": 9,
+      "date": "2026-03-12",
+      "weekday": "Thursday",
+      "phase": "Fluency",
+      "title": "Past Tense Fluency",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: travel, holidays", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Describe what you did last weekend", "minutes": 15},
+        {"mode": "conversation", "task": "Talk about a past holiday", "minutes": 15},
+        {"mode": "exam", "task": "Image description: a street market scene", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Passe compose fluency (avoir + etre verbs mixed)",
+      "topics": ["travel", "leisure"]
+    },
+    {
+      "day": 10,
+      "date": "2026-03-13",
+      "weekday": "Friday",
+      "phase": "Fluency",
+      "title": "Future Plans & Comparisons",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: plans, adjectives, comparisons", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Discuss plans for the weekend and future goals", "minutes": 15},
+        {"mode": "conversation", "task": "Compare your city to another", "minutes": 15},
+        {"mode": "exam", "task": "Role-play: book a hotel room", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Future (aller + infinitif), comparatives (plus/moins/aussi...que)",
+      "topics": ["leisure", "housing"]
+    },
+    {
+      "day": 11,
+      "date": "2026-03-16",
+      "weekday": "Monday",
+      "phase": "Fluency",
+      "title": "Health Conversations",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: medical terms, pharmacy", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Full doctor visit conversation", "minutes": 15},
+        {"mode": "exam", "task": "Role-play: at the pharmacy", "minutes": 15},
+        {"mode": "exam", "task": "Listening comprehension: phone message from doctor", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Devoir/pouvoir + infinitive, conditional politeness (je voudrais)",
+      "topics": ["health"]
+    },
+    {
+      "day": 12,
+      "date": "2026-03-17",
+      "weekday": "Tuesday",
+      "phase": "Fluency",
+      "title": "Administrative Tasks",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: documents, procedures, municipality", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Request information at the commune", "minutes": 15},
+        {"mode": "exam", "task": "Role-play: at the post office", "minutes": 15},
+        {"mode": "exam", "task": "Listening comprehension: apartment rental ad", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Il faut + infinitive, question formation",
+      "topics": ["admin", "post_office", "housing"]
+    },
+    {
+      "day": 13,
+      "date": "2026-03-18",
+      "weekday": "Wednesday",
+      "phase": "Fluency",
+      "title": "Work & Education",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: office, meetings, school", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Describe your professional experience", "minutes": 15},
+        {"mode": "exam", "task": "Role-play: parent-teacher meeting", "minutes": 15},
+        {"mode": "exam", "task": "Open discussion: work and daily life", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Depuis + present tense, pronouns en/y",
+      "topics": ["work", "education"]
+    },
+    {
+      "day": 14,
+      "date": "2026-03-19",
+      "weekday": "Thursday",
+      "phase": "Fluency",
+      "title": "Eating & Leisure",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: restaurant, hobbies, sports", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Order a meal and discuss food preferences", "minutes": 15},
+        {"mode": "conversation", "task": "Discuss hobbies and invite someone to an activity", "minutes": 15},
+        {"mode": "exam", "task": "Sequential image narration: restaurant visit", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Jouer a/de, faire de, opinion expressions",
+      "topics": ["food", "leisure"]
+    },
+    {
+      "day": 15,
+      "date": "2026-03-20",
+      "weekday": "Friday",
+      "phase": "Fluency",
+      "title": "Housing & Getting Around",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: repairs, neighbours, tickets, delays", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Report a flat problem to building manager", "minutes": 15},
+        {"mode": "conversation", "task": "Plan a journey and deal with a transport problem", "minutes": 15},
+        {"mode": "exam", "task": "Listening comprehension: directions to the post office", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Il y a / il manque, impersonal expressions",
+      "topics": ["housing", "transport"]
+    },
+    {
+      "day": 16,
+      "date": "2026-03-23",
+      "weekday": "Monday",
+      "phase": "Fluency",
+      "title": "Weather & Swiss Life",
+      "activities": [
+        {"mode": "vocabulary", "task": "Learn 15 new words: weather, seasons, Swiss-specific", "minutes": 15, "new_words": 15},
+        {"mode": "conversation", "task": "Discuss the weather and seasonal activities", "minutes": 15},
+        {"mode": "exam", "task": "Open discussion: life in Switzerland", "minutes": 15},
+        {"mode": "exam", "task": "Letter writing: invite a friend to a party", "minutes": 15},
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
+      ],
+      "grammar_focus": "Il fait/pleut/neige, all tenses review",
+      "topics": ["weather", "leisure"]
+    },
+    {
+      "day": 17,
+      "date": "2026-03-24",
+      "weekday": "Tuesday",
+      "phase": "Fluency",
+      "title": "Fluency Review & Half Mock",
+      "activities": [
+        {"mode": "vocabulary", "task": "Extended review session", "minutes": 15, "new_words": 0},
+        {"mode": "conversation", "task": "Long free conversation mixing all topics and tenses", "minutes": 20},
+        {"mode": "exam", "task": "Half mock oral: self-intro + image description + role-play", "minutes": 30},
+        {"mode": "dashboard", "task": "Review progress metrics, identify weak areas for exam prep", "minutes": 10}
+      ],
+      "grammar_focus": "All grammar points reviewed under light pressure",
+      "topics": ["review"]
+    },
+    {
+      "day": 18,
+      "date": "2026-03-25",
+      "weekday": "Wednesday",
+      "phase": "Exam Prep",
+      "title": "Full Mock Exam 1 (Oral)",
+      "activities": [
+        {"mode": "vocabulary", "task": "Review due cards only", "minutes": 10, "new_words": 0},
+        {"mode": "exam", "task": "Complete oral exam simulation (40 min)", "minutes": 40},
+        {"mode": "dashboard", "task": "Analyse mock results, identify weak areas", "minutes": 10},
+        {"mode": "exam", "task": "Re-do weakest section from mock", "minutes": 20}
+      ],
+      "grammar_focus": "Exam conditions: all grammar under pressure",
+      "topics": ["exam_simulation"]
+    },
+    {
+      "day": 19,
+      "date": "2026-03-26",
+      "weekday": "Thursday",
+      "phase": "Exam Prep",
+      "title": "Written Mock 1 + Weak Areas",
+      "activities": [
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 10, "new_words": 0},
+        {"mode": "exam", "task": "Complete written exam simulation (60 min)", "minutes": 60},
+        {"mode": "exam", "task": "Targeted oral practice on weakest area from Mock 1", "minutes": 15}
+      ],
+      "grammar_focus": "Written expression, time management",
+      "topics": ["exam_simulation"]
+    },
+    {
+      "day": 20,
+      "date": "2026-03-27",
+      "weekday": "Friday",
+      "phase": "Exam Prep",
+      "title": "Targeted Strengthening",
+      "activities": [
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 10, "new_words": 0},
+        {"mode": "exam", "task": "Intensive practice on weakest exam task types", "minutes": 30},
+        {"mode": "conversation", "task": "Conversation at natural A2 speed, minimal scaffolding", "minutes": 20},
+        {"mode": "exam", "task": "Listening comprehension intensive (3 exercises)", "minutes": 20}
+      ],
+      "grammar_focus": "Based on mock feedback",
+      "topics": ["targeted"]
+    },
+    {
+      "day": 21,
+      "date": "2026-03-30",
+      "weekday": "Monday",
+      "phase": "Exam Prep",
+      "title": "Full Mock Exam 2 (Oral)",
+      "activities": [
+        {"mode": "vocabulary", "task": "Review due cards", "minutes": 10, "new_words": 0},
+        {"mode": "exam", "task": "Complete oral exam simulation (40 min)", "minutes": 40},
+        {"mode": "dashboard", "task": "Compare with Mock 1 results", "minutes": 10},
+        {"mode": "conversation", "task": "Practice filler phrases and smooth transitions", "minutes": 20}
+      ],
+      "grammar_focus": "Confidence and fluency under exam conditions",
+      "topics": ["exam_simulation"]
+    },
+    {
+      "day": 22,
+      "date": "2026-03-31",
+      "weekday": "Tuesday",
+      "phase": "Exam Prep",
+      "title": "Written Mock 2 + Final Polish",
+      "activities": [
+        {"mode": "vocabulary", "task": "Light review of flagged difficult words", "minutes": 10, "new_words": 0},
+        {"mode": "exam", "task": "Complete written exam simulation (60 min)", "minutes": 60},
+        {"mode": "exam", "task": "Quick run-through: self-intro + 1 image + 1 role-play", "minutes": 15}
+      ],
+      "grammar_focus": "Final written practice, time management",
+      "topics": ["exam_simulation"]
+    },
+    {
+      "day": 23,
+      "date": "2026-04-01",
+      "weekday": "Wednesday",
+      "phase": "Exam Prep",
+      "title": "Day Before Exam",
+      "activities": [
+        {"mode": "vocabulary", "task": "Light review of flagged difficult words only", "minutes": 10, "new_words": 0},
+        {"mode": "conversation", "task": "Light, confidence-building conversation", "minutes": 15},
+        {"mode": "exam", "task": "Quick self-introduction and image description (comfort zone)", "minutes": 15},
+        {"mode": "dashboard", "task": "Final progress review and exam day reminders", "minutes": 10}
+      ],
+      "grammar_focus": "No new material. Confidence and rest.",
+      "topics": ["review"]
+    }
+  ]
+}

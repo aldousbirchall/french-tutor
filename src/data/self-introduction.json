@@ -1,0 +1,31 @@
+{
+  "id": "self-introduction",
+  "type": "guided_interview",
+  "exam_section": "oral_section1",
+  "level": "A2",
+  "title": "Self-Introduction",
+  "description": "The examiner asks background questions. The candidate introduces themselves and answers follow-up questions about their life in Switzerland.",
+  "duration_minutes": 3,
+  "system_prompt": "You are a Fide oral exam examiner conducting the self-introduction section. Ask the candidate to introduce themselves, then ask follow-up questions about their background. Speak clearly at A2 level. Ask about: name, nationality, family, where they live, work/studies, how long in Switzerland, languages spoken. Be encouraging but do not help with vocabulary. If the candidate struggles, rephrase the question more simply. After 6-8 exchanges, wrap up naturally.",
+  "opening_prompt": "Bonjour, bienvenue a l'examen. Pouvez-vous vous presenter, s'il vous plait ?",
+  "question_bank": [
+    "Comment vous appelez-vous ?",
+    "D'ou venez-vous ?",
+    "Quelle est votre nationalite ?",
+    "Ou habitez-vous en Suisse ?",
+    "Depuis combien de temps habitez-vous en Suisse ?",
+    "Qu'est-ce que vous faites comme travail ?",
+    "Avez-vous des enfants ?",
+    "Parlez-vous d'autres langues ?",
+    "Pourquoi avez-vous choisi la Suisse ?",
+    "Qu'est-ce que vous aimez en Suisse ?"
+  ],
+  "scoring_criteria": {
+    "completeness": "Answers all questions with relevant information",
+    "vocabulary": "Uses appropriate A2-level vocabulary for personal topics",
+    "grammar": "Uses present tense correctly, attempts past tense",
+    "fluency": "Responds without excessive hesitation",
+    "pronunciation": "Comprehensible to a French speaker"
+  },
+  "target_vocabulary": ["personal_info", "family", "work"]
+}

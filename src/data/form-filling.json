@@ -1,0 +1,88 @@
+{
+  "id": "form-filling",
+  "type": "form_filling",
+  "exam_section": "written",
+  "level": "A1",
+  "title": "Form Filling",
+  "description": "The candidate fills in a form based on information given in a prompt. Tests ability to extract and write personal/practical information correctly.",
+  "duration_minutes": 10,
+  "system_prompt": "You are a Fide written exam module. Present the candidate with a form and a situation description. The candidate fills in the fields. Evaluate: correct information placement, spelling of common words, appropriate format (dates, phone numbers). Accept minor spelling errors if the meaning is clear.",
+  "forms": [
+    {
+      "id": "registration",
+      "title": "Inscription a un cours de francais",
+      "situation": "Vous voulez vous inscrire a un cours de francais a l'Ecole-club Migros. Remplissez le formulaire d'inscription.",
+      "fields": [
+        {"label": "Nom", "type": "text", "hint": "family name"},
+        {"label": "Prenom", "type": "text", "hint": "first name"},
+        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
+        {"label": "Adresse", "type": "text", "hint": "street and number"},
+        {"label": "NPA / Ville", "type": "text", "hint": "postal code and city"},
+        {"label": "Telephone", "type": "text", "hint": "phone number"},
+        {"label": "Email", "type": "email", "hint": "email address"},
+        {"label": "Nationalite", "type": "text", "hint": "nationality"},
+        {"label": "Langue maternelle", "type": "text", "hint": "mother tongue"},
+        {"label": "Niveau souhaite", "type": "select", "options": ["A1", "A2", "B1"], "hint": "desired level"},
+        {"label": "Horaire prefere", "type": "select", "options": ["Matin", "Apres-midi", "Soir"], "hint": "preferred time"}
+      ]
+    },
+    {
+      "id": "doctor_registration",
+      "title": "Fiche patient - Cabinet medical",
+      "situation": "C'est votre premiere visite chez le medecin. Remplissez la fiche patient.",
+      "fields": [
+        {"label": "Nom", "type": "text", "hint": "family name"},
+        {"label": "Prenom", "type": "text", "hint": "first name"},
+        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
+        {"label": "Adresse", "type": "text", "hint": "full address"},
+        {"label": "Telephone", "type": "text", "hint": "phone number"},
+        {"label": "Assurance maladie", "type": "text", "hint": "health insurance company"},
+        {"label": "Numero d'assure", "type": "text", "hint": "insurance number"},
+        {"label": "Medecin traitant", "type": "text", "hint": "current GP if any"},
+        {"label": "Allergies", "type": "text", "hint": "known allergies"},
+        {"label": "Medicaments actuels", "type": "text", "hint": "current medications"},
+        {"label": "Motif de la visite", "type": "text", "hint": "reason for visit"}
+      ]
+    },
+    {
+      "id": "change_address",
+      "title": "Annonce de demenagement - Commune",
+      "situation": "Vous demenagez dans une nouvelle commune. Remplissez le formulaire de changement d'adresse.",
+      "fields": [
+        {"label": "Nom et prenom", "type": "text", "hint": "full name"},
+        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
+        {"label": "Nationalite", "type": "text", "hint": "nationality"},
+        {"label": "Permis de sejour", "type": "select", "options": ["B", "C", "L", "Autre"], "hint": "residence permit type"},
+        {"label": "Ancienne adresse", "type": "text", "hint": "old address"},
+        {"label": "Nouvelle adresse", "type": "text", "hint": "new address"},
+        {"label": "Date du demenagement", "type": "date", "hint": "DD.MM.YYYY"},
+        {"label": "Nombre de personnes", "type": "number", "hint": "number of people moving"},
+        {"label": "Telephone", "type": "text", "hint": "phone number"},
+        {"label": "Signature", "type": "text", "hint": "your name as signature"}
+      ]
+    },
+    {
+      "id": "transport_subscription",
+      "title": "Abonnement de transport - TPG/TL/Unireso",
+      "situation": "Vous voulez acheter un abonnement de bus et tram. Remplissez le formulaire.",
+      "fields": [
+        {"label": "Nom", "type": "text", "hint": "family name"},
+        {"label": "Prenom", "type": "text", "hint": "first name"},
+        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
+        {"label": "Adresse", "type": "text", "hint": "full address"},
+        {"label": "Type d'abonnement", "type": "select", "options": ["Mensuel", "Annuel"], "hint": "monthly or annual"},
+        {"label": "Zones", "type": "select", "options": ["Zone 10", "Zones 10-20", "Toutes zones"], "hint": "travel zones"},
+        {"label": "Date de debut", "type": "date", "hint": "DD.MM.YYYY"},
+        {"label": "Mode de paiement", "type": "select", "options": ["Carte bancaire", "Facture", "LSV/Debit direct"], "hint": "payment method"},
+        {"label": "Photo d'identite", "type": "checkbox", "hint": "photo attached yes/no"}
+      ]
+    }
+  ],
+  "scoring_criteria": {
+    "information_placement": "Correct information in correct fields",
+    "spelling": "Common words spelled correctly",
+    "format": "Dates, numbers, addresses in appropriate format",
+    "completeness": "All required fields filled"
+  },
+  "target_vocabulary": ["personal_info", "admin", "health", "transport"]
+}

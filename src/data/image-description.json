@@ -1,0 +1,56 @@
+{
+  "id": "image-description",
+  "type": "image_description",
+  "exam_section": "oral_section1",
+  "level": "A2",
+  "title": "Image Description",
+  "description": "The candidate describes a photograph or illustration showing a scene from everyday life in Switzerland. The examiner may ask follow-up questions.",
+  "duration_minutes": 3,
+  "system_prompt": "You are a Fide oral exam examiner. You have shown the candidate an image. Listen to their description and ask 2-3 follow-up questions to encourage more detail. Questions should probe: what they see, what people are doing, where the scene is, what might happen next. Stay at A2 level. Evaluate their use of descriptive vocabulary, spatial prepositions, and present tense.",
+  "image_prompts": [
+    {
+      "id": "market",
+      "description": "A busy outdoor market in a Swiss town. People buying fruit and vegetables. A church tower visible in the background. Sunny day.",
+      "expected_vocabulary": ["marche", "legumes", "fruits", "acheter", "vendre", "soleil", "gens", "eglise"],
+      "follow_up_questions": ["Qu'est-ce que les gens font ?", "C'est quelle saison ?", "Vous aimez aller au marche ?"]
+    },
+    {
+      "id": "train_station",
+      "description": "A Swiss train station platform. A red CFF train arriving. People waiting with suitcases. A departure board showing destinations.",
+      "expected_vocabulary": ["gare", "train", "quai", "voyageur", "valise", "horaire", "attendre", "partir"],
+      "follow_up_questions": ["Ou est-ce que le train va ?", "Vous prenez souvent le train ?", "Qu'est-ce que vous voyez sur le panneau ?"]
+    },
+    {
+      "id": "restaurant",
+      "description": "A terrace of a restaurant by a lake. A family eating together. Mountains in the background. A waiter bringing food.",
+      "expected_vocabulary": ["restaurant", "terrasse", "lac", "montagne", "famille", "manger", "serveur", "plat"],
+      "follow_up_questions": ["Qu'est-ce que la famille mange ?", "Quel temps fait-il ?", "Vous aimez manger au restaurant ?"]
+    },
+    {
+      "id": "park",
+      "description": "A city park in autumn. Children playing on a playground. An older couple sitting on a bench. Trees with coloured leaves.",
+      "expected_vocabulary": ["parc", "enfants", "jouer", "automne", "feuilles", "banc", "arbre", "aire de jeux"],
+      "follow_up_questions": ["Que font les enfants ?", "C'est quelle saison ?", "Qu'est-ce qu'il y a dans le parc ?"]
+    },
+    {
+      "id": "apartment",
+      "description": "Inside a modern Swiss apartment. A living room with a sofa, table, and bookshelf. A window showing city buildings. Clean and tidy.",
+      "expected_vocabulary": ["salon", "canape", "table", "fenetre", "etagere", "appartement", "propre", "moderne"],
+      "follow_up_questions": ["C'est grand ou petit ?", "Qu'est-ce qu'il y a dans le salon ?", "Vous aimez cet appartement ?"]
+    },
+    {
+      "id": "supermarket",
+      "description": "Inside a Migros or Coop supermarket. A woman with a shopping cart in the fruit aisle. Price tags visible. Other shoppers in background.",
+      "expected_vocabulary": ["supermarche", "caddie", "rayon", "fruits", "prix", "acheter", "courses", "caisse"],
+      "follow_up_questions": ["Qu'est-ce que la femme achete ?", "C'est cher ?", "Ou faites-vous vos courses ?"]
+    }
+  ],
+  "scoring_criteria": {
+    "description_completeness": "Identifies main elements of the scene",
+    "vocabulary_range": "Uses appropriate descriptive vocabulary",
+    "spatial_language": "Uses prepositions correctly (devant, derriere, a gauche)",
+    "grammar": "Present tense used correctly, il y a construction",
+    "fluency": "Speaks in sentences, not just listing items"
+  },
+  "target_vocabulary": ["housing", "shopping", "food", "transport", "leisure", "adjectives"]
+}

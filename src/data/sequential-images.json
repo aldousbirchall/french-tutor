@@ -1,0 +1,76 @@
+{
+  "id": "sequential-images",
+  "type": "sequential_image_narration",
+  "exam_section": "oral_section2",
+  "level": "A1-A2",
+  "title": "Sequential Image Description",
+  "description": "The candidate is shown 4-6 images telling a story. They narrate what happens in sequence, using appropriate tenses and connectors.",
+  "duration_minutes": 3,
+  "system_prompt": "You are a Fide oral exam examiner. The candidate will describe a sequence of images that tell a story. Listen to their narration and if needed, prompt them to continue with 'Et ensuite ?' or 'Que se passe-t-il apres ?'. Evaluate their ability to narrate events in order using connectors (d'abord, ensuite, puis, enfin) and appropriate tenses.",
+  "sequences": [
+    {
+      "id": "morning_routine",
+      "title": "Le matin de Marie",
+      "images": [
+        "Marie's alarm clock shows 7:00. She is in bed.",
+        "Marie is in the bathroom brushing her teeth.",
+        "Marie is in the kitchen drinking coffee and eating a croissant.",
+        "Marie puts on her coat and picks up her bag.",
+        "Marie walks to the bus stop. A bus is arriving.",
+        "Marie is at her desk in an office, smiling."
+      ],
+      "expected_narration_elements": ["time sequence", "daily routine verbs", "location changes"],
+      "key_connectors": ["d'abord", "ensuite", "puis", "apres", "enfin"]
+    },
+    {
+      "id": "restaurant_visit",
+      "title": "Au restaurant",
+      "images": [
+        "A couple looking at a restaurant from outside, reading the menu in the window.",
+        "A waiter showing them to a table inside.",
+        "The couple reading the menu at the table.",
+        "The waiter bringing two plates of food.",
+        "The couple eating and talking, looking happy.",
+        "One person paying at the counter with a credit card."
+      ],
+      "expected_narration_elements": ["restaurant vocabulary", "eating verbs", "descriptions"],
+      "key_connectors": ["d'abord", "ensuite", "puis", "pendant que", "a la fin"]
+    },
+    {
+      "id": "lost_wallet",
+      "title": "Le portefeuille perdu",
+      "images": [
+        "A man shopping at the supermarket, putting items in a basket.",
+        "The man at the checkout, paying with his wallet.",
+        "The man walking home with shopping bags, looking at his phone.",
+        "The man at home, searching his pockets with a worried face.",
+        "The man back at the supermarket, talking to a cashier who holds up a wallet.",
+        "The man smiling, holding his wallet, thanking the cashier."
+      ],
+      "expected_narration_elements": ["past tense narration", "emotions", "problem-solution"],
+      "key_connectors": ["d'abord", "ensuite", "mais", "alors", "finalement"]
+    },
+    {
+      "id": "doctor_visit",
+      "title": "Chez le medecin",
+      "images": [
+        "A woman at home looking unwell, holding her throat.",
+        "The woman on the phone, looking at a calendar.",
+        "The woman in a waiting room with other patients.",
+        "The doctor examining the woman's throat.",
+        "The doctor writing a prescription.",
+        "The woman at the pharmacy, receiving medicine."
+      ],
+      "expected_narration_elements": ["health vocabulary", "appointment process", "cause and effect"],
+      "key_connectors": ["d'abord", "ensuite", "puis", "apres", "enfin"]
+    }
+  ],
+  "scoring_criteria": {
+    "sequence": "Events described in correct order",
+    "connectors": "Uses temporal connectors to link events",
+    "description": "Each image described with at least 1-2 sentences",
+    "tenses": "Uses present and/or past tense appropriately",
+    "vocabulary": "Uses relevant vocabulary for the scenes"
+  },
+  "target_vocabulary": ["daily_routine", "food", "shopping", "health", "connectors"]
+}

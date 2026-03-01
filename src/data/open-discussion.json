@@ -1,0 +1,98 @@
+{
+  "id": "open-discussion",
+  "type": "open_discussion",
+  "exam_section": "oral_section1",
+  "level": "A2",
+  "title": "Open Discussion",
+  "description": "The candidate discusses a familiar topic, giving opinions and personal experiences. The examiner asks open questions to encourage elaboration.",
+  "duration_minutes": 4,
+  "system_prompt_template": "You are a Fide oral exam examiner conducting an open discussion on the topic: {{topic}}. Ask open questions that invite the candidate to share opinions and experiences. Stay at A2 level. Ask 4-6 questions, building on the candidate's answers. Encourage use of past and future tenses. If the candidate gives very short answers, ask 'Pourquoi ?' or 'Pouvez-vous expliquer un peu plus ?'",
+  "topics": [
+    {
+      "id": "housing_life",
+      "title": "Ou vous habitez",
+      "questions": [
+        "Ou est-ce que vous habitez ?",
+        "Vous aimez votre quartier ? Pourquoi ?",
+        "Qu'est-ce qu'il y a pres de chez vous ?",
+        "Comment est votre appartement ?",
+        "Si vous pouviez changer quelque chose, qu'est-ce que vous changeriez ?",
+        "Vous avez deja demenage en Suisse ?"
+      ],
+      "expected_structures": ["il y a", "j'aime / je n'aime pas", "c'est + adjective", "pres de / loin de"]
+    },
+    {
+      "id": "work_daily",
+      "title": "Votre travail et votre journee",
+      "questions": [
+        "Qu'est-ce que vous faites comme travail ?",
+        "Vous aimez votre travail ? Pourquoi ?",
+        "Comment est une journee typique pour vous ?",
+        "Qu'est-ce que vous faites le soir apres le travail ?",
+        "Qu'est-ce que vous avez fait le week-end dernier ?",
+        "Quels sont vos projets pour les prochaines vacances ?"
+      ],
+      "expected_structures": ["present tense routine", "passe compose", "aller + infinitif", "opinion expressions"]
+    },
+    {
+      "id": "food_cooking",
+      "title": "La nourriture et la cuisine",
+      "questions": [
+        "Qu'est-ce que vous aimez manger ?",
+        "Vous cuisinez souvent ?",
+        "Quel est votre plat prefere ?",
+        "Ou faites-vous vos courses ?",
+        "Vous avez essaye des specialites suisses ?",
+        "Qu'est-ce que vous avez mange hier soir ?"
+      ],
+      "expected_structures": ["aimer/preferer + infinitive", "frequency adverbs", "passe compose", "partitive articles"]
+    },
+    {
+      "id": "free_time",
+      "title": "Le temps libre",
+      "questions": [
+        "Qu'est-ce que vous faites pendant votre temps libre ?",
+        "Vous faites du sport ?",
+        "Qu'est-ce que vous avez fait le week-end dernier ?",
+        "Vous aimez sortir avec des amis ?",
+        "Quel est votre endroit prefere en Suisse ?",
+        "Qu'est-ce que vous allez faire ce week-end ?"
+      ],
+      "expected_structures": ["faire de + sport", "jouer a + game", "passe compose", "aller + infinitif"]
+    },
+    {
+      "id": "switzerland",
+      "title": "La vie en Suisse",
+      "questions": [
+        "Depuis combien de temps habitez-vous en Suisse ?",
+        "Qu'est-ce que vous aimez en Suisse ?",
+        "Qu'est-ce qui est different de votre pays ?",
+        "Est-ce que c'est difficile d'apprendre le francais ?",
+        "Qu'est-ce que vous trouvez cher en Suisse ?",
+        "Vous vous sentez bien ici ?"
+      ],
+      "expected_structures": ["depuis + present", "comparatives", "opinion + because", "c'est + adjective"]
+    },
+    {
+      "id": "health_wellness",
+      "title": "La sante",
+      "questions": [
+        "Comment allez-vous en general ?",
+        "Qu'est-ce que vous faites pour rester en forme ?",
+        "Vous allez souvent chez le medecin ?",
+        "Vous avez deja ete malade en Suisse ?",
+        "Qu'est-ce que vous mangez pour etre en bonne sante ?",
+        "Le systeme de sante en Suisse, c'est comment ?"
+      ],
+      "expected_structures": ["pour + infinitive", "frequency expressions", "passe compose", "opinion expressions"]
+    }
+  ],
+  "scoring_criteria": {
+    "elaboration": "Gives developed answers, not just yes/no",
+    "opinion_expression": "Can state and justify opinions",
+    "tense_range": "Uses present, past (passe compose), and future (aller + inf)",
+    "vocabulary_range": "Uses topic-appropriate vocabulary beyond basic level",
+    "coherence": "Answers are logically structured"
+  },
+  "target_vocabulary": ["housing", "work", "food", "leisure", "health", "adjectives", "connectors"]
+}

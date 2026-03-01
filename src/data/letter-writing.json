@@ -1,0 +1,99 @@
+{
+  "id": "letter-writing",
+  "type": "letter_writing",
+  "exam_section": "written",
+  "level": "A1",
+  "title": "Letter/Email Writing",
+  "description": "The candidate writes a short message (email or letter) in response to a situation. 30-50 words for A1, 50-80 words for A2.",
+  "duration_minutes": 15,
+  "system_prompt": "You are a Fide written exam evaluator. Present the situation and instructions to the candidate. They write a short message. Evaluate: task completion (all required points addressed), appropriate register (formal/informal), basic grammar, vocabulary, and message structure (greeting, body, closing). Accept minor errors if the message is comprehensible and achieves its purpose.",
+  "prompts": [
+    {
+      "id": "reschedule_appointment",
+      "level": "A1",
+      "situation": "Vous avez un rendez-vous chez le dentiste lundi a 14h00, mais vous ne pouvez pas y aller. Ecrivez un email au cabinet dentaire.",
+      "required_points": [
+        "Say you cannot come on Monday",
+        "Ask for a new appointment",
+        "Suggest another day or time"
+      ],
+      "word_target": [30, 50],
+      "register": "formal",
+      "model_answer": "Madame, Monsieur,\n\nJe vous ecris pour annuler mon rendez-vous de lundi a 14h00. Je ne peux pas venir ce jour-la. Est-ce que je pourrais avoir un nouveau rendez-vous mercredi ou jeudi ?\n\nMerci beaucoup.\nCordialement"
+    },
+    {
+      "id": "thank_neighbour",
+      "level": "A1",
+      "situation": "Votre voisin a garde votre chat pendant vos vacances. Ecrivez-lui un petit mot pour le remercier.",
+      "required_points": [
+        "Thank the neighbour",
+        "Say where you went on holiday",
+        "Offer something in return"
+      ],
+      "word_target": [30, 50],
+      "register": "informal",
+      "model_answer": "Cher Marc,\n\nMerci beaucoup d'avoir garde mon chat pendant mes vacances. Nous etions en Italie, c'etait super ! Pour te remercier, je t'invite a diner ce week-end.\n\nA bientot !"
+    },
+    {
+      "id": "request_info",
+      "level": "A1",
+      "situation": "Vous voulez inscrire votre enfant a un cours de natation. Ecrivez un email a la piscine municipale pour demander des informations.",
+      "required_points": [
+        "Say you want to register your child",
+        "Ask about schedule and prices",
+        "Ask about what to bring"
+      ],
+      "word_target": [30, 50],
+      "register": "formal",
+      "model_answer": "Madame, Monsieur,\n\nJe voudrais inscrire mon fils de 8 ans a un cours de natation. Pourriez-vous me donner les horaires et les prix ? Qu'est-ce qu'il faut apporter ?\n\nMerci d'avance.\nCordialement"
+    },
+    {
+      "id": "complaint_order",
+      "level": "A2",
+      "situation": "Vous avez commande un meuble en ligne mais vous avez recu le mauvais article. Ecrivez un email au magasin.",
+      "required_points": [
+        "Explain what you ordered",
+        "Explain what you received instead",
+        "Ask for a solution (exchange or refund)"
+      ],
+      "word_target": [50, 80],
+      "register": "formal",
+      "model_answer": "Madame, Monsieur,\n\nLe 15 mars, j'ai commande une table basse sur votre site (commande numero 4567). Aujourd'hui, j'ai recu le colis mais c'est une etagere, pas une table. Je voudrais recevoir la bonne table ou etre rembourse. Comment puis-je vous renvoyer l'etagere ?\n\nCordialement"
+    },
+    {
+      "id": "invite_friend",
+      "level": "A2",
+      "situation": "Vous organisez une fete pour votre anniversaire samedi prochain. Ecrivez un message a un ami pour l'inviter.",
+      "required_points": [
+        "Invite to the party",
+        "Give the date, time, and address",
+        "Ask them to bring something or confirm attendance"
+      ],
+      "word_target": [50, 80],
+      "register": "informal",
+      "model_answer": "Salut Sophie !\n\nC'est mon anniversaire samedi prochain et j'organise une petite fete chez moi a partir de 19h. L'adresse, c'est 12 rue du Lac. Il y aura a manger et a boire. Tu peux venir ? Si tu veux, apporte un dessert. Dis-moi si ca te va !\n\nBisous"
+    },
+    {
+      "id": "sick_note",
+      "level": "A1",
+      "situation": "Vous etes malade et vous ne pouvez pas aller au travail. Ecrivez un email a votre chef.",
+      "required_points": [
+        "Say you are sick",
+        "Say you cannot come to work today",
+        "Say when you think you will be back"
+      ],
+      "word_target": [30, 50],
+      "register": "formal",
+      "model_answer": "Bonjour Monsieur Muller,\n\nJe suis malade aujourd'hui, j'ai de la fievre et mal a la gorge. Je ne pourrai pas venir travailler. Je pense revenir mercredi. Je vais voir le medecin cet apres-midi.\n\nCordialement"
+    }
+  ],
+  "scoring_criteria": {
+    "task_completion": "All required points addressed",
+    "register": "Appropriate level of formality",
+    "structure": "Message has greeting, body, and closing",
+    "grammar": "Basic sentence structure correct",
+    "vocabulary": "Appropriate vocabulary for the situation",
+    "length": "Within word target range"
+  },
+  "target_vocabulary": ["personal_info", "health", "work", "shopping", "leisure", "admin"]
+}

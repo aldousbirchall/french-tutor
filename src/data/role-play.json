@@ -1,0 +1,84 @@
+{
+  "id": "role-play",
+  "type": "role_play",
+  "exam_section": "oral_section2",
+  "level": "A2",
+  "title": "Dialogue Role-Play",
+  "description": "The candidate participates in a role-play simulating a common everyday situation in Switzerland. The examiner plays the other person (shopkeeper, doctor, postal worker, etc.).",
+  "duration_minutes": 4,
+  "system_prompt_template": "You are a Fide oral exam examiner conducting a role-play. You play the role of {{role}}. The scenario is: {{scenario}}. Stay in character. Speak clearly at A2 level. Guide the conversation naturally but let the candidate drive. If they struggle, offer a simpler rephrasing. The dialogue should last 6-10 exchanges. Evaluate their ability to handle the transactional situation.",
+  "scenarios": [
+    {
+      "id": "pharmacy",
+      "role": "a pharmacist in Switzerland",
+      "scenario": "The candidate comes to the pharmacy with a headache and a cold. They need to ask for medication, describe symptoms, and understand dosage instructions.",
+      "opening": "Bonjour, bienvenue a la pharmacie. Qu'est-ce que je peux faire pour vous ?",
+      "key_functions": ["describe symptoms", "ask for advice", "understand instructions", "ask about price"],
+      "expected_vocabulary": ["mal a la tete", "rhume", "medicament", "ordonnance", "comprime", "sirop", "fois par jour"]
+    },
+    {
+      "id": "post_office",
+      "role": "a postal worker at La Poste",
+      "scenario": "The candidate wants to send a package to another country. They need to choose a shipping method, fill out a customs form, and pay.",
+      "opening": "Bonjour, c'est a vous. Qu'est-ce que vous desirez ?",
+      "key_functions": ["state purpose", "ask about options", "provide information for form", "ask about price and time"],
+      "expected_vocabulary": ["colis", "envoyer", "recommande", "timbre", "formulaire", "peser", "combien", "jours"]
+    },
+    {
+      "id": "doctor",
+      "role": "a general practitioner doctor",
+      "scenario": "The candidate has a doctor's appointment because they have had stomach pain for several days. They describe symptoms, answer questions, and understand the doctor's advice.",
+      "opening": "Bonjour, asseyez-vous. Alors, qu'est-ce qui ne va pas ?",
+      "key_functions": ["describe symptoms with timeline", "answer medical questions", "understand diagnosis", "follow instructions"],
+      "expected_vocabulary": ["mal au ventre", "depuis", "fievre", "examiner", "analyse", "medicament", "rendez-vous"]
+    },
+    {
+      "id": "bakery",
+      "role": "a baker/shopkeeper in a boulangerie",
+      "scenario": "The candidate is buying bread and pastries for a family gathering. They need to ask what's available, choose items, ask about ingredients (allergy), and pay.",
+      "opening": "Bonjour ! Qu'est-ce que je vous sers ?",
+      "key_functions": ["ask what's available", "make choices", "ask about ingredients", "handle payment"],
+      "expected_vocabulary": ["pain", "croissant", "gateau", "combien", "morceau", "allergie", "gluten", "carte"]
+    },
+    {
+      "id": "train_ticket",
+      "role": "a ticket agent at the CFF/SBB counter",
+      "scenario": "The candidate needs to buy a train ticket from their city to another Swiss city. They need to choose between first/second class, single/return, and ask about times.",
+      "opening": "Bonjour, je peux vous aider ?",
+      "key_functions": ["state destination", "ask about times", "choose options", "pay"],
+      "expected_vocabulary": ["billet", "aller-retour", "aller simple", "premiere classe", "deuxieme classe", "depart", "correspondance", "voie"]
+    },
+    {
+      "id": "landlord",
+      "role": "the building manager (regie)",
+      "scenario": "The candidate calls to report a problem in their apartment (e.g., broken heating, water leak). They describe the problem, its location, and arrange for a repair visit.",
+      "opening": "Regie immobiliere, bonjour. Comment puis-je vous aider ?",
+      "key_functions": ["identify yourself and apartment", "describe the problem", "explain urgency", "arrange appointment"],
+      "expected_vocabulary": ["panne", "chauffage", "fuite", "reparer", "urgent", "technicien", "disponible", "cle"]
+    },
+    {
+      "id": "school_meeting",
+      "role": "a primary school teacher",
+      "scenario": "The candidate is a parent meeting their child's teacher. They discuss their child's progress, ask about homework, and discuss a school event.",
+      "opening": "Bonsoir, merci d'etre venu. Asseyez-vous, je vous en prie.",
+      "key_functions": ["ask about child's progress", "discuss difficulties", "understand recommendations", "ask about events"],
+      "expected_vocabulary": ["enfant", "notes", "progres", "devoirs", "difficile", "ameliorer", "reunion", "sortie"]
+    },
+    {
+      "id": "commune",
+      "role": "an employee at the commune (municipality)",
+      "scenario": "The candidate needs to register a change of address. They provide information and ask about required documents.",
+      "opening": "Bonjour, vous avez pris rendez-vous ?",
+      "key_functions": ["state purpose", "provide personal information", "ask about documents needed", "understand next steps"],
+      "expected_vocabulary": ["demenager", "adresse", "formulaire", "passeport", "permis", "attestation", "delai", "gratuit"]
+    }
+  ],
+  "scoring_criteria": {
+    "task_completion": "Achieves the transactional goal of the scenario",
+    "interaction": "Responds appropriately and asks relevant questions",
+    "vocabulary": "Uses situation-appropriate vocabulary",
+    "grammar": "Uses appropriate verb tenses and structures",
+    "politeness": "Uses polite forms (vous, je voudrais, s'il vous plait)"
+  },
+  "target_vocabulary": ["health", "shopping", "transport", "admin", "housing", "food"]
+}

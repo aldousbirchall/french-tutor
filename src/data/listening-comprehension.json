@@ -1,0 +1,95 @@
+{
+  "id": "listening-comprehension",
+  "type": "listening",
+  "exam_section": "oral_listening",
+  "level": "A1-A2",
+  "title": "Listening Comprehension",
+  "description": "The candidate listens to short audio passages (read via SpeechSynthesis) and answers questions. Passages increase in difficulty from A1 to A2.",
+  "duration_minutes": 15,
+  "system_prompt": "You are a Fide exam listening comprehension module. Read the passage at a clear, moderate pace using SpeechSynthesis. After the passage, ask the questions one at a time. The candidate answers orally. For A1, accept single-word or short-phrase answers. For A2, expect short sentence answers.",
+  "exercises": [
+    {
+      "id": "listen_announcement",
+      "level": "A1",
+      "type": "choose_illustration",
+      "passage": "Attention, le train numero 425 a destination de Lausanne va partir de la voie trois dans cinq minutes.",
+      "word_count": 22,
+      "questions": [
+        {"question": "Ou va le train ?", "answer": "A Lausanne", "distractors": ["A Geneve", "A Berne", "A Zurich"]},
+        {"question": "De quelle voie part le train ?", "answer": "De la voie trois", "distractors": ["De la voie un", "De la voie cinq", "De la voie deux"]}
+      ],
+      "plays": 2
+    },
+    {
+      "id": "listen_weather",
+      "level": "A1",
+      "type": "choose_illustration",
+      "passage": "Aujourd'hui, il fait beau a Geneve avec vingt-deux degres. Demain, il va pleuvoir et la temperature va baisser a quinze degres.",
+      "word_count": 25,
+      "questions": [
+        {"question": "Quel temps fait-il aujourd'hui ?", "answer": "Il fait beau", "distractors": ["Il pleut", "Il neige", "Il fait froid"]},
+        {"question": "Quelle est la temperature demain ?", "answer": "Quinze degres", "distractors": ["Vingt-deux degres", "Dix degres", "Vingt degres"]}
+      ],
+      "plays": 2
+    },
+    {
+      "id": "listen_phone_message",
+      "level": "A2",
+      "type": "multiple_choice",
+      "passage": "Bonjour madame Dupont, c'est le cabinet du docteur Martin. Je vous appelle pour vous dire que votre rendez-vous de lundi a quatorze heures est annule. Le docteur est malade. Nous pouvons vous proposer un nouveau rendez-vous mercredi a dix heures. Rappelez-nous au zero vingt-deux, trois cent quarante-cinq, soixante-sept, quatre-vingt-neuf pour confirmer. Merci.",
+      "word_count": 52,
+      "questions": [
+        {"question": "Pourquoi est-ce que le rendez-vous est annule ?", "answer": "Le docteur est malade", "distractors": ["Le docteur est en vacances", "Le cabinet est ferme", "Madame Dupont est malade"]},
+        {"question": "Quand est le nouveau rendez-vous ?", "answer": "Mercredi a dix heures", "distractors": ["Lundi a quatorze heures", "Mardi a dix heures", "Mercredi a quatorze heures"]},
+        {"question": "Qu'est-ce que madame Dupont doit faire ?", "answer": "Rappeler le cabinet pour confirmer", "distractors": ["Aller au cabinet", "Envoyer un email", "Attendre un appel"]}
+      ],
+      "plays": 2
+    },
+    {
+      "id": "listen_directions",
+      "level": "A2",
+      "type": "multiple_choice",
+      "passage": "Pour aller a la poste, vous sortez d'ici et vous tournez a gauche. Vous continuez tout droit pendant deux minutes. Vous allez voir une boulangerie au coin de la rue. La poste est juste en face de la boulangerie, a cote de la banque.",
+      "word_count": 42,
+      "questions": [
+        {"question": "Dans quelle direction faut-il tourner ?", "answer": "A gauche", "distractors": ["A droite", "Tout droit", "En arriere"]},
+        {"question": "Qu'est-ce qu'il y a au coin de la rue ?", "answer": "Une boulangerie", "distractors": ["Une banque", "La poste", "Un cafe"]},
+        {"question": "Ou est la poste ?", "answer": "En face de la boulangerie", "distractors": ["A cote de la boulangerie", "Derriere la banque", "Au coin de la rue"]}
+      ],
+      "plays": 2
+    },
+    {
+      "id": "listen_apartment_ad",
+      "level": "A2",
+      "type": "multiple_choice",
+      "passage": "A louer: bel appartement de trois pieces au deuxieme etage, dans un quartier calme pres du centre-ville. L'appartement a une cuisine equipee, une salle de bains et un balcon. Le loyer est de mille deux cents francs par mois, charges comprises. Animaux acceptes. Disponible a partir du premier avril. Pour visiter, appelez le zero vingt et un, quatre cent cinquante-six, soixante-dix-huit, quatre-vingt-dix.",
+      "word_count": 65,
+      "questions": [
+        {"question": "Combien de pieces a l'appartement ?", "answer": "Trois pieces", "distractors": ["Deux pieces", "Quatre pieces", "Cinq pieces"]},
+        {"question": "Combien coute le loyer ?", "answer": "Mille deux cents francs", "distractors": ["Mille francs", "Mille cinq cents francs", "Deux mille francs"]},
+        {"question": "Quand est-ce que l'appartement est disponible ?", "answer": "A partir du premier avril", "distractors": ["Maintenant", "A partir du premier mars", "A partir du premier mai"]},
+        {"question": "Est-ce qu'on peut avoir un chien ?", "answer": "Oui, les animaux sont acceptes", "distractors": ["Non, c'est interdit", "Ce n'est pas mentionne", "Seulement les chats"]}
+      ],
+      "plays": 2
+    },
+    {
+      "id": "listen_recipe",
+      "level": "A2",
+      "type": "oral_answer",
+      "passage": "Pour faire une fondue pour quatre personnes, vous avez besoin de quatre cents grammes de gruyere et deux cents grammes de vacherin. Vous coupez le fromage en petits morceaux. Vous frottez le caquelon avec une gousse d'ail. Vous mettez le fromage dans le caquelon avec du vin blanc et vous chauffez doucement. Servez avec du pain coupe en cubes.",
+      "word_count": 58,
+      "questions": [
+        {"question": "C'est une recette pour combien de personnes ?", "expected_answer": "Pour quatre personnes"},
+        {"question": "Quels fromages est-ce qu'on utilise ?", "expected_answer": "Du gruyere et du vacherin"},
+        {"question": "Avec quoi est-ce qu'on sert la fondue ?", "expected_answer": "Avec du pain coupe en cubes"}
+      ],
+      "plays": 2
+    }
+  ],
+  "scoring_criteria": {
+    "comprehension": "Correctly identifies key information from the passage",
+    "detail_extraction": "Can extract specific details (times, places, prices, reasons)",
+    "inference": "Can draw simple conclusions from what was said"
+  },
+  "target_vocabulary": ["transport", "weather", "health", "housing", "food", "admin"]
+}
