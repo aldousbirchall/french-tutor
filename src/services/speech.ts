@@ -1,10 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+/** Silence detection timeout in milliseconds. After 1.5 seconds of no speech, recording stops automatically. */
+const SILENCE_TIMEOUT_MS = 1500;
+
 export class SpeechService {
   private recognition: any = null;
+  private silenceTimer: ReturnType<typeof setTimeout> | null = null;
 
   isRecognitionSupported(): boolean {
     return !!((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition);
+  }
+
+  private clearSilenceTimer(): void {
+    if (this.silenceTimer !== null) {
+      clearTimeout(this.silenceTimer);
+      this.silenceTimer = null;
+    }
+  }
+
+  private resetSilenceTimer(recognition: any): void {
+    this.clearSilenceTimer();
+    this.silenceTimer = setTimeout(() => {
+      try {
+        recognition.stop();
+      } catch {
+        // Already stopped
+      }
+    }, SILENCE_TIMEOUT_MS);
   }
 
   startRecognition(params: {
@@ -26,6 +48,9 @@ export class SpeechService {
     recognition.continuous = false;
     recognition.interimResults = true;
 
+    // Start silence detection timer
+    this.resetSilenceTimer(recognition);
+
     recognition.onresult = (event: any) => {
       let interimTranscript = '';
       let finalTranscript = '';
@@ -39,7 +64,11 @@ export class SpeechService {
         }
       }
 
+      // Reset silence timer on any speech activity
+      this.resetSilenceTimer(recognition);
+
       if (finalTranscript) {
+        this.clearSilenceTimer();
         params.onFinal(finalTranscript);
       } else if (interimTranscript) {
         params.onInterim(interimTranscript);
@@ -47,8 +76,13 @@ export class SpeechService {
     };
 
     recognition.onerror = (event: any) => {
+      this.clearSilenceTimer();
       if (event.error === 'no-speech') return;
       params.onError(`Speech recognition error: ${event.error}`);
+    };
+
+    recognition.onend = () => {
+      this.clearSilenceTimer();
     };
 
     recognition.start();
@@ -56,6 +90,7 @@ export class SpeechService {
   }
 
   stopRecognition(): void {
+    this.clearSilenceTimer();
     if (this.recognition) {
       try {
         this.recognition.stop();

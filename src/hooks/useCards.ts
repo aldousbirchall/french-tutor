@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { type Grade, createEmptyCard, Card } from 'ts-fsrs';
 import { useFSRS } from './useFSRS';
 import { useDatabaseService } from '../contexts/DatabaseContext';
@@ -27,26 +27,30 @@ export function useCards(topic?: string) {
   const [dueCards, setDueCards] = useState<CardState[]>([]);
   const [newCards, setNewCards] = useState<CardState[]>([]);
   const [loading, setLoading] = useState(true);
+  // Track cards rated in this session to immediately remove from queues
+  const ratedInSessionRef = useRef<Set<string>>(new Set());
 
   const loadCards = useCallback(async () => {
     setLoading(true);
     try {
       const now = new Date();
+      const ratedIds = ratedInSessionRef.current;
       const due = await db.getCardsDueForReview(now);
-      const filteredDue = topic ? due.filter((c) => c.topic === topic) : due;
+      const filteredDue = (topic ? due.filter((c) => c.topic === topic) : due)
+        .filter((c) => !ratedIds.has(c.wordId));
       setDueCards(filteredDue);
 
       // Get words that have no card yet (truly new)
       const allCards = await db.getAllCards();
       const cardIds = new Set(allCards.map((c) => c.wordId));
       const wordsWithoutCards = vocabulary.words.filter(
-        (w) => !cardIds.has(w.id) && (!topic || w.topic === topic)
+        (w) => !cardIds.has(w.id) && !ratedIds.has(w.id) && (!topic || w.topic === topic)
       );
 
       // Also get cards in New state (state 0) that have been created
       const newState = topic ? (await db.getNewCards(topic)) : (await db.getNewCards());
       const combinedNew: CardState[] = [
-        ...newState,
+        ...newState.filter((c) => !ratedIds.has(c.wordId)),
         ...wordsWithoutCards.map((w) => {
           const empty = createEmptyCard();
           return {
@@ -96,6 +100,12 @@ export function useCards(topic?: string) {
         last_review: now,
       };
       await db.saveCard(updated);
+      // Immediately mark as rated in session to prevent re-display
+      ratedInSessionRef.current.add(card.wordId);
+      // Optimistically remove from current queues
+      setDueCards((prev) => prev.filter((c) => c.wordId !== card.wordId));
+      setNewCards((prev) => prev.filter((c) => c.wordId !== card.wordId));
+      // Then reload from DB for consistency
       await loadCards();
     },
     [f, db, loadCards]

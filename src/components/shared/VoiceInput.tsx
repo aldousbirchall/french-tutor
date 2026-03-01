@@ -80,6 +80,7 @@ const VoiceInput: React.FC<VoiceInputProps> = ({
         className={`${styles.micButton} ${isListening ? styles.listening : ''}`}
         onClick={toggleListening}
         title={isListening ? 'Stop listening' : 'Start speaking (or press Space)'}
+        aria-label={isListening ? 'Stop recording' : 'Start voice input'}
       >
         {isListening ? '⏹' : '🎤'}
       </button>
