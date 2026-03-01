@@ -1,4 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { ClaudeProvider } from './contexts/ClaudeContext';
+import { SpeechProvider } from './contexts/SpeechContext';
+import { DatabaseProvider } from './contexts/DatabaseContext';
 import AppShell from './components/layout/AppShell';
 import SettingsPage from './components/settings/SettingsPage';
 import { getApiKey } from './utils/apiKey';
@@ -18,16 +21,22 @@ const RootRedirect: React.FC = () => {
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppShell />}>
-          <Route index element={<RootRedirect />} />
-          <Route path="vocabulary" element={<Placeholder name="Vocabulary" />} />
-          <Route path="conversation" element={<Placeholder name="Conversation" />} />
-          <Route path="exam" element={<Placeholder name="Exam" />} />
-          <Route path="dashboard" element={<Placeholder name="Dashboard" />} />
-          <Route path="settings" element={<SettingsPage />} />
-        </Route>
-      </Routes>
+      <ClaudeProvider>
+        <SpeechProvider>
+          <DatabaseProvider>
+            <Routes>
+              <Route path="/" element={<AppShell />}>
+                <Route index element={<RootRedirect />} />
+                <Route path="vocabulary" element={<Placeholder name="Vocabulary" />} />
+                <Route path="conversation" element={<Placeholder name="Conversation" />} />
+                <Route path="exam" element={<Placeholder name="Exam" />} />
+                <Route path="dashboard" element={<Placeholder name="Dashboard" />} />
+                <Route path="settings" element={<SettingsPage />} />
+              </Route>
+            </Routes>
+          </DatabaseProvider>
+        </SpeechProvider>
+      </ClaudeProvider>
     </BrowserRouter>
   );
 };

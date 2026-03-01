@@ -13,6 +13,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react-refresh'],
+  overrides: [
+    {
+      files: ['src/contexts/**/*.tsx'],
+      rules: {
+        'react-refresh/only-export-components': 'off',
+      },
+    },
+  ],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
