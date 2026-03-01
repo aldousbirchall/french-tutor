@@ -27,8 +27,11 @@ export function useCards(topic?: string) {
   const [dueCards, setDueCards] = useState<CardState[]>([]);
   const [newCards, setNewCards] = useState<CardState[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSessionDone, setIsSessionDone] = useState(false);
   // Track cards rated in this session to immediately remove from queues
   const ratedInSessionRef = useRef<Set<string>>(new Set());
+  // Track how many new cards have been introduced this session
+  const sessionNewCardsRef = useRef<number>(0);
 
   const loadCards = useCallback(async () => {
     setLoading(true);
@@ -39,6 +42,9 @@ export function useCards(topic?: string) {
       const filteredDue = (topic ? due.filter((c) => c.topic === topic) : due)
         .filter((c) => !ratedIds.has(c.wordId));
       setDueCards(filteredDue);
+
+      // Calculate remaining new card budget for this session
+      const remainingNewBudget = Math.max(0, DAILY_NEW_LIMIT - sessionNewCardsRef.current);
 
       // Get words that have no card yet (truly new)
       const allCards = await db.getAllCards();
@@ -69,7 +75,13 @@ export function useCards(topic?: string) {
         }),
       ];
 
-      setNewCards(combinedNew.slice(0, DAILY_NEW_LIMIT));
+      const cappedNew = combinedNew.slice(0, remainingNewBudget);
+      setNewCards(cappedNew);
+
+      // Session is done when no due cards remain and new card budget is exhausted
+      if (filteredDue.length === 0 && cappedNew.length === 0) {
+        setIsSessionDone(true);
+      }
     } catch (err) {
       console.error('Failed to load cards:', err);
     } finally {
@@ -102,6 +114,10 @@ export function useCards(topic?: string) {
       await db.saveCard(updated);
       // Immediately mark as rated in session to prevent re-display
       ratedInSessionRef.current.add(card.wordId);
+      // Track new cards introduced this session
+      if (card.state === 0) {
+        sessionNewCardsRef.current += 1;
+      }
       // Optimistically remove from current queues
       setDueCards((prev) => prev.filter((c) => c.wordId !== card.wordId));
       setNewCards((prev) => prev.filter((c) => c.wordId !== card.wordId));
@@ -111,5 +127,5 @@ export function useCards(topic?: string) {
     [f, db, loadCards]
   );
 
-  return { dueCards, newCards, loading, rateCard, refresh: loadCards };
+  return { dueCards, newCards, loading, isSessionDone, rateCard, refresh: loadCards };
 }
