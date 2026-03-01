@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
@@ -27,6 +27,13 @@ const FormFillingUI: React.FC<FormFillingUIProps> = ({ scenarioId, onBack }) => 
 
   const forms = (scenario?.forms as FormDef[]) ?? [];
   const currentForm = forms.find((f) => f.id === selectedForm);
+
+  // Auto-select first form when forms are available
+  useEffect(() => {
+    if (forms.length > 0 && !selectedForm) {
+      setSelectedForm(forms[0].id);
+    }
+  }, [forms, selectedForm]);
 
   const handleFieldChange = useCallback((label: string, value: string) => {
     setFieldValues((prev) => ({ ...prev, [label]: value }));
