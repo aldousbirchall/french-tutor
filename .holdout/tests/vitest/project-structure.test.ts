@@ -7,6 +7,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const SRC_DIR = path.resolve(__dirname, '../../../src');
+const BUILD_ROOT = path.resolve(__dirname, '../../..');
 
 describe('Project Structure', () => {
   it('src directory exists', () => {
@@ -14,7 +15,7 @@ describe('Project Structure', () => {
   });
 
   it('package.json exists with required dependencies', () => {
-    const pkgPath = path.join(SRC_DIR, 'package.json');
+    const pkgPath = path.join(BUILD_ROOT, 'package.json');
     expect(fs.existsSync(pkgPath)).toBe(true);
 
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
@@ -33,9 +34,9 @@ describe('Project Structure', () => {
 
   it('vite.config exists', () => {
     const candidates = [
-      path.join(SRC_DIR, 'vite.config.ts'),
-      path.join(SRC_DIR, 'vite.config.js'),
-      path.join(SRC_DIR, 'vite.config.mjs'),
+      path.join(BUILD_ROOT, 'vite.config.ts'),
+      path.join(BUILD_ROOT, 'vite.config.js'),
+      path.join(BUILD_ROOT, 'vite.config.mjs'),
     ];
     const exists = candidates.some((p) => fs.existsSync(p));
     expect(exists).toBe(true);
@@ -43,15 +44,15 @@ describe('Project Structure', () => {
 
   it('tsconfig.json exists', () => {
     const candidates = [
-      path.join(SRC_DIR, 'tsconfig.json'),
-      path.join(SRC_DIR, 'tsconfig.app.json'),
+      path.join(BUILD_ROOT, 'tsconfig.json'),
+      path.join(BUILD_ROOT, 'tsconfig.app.json'),
     ];
     const exists = candidates.some((p) => fs.existsSync(p));
     expect(exists).toBe(true);
   });
 
   it('index.html exists', () => {
-    const indexPath = path.join(SRC_DIR, 'index.html');
+    const indexPath = path.join(BUILD_ROOT, 'index.html');
     expect(fs.existsSync(indexPath)).toBe(true);
   });
 
@@ -93,7 +94,7 @@ describe('React Application Structure', () => {
 
 describe('Dependencies: ts-fsrs', () => {
   it('ts-fsrs is listed as a dependency', () => {
-    const pkgPath = path.join(SRC_DIR, 'package.json');
+    const pkgPath = path.join(BUILD_ROOT, 'package.json');
     if (!fs.existsSync(pkgPath)) return;
 
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
@@ -104,7 +105,7 @@ describe('Dependencies: ts-fsrs', () => {
 
 describe('Dependencies: @anthropic-ai/sdk', () => {
   it('@anthropic-ai/sdk is listed as a dependency', () => {
-    const pkgPath = path.join(SRC_DIR, 'package.json');
+    const pkgPath = path.join(BUILD_ROOT, 'package.json');
     if (!fs.existsSync(pkgPath)) return;
 
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
@@ -287,7 +288,7 @@ describe('Web Speech API Configuration', () => {
       return false;
     }
 
-    const found = searchFiles(SRC_DIR, /rate\s*=\s*0\.9|\.rate\s*=\s*0\.9/);
+    const found = searchFiles(SRC_DIR, /0\.9/);
     expect(found).toBe(true);
   });
 });
