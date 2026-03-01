@@ -7,8 +7,16 @@ function isCompatibleBrowser(): boolean {
   return /Chrome|Edg/i.test(ua) && !/OPR/i.test(ua);
 }
 
+function isSpeechRecognitionSupported(): boolean {
+  return !!(
+    (window as Record<string, unknown>).SpeechRecognition ||
+    (window as Record<string, unknown>).webkitSpeechRecognition
+  );
+}
+
 const AppShell: React.FC = () => {
   const compatible = isCompatibleBrowser();
+  const speechSupported = isSpeechRecognitionSupported();
 
   return (
     <div className={styles.shell}>
@@ -17,6 +25,11 @@ const AppShell: React.FC = () => {
         {!compatible && (
           <div className={styles.compatWarning}>
             For the best experience with voice features, use Chrome or Edge.
+          </div>
+        )}
+        {!speechSupported && (
+          <div className={styles.speechWarning} role="alert">
+            Speech recognition is not supported in this browser. Voice features will be unavailable.
           </div>
         )}
         <div className={styles.content}>
