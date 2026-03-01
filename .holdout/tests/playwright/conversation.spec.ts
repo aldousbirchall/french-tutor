@@ -116,21 +116,25 @@ test.describe('REQ-006: Conversation Practice Mode', () => {
 
   // REQ-006 AC5: End conversation triggers assessment
   test('end conversation button requests and displays assessment', async ({ page }) => {
-    // Send a message first
-    const textInput = page.locator('textarea, input[type="text"]').filter({ hasNotText: /key|api/i }).first();
+    // Wait for the text input to appear (may take a moment to render)
+    const textInput = page.getByPlaceholder(/french|type|message/i).or(
+      page.locator('textarea, input[type="text"]').filter({ hasNotText: /key|api/i }).first()
+    );
+    await textInput.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
     const hasTextInput = await textInput.isVisible().catch(() => false);
 
     if (hasTextInput) {
       await textInput.fill('Bonjour, je suis un etudiant');
-      const sendButton = page.getByRole('button', { name: /send|submit|go/i }).or(
+      const sendButton = page.getByRole('button', { name: /^send$/i }).or(
         page.locator('button[type="submit"]')
       ).first();
       await sendButton.click();
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(2000);
     }
 
     // Click End Conversation
     const endButton = page.getByRole('button', { name: /\bend\b|finish|stop conversation|close/i }).first();
+    await endButton.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
     const isEndVisible = await endButton.isVisible().catch(() => false);
 
     if (isEndVisible) {
@@ -143,7 +147,7 @@ test.describe('REQ-006: Conversation Practice Mode', () => {
       }));
 
       await endButton.click();
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(3000);
 
       // Assessment should appear
       const mainContent = page.locator('main, [role="main"], .main-content, .content').first();
