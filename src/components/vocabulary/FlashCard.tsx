@@ -56,6 +56,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ card, onRate }) => {
       </button>
 
       <div className={styles.voiceSection}>
+        <div className={styles.voiceHint}>Say the word aloud in French:</div>
         <VoiceInput
           onTranscript={handleVoiceTranscript}
           lang="fr-CH"

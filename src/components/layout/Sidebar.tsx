@@ -6,6 +6,7 @@ const navItems = [
   { path: '/conversation', label: 'Conversation', icon: '💬' },
   { path: '/exam', label: 'Exam', icon: '📝' },
   { path: '/dashboard', label: 'Dashboard', icon: '📊' },
+  { path: '/reference', label: 'Reference', icon: '📚' },
 ];
 
 const Sidebar: React.FC = () => {

@@ -6,6 +6,7 @@ import VocabSummaryBar from './VocabSummaryBar';
 import TopicFilter from './TopicFilter';
 import FlashCard from './FlashCard';
 import SessionComplete from './SessionComplete';
+import ModeIntro from '../shared/ModeIntro';
 import type { CardState } from '../../services/types';
 import styles from './VocabularyMode.module.css';
 
@@ -63,6 +64,16 @@ const VocabularyMode: React.FC = () => {
 
   return (
     <div className={styles.page}>
+      <ModeIntro title="How Vocabulary Works" storageKey="vocabulary">
+        <p>
+          Each card shows a French word. Use the microphone to <strong>say the
+          word aloud in French</strong> (pronunciation practice), or click
+          "Listen" to hear it first. Then click "Show Answer" to see the English
+          translation. Rate how well you knew the word to schedule future reviews
+          via spaced repetition. Today's topics are pre-selected from your study
+          schedule.
+        </p>
+      </ModeIntro>
       <h1 className={styles.heading}>Vocabulary</h1>
       <VocabSummaryBar
         dueCount={filteredDueCards.length}

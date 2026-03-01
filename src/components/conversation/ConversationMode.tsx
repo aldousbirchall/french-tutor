@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { useConversation } from '../../hooks/useConversation';
 import { useSpeechService } from '../../contexts/SpeechContext';
 import { useSchedule } from '../../hooks/useSchedule';
+import ModeIntro from '../shared/ModeIntro';
 import ScaffoldingSelector from './ScaffoldingSelector';
 import MessageList from './MessageList';
 import VoiceInput from '../shared/VoiceInput';
@@ -98,32 +99,56 @@ const ConversationMode: React.FC = () => {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.heading}>Conversation</h1>
-      <div className={styles.topicLabel}>Topic: {topic}</div>
-      <ScaffoldingSelector level={scaffolding} onChange={setScaffolding} />
-      <MessageList messages={messages} streamingText={streamingText} />
+      <ModeIntro title="How Conversation Mode Works" storageKey="conversation">
+        <p>
+          Practice speaking French with an AI tutor. The tutor adapts to your
+          level using the scaffolding setting below. Use voice input (hold Space)
+          or type. The tutor will respond in French and read its reply aloud.
+        </p>
+      </ModeIntro>
+      <div className={styles.header}>
+        <h1 className={styles.heading}>Conversation</h1>
+        <div className={styles.topicLabel}>{topic}</div>
+        <ScaffoldingSelector level={scaffolding} onChange={setScaffolding} />
+      </div>
+      <div className={styles.chat}>
+        <MessageList
+          messages={messages}
+          streamingText={streamingText}
+          streaming={streaming}
+          topic={topic}
+        />
+      </div>
       <div className={styles.inputArea}>
-        <VoiceInput
-          onTranscript={handleVoiceTranscript}
-          lang="fr-CH"
-          isListening={isListening}
-          onListeningChange={setIsListening}
-        />
-        <input
-          className={styles.textInput}
-          value={textInput}
-          onChange={(e) => setTextInput(e.target.value)}
-          placeholder="Type in French..."
-          onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
-          disabled={streaming}
-        />
-        <button
-          className={styles.sendBtn}
-          onClick={handleTextSend}
-          disabled={streaming || !textInput.trim()}
-        >
-          Send
-        </button>
+        <div className={styles.voiceCol}>
+          <VoiceInput
+            onTranscript={handleVoiceTranscript}
+            lang="fr-CH"
+            isListening={isListening}
+            onListeningChange={setIsListening}
+          />
+          <span className={styles.inputHint}>Speak in French</span>
+        </div>
+        <div className={styles.divider} />
+        <div className={styles.textCol}>
+          <div className={styles.textRow}>
+            <input
+              className={styles.textInput}
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              placeholder="Or type in French..."
+              onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
+              disabled={streaming}
+            />
+            <button
+              className={styles.sendBtn}
+              onClick={handleTextSend}
+              disabled={streaming || !textInput.trim()}
+            >
+              Send
+            </button>
+          </div>
+        </div>
       </div>
       {error && <div className={styles.errorMsg}>{error.message}</div>}
       <ConversationControls

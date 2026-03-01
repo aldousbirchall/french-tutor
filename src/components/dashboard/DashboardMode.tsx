@@ -7,6 +7,7 @@ import VocabCoverageChart from './VocabCoverageChart';
 import ConversationStats from './ConversationStats';
 import ExamScoresChart from './ExamScoresChart';
 import ExportButton from './ExportButton';
+import ModeIntro from '../shared/ModeIntro';
 import styles from './DashboardMode.module.css';
 
 function calculateStudyStreak(reviewDates: Date[]): number {
@@ -98,6 +99,13 @@ const DashboardMode: React.FC = () => {
 
   return (
     <div className={styles.page}>
+      <ModeIntro title="Your Study Hub" storageKey="dashboard">
+        <p>
+          Follow today's schedule and track your progress towards the Fide exam.
+          Readiness combines vocabulary coverage (40%), exam scores (30%), and
+          conversation frequency (30%).
+        </p>
+      </ModeIntro>
       <h1 className={styles.heading}>Dashboard</h1>
       <div className={styles.metrics}>
         <div className={styles.metricCard}>

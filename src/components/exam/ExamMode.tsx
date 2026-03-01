@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ExamTaskList from './ExamTaskList';
 import ExamSession from './ExamSession';
 import FullMockExam from './FullMockExam';
+import ModeIntro from '../shared/ModeIntro';
 import styles from './ExamMode.module.css';
 
 type ExamView =
@@ -32,6 +33,13 @@ const ExamMode: React.FC = () => {
 
   return (
     <div className={styles.page}>
+      <ModeIntro title="How Exam Practice Works" storageKey="exam">
+        <p>
+          Practice individual exam tasks or run a full mock. Oral: 40 min
+          (speaking + listening). Written: 60 min (forms, letters). Select a
+          task below or start a timed mock exam.
+        </p>
+      </ModeIntro>
       <h1 className={styles.heading}>Exam Practice</h1>
       <div className={styles.mockExamButtons}>
         <button
