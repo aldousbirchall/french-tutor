@@ -5,7 +5,7 @@ import { Page, Route } from '@playwright/test';
  */
 export async function setApiKey(page: Page, key = 'sk-ant-test-key-1234567890abcdef'): Promise<void> {
   await page.addInitScript((apiKey) => {
-    localStorage.setItem('anthropic-api-key', apiKey);
+    localStorage.setItem('french-tutor-api-key', apiKey);
   }, key);
 }
 
@@ -14,16 +14,20 @@ export async function setApiKey(page: Page, key = 'sk-ant-test-key-1234567890abc
  */
 export async function clearApiKey(page: Page): Promise<void> {
   await page.addInitScript(() => {
-    localStorage.removeItem('anthropic-api-key');
+    localStorage.removeItem('french-tutor-api-key');
   });
 }
 
 /**
  * Clear all IndexedDB data for the app.
+ * Uses page.evaluate() instead of addInitScript() so it only runs once
+ * and does not re-execute on page.reload().
  */
 export async function clearIndexedDB(page: Page): Promise<void> {
-  await page.addInitScript(() => {
+  await page.evaluate(() => {
     indexedDB.deleteDatabase('french-tutor-db');
+  }).catch(() => {
+    // page may not be navigated yet; ignore
   });
 }
 
