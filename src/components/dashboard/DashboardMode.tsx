@@ -9,18 +9,71 @@ import ExamScoresChart from './ExamScoresChart';
 import ExportButton from './ExportButton';
 import styles from './DashboardMode.module.css';
 
+function calculateStudyStreak(reviewDates: Date[]): number {
+  if (reviewDates.length === 0) return 0;
+
+  // Get unique review days (normalised to midnight)
+  const uniqueDays = new Set<string>();
+  for (const d of reviewDates) {
+    const date = new Date(d);
+    uniqueDays.add(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
+  }
+
+  // Sort days descending
+  const sortedDays = Array.from(uniqueDays)
+    .map((key) => {
+      const [y, m, d] = key.split('-').map(Number);
+      return new Date(y, m, d);
+    })
+    .sort((a, b) => b.getTime() - a.getTime());
+
+  // Count consecutive days ending today (or yesterday)
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  let streak = 0;
+  let checkDate = sortedDays[0].getTime() === today.getTime() ? today : yesterday;
+
+  if (sortedDays[0].getTime() !== today.getTime() && sortedDays[0].getTime() !== yesterday.getTime()) {
+    return 0;
+  }
+
+  for (const day of sortedDays) {
+    if (day.getTime() === checkDate.getTime()) {
+      streak++;
+      checkDate = new Date(checkDate);
+      checkDate.setDate(checkDate.getDate() - 1);
+    } else if (day.getTime() < checkDate.getTime()) {
+      break;
+    }
+  }
+
+  return streak;
+}
+
 const DashboardMode: React.FC = () => {
   const db = useDatabaseService();
   const [readiness, setReadiness] = useState(0);
+  const [vocabLearned, setVocabLearned] = useState(0);
+  const [studyStreak, setStudyStreak] = useState(0);
 
   useEffect(() => {
     (async () => {
       // Vocabulary coverage
       const allCards = await db.getAllCards();
       const learnedCards = allCards.filter((c) => c.reps > 0);
+      setVocabLearned(learnedCards.length);
       const vocabCoverage = vocabulary.metadata.total_words > 0
         ? learnedCards.length / vocabulary.metadata.total_words
         : 0;
+
+      // Study streak: consecutive days with at least one card reviewed
+      const reviewDates = allCards
+        .filter((c) => c.last_review != null)
+        .map((c) => new Date(c.last_review as Date));
+      setStudyStreak(calculateStudyStreak(reviewDates));
 
       // Normalised exam score
       const examResults = await db.getExamResults();
@@ -46,6 +99,16 @@ const DashboardMode: React.FC = () => {
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>Dashboard</h1>
+      <div className={styles.metrics}>
+        <div className={styles.metricCard}>
+          <span className={styles.metricValue}>{vocabLearned} / {vocabulary.metadata.total_words}</span>
+          <span className={styles.metricLabel}>Vocabulary coverage</span>
+        </div>
+        <div className={styles.metricCard}>
+          <span className={styles.metricValue}>{studyStreak} day streak</span>
+          <span className={styles.metricLabel}>Study streak: {studyStreak} consecutive days</span>
+        </div>
+      </div>
       <div className={styles.grid}>
         <ReadinessGauge percent={readiness} />
         <ScheduleView />
