@@ -18,7 +18,7 @@ const VocabularyMode: React.FC = () => {
 
   // Use the first selected topic for filtering, or undefined for all
   const filterTopic = selectedTopics.length === 1 ? selectedTopics[0] : undefined;
-  const { dueCards, newCards, loading, rateCard } = useCards(filterTopic);
+  const { dueCards, newCards, loading, isSessionDone, rateCard } = useCards(filterTopic);
 
   const filteredDueCards = useMemo(() => {
     if (selectedTopics.length <= 1) return dueCards;
@@ -32,7 +32,7 @@ const VocabularyMode: React.FC = () => {
 
   // Current card: due cards first, then new cards
   const currentCard = filteredDueCards[0] ?? filteredNewCards[0] ?? null;
-  const isSessionDone = !loading && !currentCard;
+  const sessionDone = !loading && (isSessionDone || !currentCard);
 
   const handleToggleTopic = useCallback((topic: string) => {
     setSelectedTopics((prev) =>
@@ -72,7 +72,7 @@ const VocabularyMode: React.FC = () => {
         selectedTopics={selectedTopics}
         onToggle={handleToggleTopic}
       />
-      {isSessionDone ? (
+      {sessionDone ? (
         <SessionComplete
           reviewedCount={sessionStats.reviewed}
           newCount={sessionStats.newLearned}

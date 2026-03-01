@@ -104,13 +104,19 @@ export function useConversation() {
 
     if (messages.length === 0) return;
 
+    // Allow React state to settle and the SDK to clean up from the aborted stream
+    await new Promise((r) => setTimeout(r, 50));
+
     const duration = Math.floor((Date.now() - startTimeRef.current) / 1000);
 
-    // Request assessment
+    // Request assessment with a fresh AbortController
     const assessmentPrompt = `Based on the following conversation, provide a brief assessment (2-3 sentences) of the student's French level, strengths, and areas to improve. Write the assessment in English.\n\nConversation:\n${messages.map((m) => `${m.role}: ${m.content}`).join('\n')}`;
 
+    const assessmentAbort = new AbortController();
+    abortRef.current = assessmentAbort;
+
     return new Promise<void>((resolve) => {
-      abortRef.current = claude.sendMessage({
+      claude.sendMessage({
         systemPrompt: 'You are a French language assessor. Provide brief, constructive feedback in English.',
         messages: [{ role: 'user', content: assessmentPrompt }],
         onToken: () => {},
