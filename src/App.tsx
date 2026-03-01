@@ -7,6 +7,7 @@ import SettingsPage from './components/settings/SettingsPage';
 import ErrorBoundary from './components/shared/ErrorBoundary';
 import VocabularyMode from './components/vocabulary/VocabularyMode';
 import ConversationMode from './components/conversation/ConversationMode';
+import ExamMode from './components/exam/ExamMode';
 import { getApiKey } from './utils/apiKey';
 
 const Placeholder: React.FC<{ name: string }> = ({ name }) => (
@@ -46,7 +47,14 @@ const App: React.FC = () => {
                     </ErrorBoundary>
                   }
                 />
-                <Route path="exam" element={<Placeholder name="Exam" />} />
+                <Route
+                  path="exam"
+                  element={
+                    <ErrorBoundary>
+                      <ExamMode />
+                    </ErrorBoundary>
+                  }
+                />
                 <Route path="dashboard" element={<Placeholder name="Dashboard" />} />
                 <Route path="settings" element={<SettingsPage />} />
               </Route>
