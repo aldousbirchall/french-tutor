@@ -49,7 +49,7 @@ test.describe('REQ-001: Settings and API Key Management', () => {
     await page.waitForTimeout(500);
 
     // Verify the key is stored in localStorage
-    const storedKey = await page.evaluate(() => localStorage.getItem('anthropic-api-key'));
+    const storedKey = await page.evaluate(() => localStorage.getItem('french-tutor-api-key'));
     expect(storedKey).toBe('sk-ant-test-valid-key-abcdef1234567890');
 
     // Should no longer be on settings page — sidebar with modes should be visible
@@ -61,7 +61,7 @@ test.describe('REQ-001: Settings and API Key Management', () => {
   test('settings page accessible from sidebar with masked key', async ({ page }) => {
     // Set up API key
     await page.addInitScript(() => {
-      localStorage.setItem('anthropic-api-key', 'sk-ant-test-key-1234567890abcdef');
+      localStorage.setItem('french-tutor-api-key', 'sk-ant-test-key-1234567890abcdef');
     });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
@@ -86,7 +86,7 @@ test.describe('REQ-001: Settings and API Key Management', () => {
   // REQ-001 AC4: Clear key -> key removed from localStorage
   test('clearing the API key removes it from localStorage', async ({ page }) => {
     await page.addInitScript(() => {
-      localStorage.setItem('anthropic-api-key', 'sk-ant-test-key-1234567890abcdef');
+      localStorage.setItem('french-tutor-api-key', 'sk-ant-test-key-1234567890abcdef');
     });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
@@ -114,7 +114,7 @@ test.describe('REQ-001: Settings and API Key Management', () => {
     await page.waitForTimeout(300);
 
     // Verify key is removed
-    const storedKey = await page.evaluate(() => localStorage.getItem('anthropic-api-key'));
+    const storedKey = await page.evaluate(() => localStorage.getItem('french-tutor-api-key'));
     expect(storedKey).toBeFalsy();
   });
 });
