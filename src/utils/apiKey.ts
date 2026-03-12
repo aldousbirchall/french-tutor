@@ -11,3 +11,13 @@ export function setApiKey(key: string): void {
 export function clearApiKey(): void {
   localStorage.removeItem(API_KEY_STORAGE_KEY);
 }
+
+export async function checkProxyAvailable(): Promise<boolean> {
+  try {
+    const res = await fetch('/api/health', { signal: AbortSignal.timeout(3000) });
+    const data = await res.json();
+    return !!data.available;
+  } catch {
+    return false;
+  }
+}

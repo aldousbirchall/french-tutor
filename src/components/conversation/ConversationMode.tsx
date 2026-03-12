@@ -1,161 +1,52 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
-import { useConversation } from '../../hooks/useConversation';
-import { useSpeechService } from '../../contexts/SpeechContext';
-import { useSchedule } from '../../hooks/useSchedule';
-import ModeIntro from '../shared/ModeIntro';
-import ScaffoldingSelector from './ScaffoldingSelector';
-import MessageList from './MessageList';
-import VoiceInput from '../shared/VoiceInput';
-import ConversationControls from './ConversationControls';
-import AssessmentCard from './AssessmentCard';
+import { useState } from 'react';
+import { useClaudeAvailability } from '../../contexts/ClaudeContext';
+import LiveConversation from './LiveConversation';
+import DialogueReader from './DialogueReader';
+import DialogueQuiz from './DialogueQuiz';
+import ScenarioFilter from './ScenarioFilter';
 import styles from './ConversationMode.module.css';
 
+const tabs = [
+  { id: 'live', label: 'Live', requiresClaude: true },
+  { id: 'read', label: 'Read', requiresClaude: false },
+  { id: 'quiz', label: 'Quiz', requiresClaude: false },
+] as const;
+
+type TabId = (typeof tabs)[number]['id'];
+
 const ConversationMode: React.FC = () => {
-  const { currentDay } = useSchedule();
-  const speech = useSpeechService();
-  const {
-    messages,
-    streaming,
-    streamingText,
-    assessment,
-    error,
-    scaffolding,
-    setScaffolding,
-    topic,
-    setTopic,
-    sendMessage,
-    endConversation,
-    startNew,
-  } = useConversation();
-
-  const [isListening, setIsListening] = useState(false);
-  const [textInput, setTextInput] = useState('');
-  const [duration, setDuration] = useState(0);
-  const [wordCount, setWordCount] = useState(0);
-  const startTimeRef = useRef(Date.now());
-
-  // Set topic from today's schedule
-  useEffect(() => {
-    if (currentDay) {
-      const conversationActivity = currentDay.activities.find(
-        (a) => a.mode === 'conversation'
-      );
-      if (conversationActivity) {
-        setTopic(conversationActivity.task);
-      }
-    }
-  }, [currentDay, setTopic]);
-
-  // Auto-speak assistant messages
-  useEffect(() => {
-    if (messages.length > 0) {
-      const lastMsg = messages[messages.length - 1];
-      if (lastMsg.role === 'assistant') {
-        speech.speak(lastMsg.content);
-      }
-    }
-  }, [messages, speech]);
-
-  const handleVoiceTranscript = useCallback(
-    (text: string) => {
-      sendMessage(text);
-    },
-    [sendMessage]
-  );
-
-  const handleTextSend = useCallback(() => {
-    if (!textInput.trim() || streaming) return;
-    sendMessage(textInput.trim());
-    setTextInput('');
-  }, [textInput, streaming, sendMessage]);
-
-  const handleEnd = useCallback(async () => {
-    setDuration(Math.floor((Date.now() - startTimeRef.current) / 1000));
-    const wc = messages
-      .filter((m) => m.role === 'user')
-      .reduce((sum, m) => sum + m.content.split(/\s+/).length, 0);
-    setWordCount(wc);
-    await endConversation();
-  }, [endConversation, messages]);
-
-  const handleNewTopic = useCallback(() => {
-    startNew();
-    startTimeRef.current = Date.now();
-  }, [startNew]);
-
-  if (assessment) {
-    return (
-      <div className={styles.page}>
-        <h1 className={styles.heading}>Conversation</h1>
-        <AssessmentCard
-          assessment={assessment}
-          duration={duration}
-          wordCount={wordCount}
-          onNewConversation={handleNewTopic}
-        />
-      </div>
-    );
-  }
+  const { available } = useClaudeAvailability();
+  const [activeTab, setActiveTab] = useState<TabId>(available ? 'live' : 'read');
+  const [scenarioFilter, setScenarioFilter] = useState('all');
 
   return (
     <div className={styles.page}>
-      <ModeIntro title="How Conversation Mode Works" storageKey="conversation">
-        <p>
-          Practice speaking French with an AI tutor. The tutor adapts to your
-          level using the scaffolding setting below. Use voice input (hold Space)
-          or type. The tutor will respond in French and read its reply aloud.
-        </p>
-      </ModeIntro>
-      <div className={styles.header}>
-        <h1 className={styles.heading}>Conversation</h1>
-        <div className={styles.topicLabel}>{topic}</div>
-        <ScaffoldingSelector level={scaffolding} onChange={setScaffolding} />
-      </div>
-      <div className={styles.chat}>
-        <MessageList
-          messages={messages}
-          streamingText={streamingText}
-          streaming={streaming}
-          topic={topic}
-        />
-      </div>
-      <div className={styles.inputArea}>
-        <div className={styles.voiceCol}>
-          <VoiceInput
-            onTranscript={handleVoiceTranscript}
-            lang="fr-CH"
-            isListening={isListening}
-            onListeningChange={setIsListening}
-          />
-          <span className={styles.inputHint}>Speak in French</span>
-        </div>
-        <div className={styles.divider} />
-        <div className={styles.textCol}>
-          <div className={styles.textRow}>
-            <input
-              className={styles.textInput}
-              value={textInput}
-              onChange={(e) => setTextInput(e.target.value)}
-              placeholder="Or type in French..."
-              onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
-              disabled={streaming}
-            />
+      <h1 className={styles.heading}>Conversation</h1>
+      <div className={styles.tabBar}>
+        {tabs.map((tab) => {
+          const disabled = tab.requiresClaude && !available;
+          return (
             <button
-              className={styles.sendBtn}
-              onClick={handleTextSend}
-              disabled={streaming || !textInput.trim()}
+              key={tab.id}
+              className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+              onClick={() => !disabled && setActiveTab(tab.id)}
+              disabled={disabled}
+              title={disabled ? 'Requires Claude AI connection' : undefined}
             >
-              Send
+              {tab.label}
+              {disabled && ' (offline)'}
             </button>
-          </div>
-        </div>
+          );
+        })}
       </div>
-      {error && <div className={styles.errorMsg}>{error.message}</div>}
-      <ConversationControls
-        onEnd={handleEnd}
-        onNewTopic={handleNewTopic}
-        disabled={streaming}
-      />
+      {activeTab !== 'live' && (
+        <ScenarioFilter selected={scenarioFilter} onChange={setScenarioFilter} />
+      )}
+      <div className={styles.content}>
+        {activeTab === 'live' && <LiveConversation />}
+        {activeTab === 'read' && <DialogueReader scenarioFilter={scenarioFilter} />}
+        {activeTab === 'quiz' && <DialogueQuiz scenarioFilter={scenarioFilter} />}
+      </div>
     </div>
   );
 };

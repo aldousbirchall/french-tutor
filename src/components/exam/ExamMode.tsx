@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useClaudeAvailability } from '../../contexts/ClaudeContext';
 import ExamTaskList from './ExamTaskList';
 import ExamSession from './ExamSession';
 import FullMockExam from './FullMockExam';
@@ -11,7 +12,31 @@ type ExamView =
   | { type: 'mock'; examType: 'oral' | 'written' };
 
 const ExamMode: React.FC = () => {
+  const { available } = useClaudeAvailability();
   const [view, setView] = useState<ExamView>({ type: 'list' });
+
+  if (!available) {
+    return (
+      <div className={styles.page}>
+        <h1 className={styles.heading}>Exam Practice</h1>
+        <div style={{
+          padding: '2rem',
+          background: 'var(--color-warning-bg, #fff3cd)',
+          border: '1px solid var(--color-warning-border, #ffc107)',
+          borderRadius: '8px',
+          marginTop: '1rem',
+        }}>
+          <p style={{ margin: 0, fontSize: '1rem' }}>
+            <strong>Exam practice requires Claude AI.</strong>
+          </p>
+          <p style={{ margin: '0.5rem 0 0', opacity: 0.8 }}>
+            Claude Code is not running or no API key is configured.
+            Start Claude Code with a Max subscription, or add an API key in Settings.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const handleBack = () => setView({ type: 'list' });
 

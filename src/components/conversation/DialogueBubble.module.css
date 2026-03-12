@@ -1,0 +1,43 @@
+.bubble {
+  padding: var(--space-3);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--space-2);
+  max-width: 85%;
+}
+
+.examiner {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  align-self: flex-start;
+}
+
+.candidate {
+  background: var(--color-primary-light, #e8f0fe);
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.speaker {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.french {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+.english {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+  font-style: italic;
+}
+
+.highlighted {
+  background: var(--color-warning-light, #fff8e1);
+}

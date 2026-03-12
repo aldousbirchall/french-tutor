@@ -9,6 +9,9 @@
   font-size: var(--font-size-lg);
   font-weight: 700;
   margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .dayInfo {
@@ -27,4 +30,111 @@
   text-align: center;
   padding: var(--space-4);
   color: var(--color-text-muted);
+}
+
+.backBtn {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: var(--color-surface);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-3);
+}
+
+.backBtn:hover {
+  background: var(--color-border);
+}
+
+.todayBadge {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 999px;
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+
+/* Day list */
+
+.dayList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.dayCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: var(--color-surface);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background var(--transition-fast);
+}
+
+.dayCard:hover {
+  background: var(--color-surface-hover, rgba(0, 0, 0, 0.03));
+}
+
+.dayComplete {
+  opacity: 0.65;
+}
+
+.dayCurrent {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+.dayCardLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.dayNum {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dayCardInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dayTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dayMeta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.dayProgress {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  margin-left: var(--space-2);
+}
+
+.dayComplete .dayProgress {
+  color: var(--color-success, #28a745);
 }

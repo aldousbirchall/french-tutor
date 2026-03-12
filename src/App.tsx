@@ -10,11 +10,8 @@ import ConversationMode from './components/conversation/ConversationMode';
 import ExamMode from './components/exam/ExamMode';
 import DashboardMode from './components/dashboard/DashboardMode';
 import ReferenceMode from './components/reference/ReferenceMode';
-import { getApiKey } from './utils/apiKey';
-
 const RootRedirect: React.FC = () => {
-  const hasKey = !!getApiKey();
-  return <Navigate to={hasKey ? '/dashboard' : '/settings'} replace />;
+  return <Navigate to="/dashboard" replace />;
 };
 
 const App: React.FC = () => {

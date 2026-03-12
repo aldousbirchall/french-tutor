@@ -1,0 +1,1502 @@
+{
+  "version": "2.0",
+  "metadata": {
+    "total_verbs": 18,
+    "tenses": ["present", "passe_compose", "futur_proche", "imparfait"],
+    "pronouns": ["je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+    "groups": ["core"]
+  },
+  "verbs": [
+    {
+      "infinitive": "avoir",
+      "english": "to have",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "j'ai",
+            "tu": "tu as",
+            "il/elle": "il/elle a",
+            "nous": "nous avons",
+            "vous": "vous avez",
+            "ils/elles": "ils/elles ont"
+          },
+          "english": {
+            "je": "I have",
+            "tu": "you have",
+            "il/elle": "he/she has",
+            "nous": "we have",
+            "vous": "you have",
+            "ils/elles": "they have"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai eu",
+            "tu": "tu as eu",
+            "il/elle": "il/elle a eu",
+            "nous": "nous avons eu",
+            "vous": "vous avez eu",
+            "ils/elles": "ils/elles ont eu"
+          },
+          "english": {
+            "je": "I had / I have had",
+            "tu": "you had",
+            "il/elle": "he/she had",
+            "nous": "we had",
+            "vous": "you had",
+            "ils/elles": "they had"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais avoir",
+            "tu": "tu vas avoir",
+            "il/elle": "il/elle va avoir",
+            "nous": "nous allons avoir",
+            "vous": "vous allez avoir",
+            "ils/elles": "ils/elles vont avoir"
+          },
+          "english": {
+            "je": "I am going to have",
+            "tu": "you are going to have",
+            "il/elle": "he/she is going to have",
+            "nous": "we are going to have",
+            "vous": "you are going to have",
+            "ils/elles": "they are going to have"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "j'avais",
+            "tu": "tu avais",
+            "il/elle": "il/elle avait",
+            "nous": "nous avions",
+            "vous": "vous aviez",
+            "ils/elles": "ils/elles avaient"
+          },
+          "english": {
+            "je": "I had / I used to have",
+            "tu": "you had / you used to have",
+            "il/elle": "he/she had / used to have",
+            "nous": "we had / we used to have",
+            "vous": "you had / you used to have",
+            "ils/elles": "they had / they used to have"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "être",
+      "english": "to be",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je suis",
+            "tu": "tu es",
+            "il/elle": "il/elle est",
+            "nous": "nous sommes",
+            "vous": "vous êtes",
+            "ils/elles": "ils/elles sont"
+          },
+          "english": {
+            "je": "I am",
+            "tu": "you are",
+            "il/elle": "he/she is",
+            "nous": "we are",
+            "vous": "you are",
+            "ils/elles": "they are"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai été",
+            "tu": "tu as été",
+            "il/elle": "il/elle a été",
+            "nous": "nous avons été",
+            "vous": "vous avez été",
+            "ils/elles": "ils/elles ont été"
+          },
+          "english": {
+            "je": "I was / I have been",
+            "tu": "you were",
+            "il/elle": "he/she was",
+            "nous": "we were",
+            "vous": "you were",
+            "ils/elles": "they were"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais être",
+            "tu": "tu vas être",
+            "il/elle": "il/elle va être",
+            "nous": "nous allons être",
+            "vous": "vous allez être",
+            "ils/elles": "ils/elles vont être"
+          },
+          "english": {
+            "je": "I am going to be",
+            "tu": "you are going to be",
+            "il/elle": "he/she is going to be",
+            "nous": "we are going to be",
+            "vous": "you are going to be",
+            "ils/elles": "they are going to be"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "j'étais",
+            "tu": "tu étais",
+            "il/elle": "il/elle était",
+            "nous": "nous étions",
+            "vous": "vous étiez",
+            "ils/elles": "ils/elles étaient"
+          },
+          "english": {
+            "je": "I was / I used to be",
+            "tu": "you were / you used to be",
+            "il/elle": "he/she was / used to be",
+            "nous": "we were / we used to be",
+            "vous": "you were / you used to be",
+            "ils/elles": "they were / they used to be"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "aller",
+      "english": "to go",
+      "level": "A1",
+      "auxiliary": "être",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je vais",
+            "tu": "tu vas",
+            "il/elle": "il/elle va",
+            "nous": "nous allons",
+            "vous": "vous allez",
+            "ils/elles": "ils/elles vont"
+          },
+          "english": {
+            "je": "I go",
+            "tu": "you go",
+            "il/elle": "he/she goes",
+            "nous": "we go",
+            "vous": "you go",
+            "ils/elles": "they go"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "je suis allé(e)",
+            "tu": "tu es allé(e)",
+            "il/elle": "il est allé / elle est allée",
+            "nous": "nous sommes allé(e)s",
+            "vous": "vous êtes allé(e)(s)",
+            "ils/elles": "ils sont allés / elles sont allées"
+          },
+          "english": {
+            "je": "I went / I have gone",
+            "tu": "you went",
+            "il/elle": "he went / she went",
+            "nous": "we went",
+            "vous": "you went",
+            "ils/elles": "they went"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais aller",
+            "tu": "tu vas aller",
+            "il/elle": "il/elle va aller",
+            "nous": "nous allons aller",
+            "vous": "vous allez aller",
+            "ils/elles": "ils/elles vont aller"
+          },
+          "english": {
+            "je": "I am going to go",
+            "tu": "you are going to go",
+            "il/elle": "he/she is going to go",
+            "nous": "we are going to go",
+            "vous": "you are going to go",
+            "ils/elles": "they are going to go"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "j'allais",
+            "tu": "tu allais",
+            "il/elle": "il/elle allait",
+            "nous": "nous allions",
+            "vous": "vous alliez",
+            "ils/elles": "ils/elles allaient"
+          },
+          "english": {
+            "je": "I was going / I used to go",
+            "tu": "you were going / you used to go",
+            "il/elle": "he/she was going / used to go",
+            "nous": "we were going / we used to go",
+            "vous": "you were going / you used to go",
+            "ils/elles": "they were going / they used to go"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "venir",
+      "english": "to come",
+      "level": "A1",
+      "auxiliary": "être",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je viens",
+            "tu": "tu viens",
+            "il/elle": "il/elle vient",
+            "nous": "nous venons",
+            "vous": "vous venez",
+            "ils/elles": "ils/elles viennent"
+          },
+          "english": {
+            "je": "I come",
+            "tu": "you come",
+            "il/elle": "he/she comes",
+            "nous": "we come",
+            "vous": "you come",
+            "ils/elles": "they come"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "je suis venu(e)",
+            "tu": "tu es venu(e)",
+            "il/elle": "il est venu / elle est venue",
+            "nous": "nous sommes venu(e)s",
+            "vous": "vous êtes venu(e)(s)",
+            "ils/elles": "ils sont venus / elles sont venues"
+          },
+          "english": {
+            "je": "I came",
+            "tu": "you came",
+            "il/elle": "he/she came",
+            "nous": "we came",
+            "vous": "you came",
+            "ils/elles": "they came"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais venir",
+            "tu": "tu vas venir",
+            "il/elle": "il/elle va venir",
+            "nous": "nous allons venir",
+            "vous": "vous allez venir",
+            "ils/elles": "ils/elles vont venir"
+          },
+          "english": {
+            "je": "I am going to come",
+            "tu": "you are going to come",
+            "il/elle": "he/she is going to come",
+            "nous": "we are going to come",
+            "vous": "you are going to come",
+            "ils/elles": "they are going to come"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je venais",
+            "tu": "tu venais",
+            "il/elle": "il/elle venait",
+            "nous": "nous venions",
+            "vous": "vous veniez",
+            "ils/elles": "ils/elles venaient"
+          },
+          "english": {
+            "je": "I was coming / I used to come",
+            "tu": "you were coming / you used to come",
+            "il/elle": "he/she was coming / used to come",
+            "nous": "we were coming / we used to come",
+            "vous": "you were coming / you used to come",
+            "ils/elles": "they were coming / they used to come"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "faire",
+      "english": "to do / to make",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je fais",
+            "tu": "tu fais",
+            "il/elle": "il/elle fait",
+            "nous": "nous faisons",
+            "vous": "vous faites",
+            "ils/elles": "ils/elles font"
+          },
+          "english": {
+            "je": "I do / I make",
+            "tu": "you do / you make",
+            "il/elle": "he/she does / makes",
+            "nous": "we do / we make",
+            "vous": "you do / you make",
+            "ils/elles": "they do / they make"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai fait",
+            "tu": "tu as fait",
+            "il/elle": "il/elle a fait",
+            "nous": "nous avons fait",
+            "vous": "vous avez fait",
+            "ils/elles": "ils/elles ont fait"
+          },
+          "english": {
+            "je": "I did / I have done",
+            "tu": "you did",
+            "il/elle": "he/she did",
+            "nous": "we did",
+            "vous": "you did",
+            "ils/elles": "they did"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais faire",
+            "tu": "tu vas faire",
+            "il/elle": "il/elle va faire",
+            "nous": "nous allons faire",
+            "vous": "vous allez faire",
+            "ils/elles": "ils/elles vont faire"
+          },
+          "english": {
+            "je": "I am going to do",
+            "tu": "you are going to do",
+            "il/elle": "he/she is going to do",
+            "nous": "we are going to do",
+            "vous": "you are going to do",
+            "ils/elles": "they are going to do"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je faisais",
+            "tu": "tu faisais",
+            "il/elle": "il/elle faisait",
+            "nous": "nous faisions",
+            "vous": "vous faisiez",
+            "ils/elles": "ils/elles faisaient"
+          },
+          "english": {
+            "je": "I was doing / I used to do",
+            "tu": "you were doing / you used to do",
+            "il/elle": "he/she was doing / used to do",
+            "nous": "we were doing / we used to do",
+            "vous": "you were doing / you used to do",
+            "ils/elles": "they were doing / they used to do"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "pouvoir",
+      "english": "can / to be able to",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je peux",
+            "tu": "tu peux",
+            "il/elle": "il/elle peut",
+            "nous": "nous pouvons",
+            "vous": "vous pouvez",
+            "ils/elles": "ils/elles peuvent"
+          },
+          "english": {
+            "je": "I can",
+            "tu": "you can",
+            "il/elle": "he/she can",
+            "nous": "we can",
+            "vous": "you can",
+            "ils/elles": "they can"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai pu",
+            "tu": "tu as pu",
+            "il/elle": "il/elle a pu",
+            "nous": "nous avons pu",
+            "vous": "vous avez pu",
+            "ils/elles": "ils/elles ont pu"
+          },
+          "english": {
+            "je": "I could / I was able to",
+            "tu": "you could",
+            "il/elle": "he/she could",
+            "nous": "we could",
+            "vous": "you could",
+            "ils/elles": "they could"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais pouvoir",
+            "tu": "tu vas pouvoir",
+            "il/elle": "il/elle va pouvoir",
+            "nous": "nous allons pouvoir",
+            "vous": "vous allez pouvoir",
+            "ils/elles": "ils/elles vont pouvoir"
+          },
+          "english": {
+            "je": "I am going to be able to",
+            "tu": "you are going to be able to",
+            "il/elle": "he/she is going to be able to",
+            "nous": "we are going to be able to",
+            "vous": "you are going to be able to",
+            "ils/elles": "they are going to be able to"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je pouvais",
+            "tu": "tu pouvais",
+            "il/elle": "il/elle pouvait",
+            "nous": "nous pouvions",
+            "vous": "vous pouviez",
+            "ils/elles": "ils/elles pouvaient"
+          },
+          "english": {
+            "je": "I could / I was able to",
+            "tu": "you could / you were able to",
+            "il/elle": "he/she could / was able to",
+            "nous": "we could / we were able to",
+            "vous": "you could / you were able to",
+            "ils/elles": "they could / they were able to"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "vouloir",
+      "english": "to want",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je veux",
+            "tu": "tu veux",
+            "il/elle": "il/elle veut",
+            "nous": "nous voulons",
+            "vous": "vous voulez",
+            "ils/elles": "ils/elles veulent"
+          },
+          "english": {
+            "je": "I want",
+            "tu": "you want",
+            "il/elle": "he/she wants",
+            "nous": "we want",
+            "vous": "you want",
+            "ils/elles": "they want"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai voulu",
+            "tu": "tu as voulu",
+            "il/elle": "il/elle a voulu",
+            "nous": "nous avons voulu",
+            "vous": "vous avez voulu",
+            "ils/elles": "ils/elles ont voulu"
+          },
+          "english": {
+            "je": "I wanted",
+            "tu": "you wanted",
+            "il/elle": "he/she wanted",
+            "nous": "we wanted",
+            "vous": "you wanted",
+            "ils/elles": "they wanted"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais vouloir",
+            "tu": "tu vas vouloir",
+            "il/elle": "il/elle va vouloir",
+            "nous": "nous allons vouloir",
+            "vous": "vous allez vouloir",
+            "ils/elles": "ils/elles vont vouloir"
+          },
+          "english": {
+            "je": "I am going to want",
+            "tu": "you are going to want",
+            "il/elle": "he/she is going to want",
+            "nous": "we are going to want",
+            "vous": "you are going to want",
+            "ils/elles": "they are going to want"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je voulais",
+            "tu": "tu voulais",
+            "il/elle": "il/elle voulait",
+            "nous": "nous voulions",
+            "vous": "vous vouliez",
+            "ils/elles": "ils/elles voulaient"
+          },
+          "english": {
+            "je": "I wanted / I used to want",
+            "tu": "you wanted / you used to want",
+            "il/elle": "he/she wanted / used to want",
+            "nous": "we wanted / we used to want",
+            "vous": "you wanted / you used to want",
+            "ils/elles": "they wanted / they used to want"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "prendre",
+      "english": "to take",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je prends",
+            "tu": "tu prends",
+            "il/elle": "il/elle prend",
+            "nous": "nous prenons",
+            "vous": "vous prenez",
+            "ils/elles": "ils/elles prennent"
+          },
+          "english": {
+            "je": "I take",
+            "tu": "you take",
+            "il/elle": "he/she takes",
+            "nous": "we take",
+            "vous": "you take",
+            "ils/elles": "they take"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai pris",
+            "tu": "tu as pris",
+            "il/elle": "il/elle a pris",
+            "nous": "nous avons pris",
+            "vous": "vous avez pris",
+            "ils/elles": "ils/elles ont pris"
+          },
+          "english": {
+            "je": "I took",
+            "tu": "you took",
+            "il/elle": "he/she took",
+            "nous": "we took",
+            "vous": "you took",
+            "ils/elles": "they took"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais prendre",
+            "tu": "tu vas prendre",
+            "il/elle": "il/elle va prendre",
+            "nous": "nous allons prendre",
+            "vous": "vous allez prendre",
+            "ils/elles": "ils/elles vont prendre"
+          },
+          "english": {
+            "je": "I am going to take",
+            "tu": "you are going to take",
+            "il/elle": "he/she is going to take",
+            "nous": "we are going to take",
+            "vous": "you are going to take",
+            "ils/elles": "they are going to take"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je prenais",
+            "tu": "tu prenais",
+            "il/elle": "il/elle prenait",
+            "nous": "nous prenions",
+            "vous": "vous preniez",
+            "ils/elles": "ils/elles prenaient"
+          },
+          "english": {
+            "je": "I was taking / I used to take",
+            "tu": "you were taking / you used to take",
+            "il/elle": "he/she was taking / used to take",
+            "nous": "we were taking / we used to take",
+            "vous": "you were taking / you used to take",
+            "ils/elles": "they were taking / they used to take"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "apprendre",
+      "english": "to learn",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "j'apprends",
+            "tu": "tu apprends",
+            "il/elle": "il/elle apprend",
+            "nous": "nous apprenons",
+            "vous": "vous apprenez",
+            "ils/elles": "ils/elles apprennent"
+          },
+          "english": {
+            "je": "I learn",
+            "tu": "you learn",
+            "il/elle": "he/she learns",
+            "nous": "we learn",
+            "vous": "you learn",
+            "ils/elles": "they learn"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai appris",
+            "tu": "tu as appris",
+            "il/elle": "il/elle a appris",
+            "nous": "nous avons appris",
+            "vous": "vous avez appris",
+            "ils/elles": "ils/elles ont appris"
+          },
+          "english": {
+            "je": "I learned",
+            "tu": "you learned",
+            "il/elle": "he/she learned",
+            "nous": "we learned",
+            "vous": "you learned",
+            "ils/elles": "they learned"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais apprendre",
+            "tu": "tu vas apprendre",
+            "il/elle": "il/elle va apprendre",
+            "nous": "nous allons apprendre",
+            "vous": "vous allez apprendre",
+            "ils/elles": "ils/elles vont apprendre"
+          },
+          "english": {
+            "je": "I am going to learn",
+            "tu": "you are going to learn",
+            "il/elle": "he/she is going to learn",
+            "nous": "we are going to learn",
+            "vous": "you are going to learn",
+            "ils/elles": "they are going to learn"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "j'apprenais",
+            "tu": "tu apprenais",
+            "il/elle": "il/elle apprenait",
+            "nous": "nous apprenions",
+            "vous": "vous appreniez",
+            "ils/elles": "ils/elles apprenaient"
+          },
+          "english": {
+            "je": "I was learning / I used to learn",
+            "tu": "you were learning / you used to learn",
+            "il/elle": "he/she was learning / used to learn",
+            "nous": "we were learning / we used to learn",
+            "vous": "you were learning / you used to learn",
+            "ils/elles": "they were learning / they used to learn"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "comprendre",
+      "english": "to understand",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je comprends",
+            "tu": "tu comprends",
+            "il/elle": "il/elle comprend",
+            "nous": "nous comprenons",
+            "vous": "vous comprenez",
+            "ils/elles": "ils/elles comprennent"
+          },
+          "english": {
+            "je": "I understand",
+            "tu": "you understand",
+            "il/elle": "he/she understands",
+            "nous": "we understand",
+            "vous": "you understand",
+            "ils/elles": "they understand"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai compris",
+            "tu": "tu as compris",
+            "il/elle": "il/elle a compris",
+            "nous": "nous avons compris",
+            "vous": "vous avez compris",
+            "ils/elles": "ils/elles ont compris"
+          },
+          "english": {
+            "je": "I understood",
+            "tu": "you understood",
+            "il/elle": "he/she understood",
+            "nous": "we understood",
+            "vous": "you understood",
+            "ils/elles": "they understood"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais comprendre",
+            "tu": "tu vas comprendre",
+            "il/elle": "il/elle va comprendre",
+            "nous": "nous allons comprendre",
+            "vous": "vous allez comprendre",
+            "ils/elles": "ils/elles vont comprendre"
+          },
+          "english": {
+            "je": "I am going to understand",
+            "tu": "you are going to understand",
+            "il/elle": "he/she is going to understand",
+            "nous": "we are going to understand",
+            "vous": "you are going to understand",
+            "ils/elles": "they are going to understand"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je comprenais",
+            "tu": "tu comprenais",
+            "il/elle": "il/elle comprenait",
+            "nous": "nous comprenions",
+            "vous": "vous compreniez",
+            "ils/elles": "ils/elles comprenaient"
+          },
+          "english": {
+            "je": "I was understanding / I used to understand",
+            "tu": "you were understanding / you used to understand",
+            "il/elle": "he/she was understanding / used to understand",
+            "nous": "we were understanding / we used to understand",
+            "vous": "you were understanding / you used to understand",
+            "ils/elles": "they were understanding / they used to understand"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "mettre",
+      "english": "to put / to place",
+      "level": "A2",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je mets",
+            "tu": "tu mets",
+            "il/elle": "il/elle met",
+            "nous": "nous mettons",
+            "vous": "vous mettez",
+            "ils/elles": "ils/elles mettent"
+          },
+          "english": {
+            "je": "I put",
+            "tu": "you put",
+            "il/elle": "he/she puts",
+            "nous": "we put",
+            "vous": "you put",
+            "ils/elles": "they put"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai mis",
+            "tu": "tu as mis",
+            "il/elle": "il/elle a mis",
+            "nous": "nous avons mis",
+            "vous": "vous avez mis",
+            "ils/elles": "ils/elles ont mis"
+          },
+          "english": {
+            "je": "I put / I have put",
+            "tu": "you put",
+            "il/elle": "he/she put",
+            "nous": "we put",
+            "vous": "you put",
+            "ils/elles": "they put"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais mettre",
+            "tu": "tu vas mettre",
+            "il/elle": "il/elle va mettre",
+            "nous": "nous allons mettre",
+            "vous": "vous allez mettre",
+            "ils/elles": "ils/elles vont mettre"
+          },
+          "english": {
+            "je": "I am going to put",
+            "tu": "you are going to put",
+            "il/elle": "he/she is going to put",
+            "nous": "we are going to put",
+            "vous": "you are going to put",
+            "ils/elles": "they are going to put"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je mettais",
+            "tu": "tu mettais",
+            "il/elle": "il/elle mettait",
+            "nous": "nous mettions",
+            "vous": "vous mettiez",
+            "ils/elles": "ils/elles mettaient"
+          },
+          "english": {
+            "je": "I was putting / I used to put",
+            "tu": "you were putting / you used to put",
+            "il/elle": "he/she was putting / used to put",
+            "nous": "we were putting / we used to put",
+            "vous": "you were putting / you used to put",
+            "ils/elles": "they were putting / they used to put"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "permettre",
+      "english": "to allow / to permit",
+      "level": "A2",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je permets",
+            "tu": "tu permets",
+            "il/elle": "il/elle permet",
+            "nous": "nous permettons",
+            "vous": "vous permettez",
+            "ils/elles": "ils/elles permettent"
+          },
+          "english": {
+            "je": "I allow",
+            "tu": "you allow",
+            "il/elle": "he/she allows",
+            "nous": "we allow",
+            "vous": "you allow",
+            "ils/elles": "they allow"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai permis",
+            "tu": "tu as permis",
+            "il/elle": "il/elle a permis",
+            "nous": "nous avons permis",
+            "vous": "vous avez permis",
+            "ils/elles": "ils/elles ont permis"
+          },
+          "english": {
+            "je": "I allowed",
+            "tu": "you allowed",
+            "il/elle": "he/she allowed",
+            "nous": "we allowed",
+            "vous": "you allowed",
+            "ils/elles": "they allowed"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais permettre",
+            "tu": "tu vas permettre",
+            "il/elle": "il/elle va permettre",
+            "nous": "nous allons permettre",
+            "vous": "vous allez permettre",
+            "ils/elles": "ils/elles vont permettre"
+          },
+          "english": {
+            "je": "I am going to allow",
+            "tu": "you are going to allow",
+            "il/elle": "he/she is going to allow",
+            "nous": "we are going to allow",
+            "vous": "you are going to allow",
+            "ils/elles": "they are going to allow"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je permettais",
+            "tu": "tu permettais",
+            "il/elle": "il/elle permettait",
+            "nous": "nous permettions",
+            "vous": "vous permettiez",
+            "ils/elles": "ils/elles permettaient"
+          },
+          "english": {
+            "je": "I was allowing / I used to allow",
+            "tu": "you were allowing / you used to allow",
+            "il/elle": "he/she was allowing / used to allow",
+            "nous": "we were allowing / we used to allow",
+            "vous": "you were allowing / you used to allow",
+            "ils/elles": "they were allowing / they used to allow"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "falloir",
+      "english": "to be necessary (il faut)",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "impersonal": true,
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "il/elle": "il faut"
+          },
+          "english": {
+            "il/elle": "it is necessary / one must"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "il/elle": "il a fallu"
+          },
+          "english": {
+            "il/elle": "it was necessary"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "il/elle": "il va falloir"
+          },
+          "english": {
+            "il/elle": "it is going to be necessary"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "il/elle": "il fallait"
+          },
+          "english": {
+            "il/elle": "it was necessary / one had to"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "devoir",
+      "english": "to have to / must",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je dois",
+            "tu": "tu dois",
+            "il/elle": "il/elle doit",
+            "nous": "nous devons",
+            "vous": "vous devez",
+            "ils/elles": "ils/elles doivent"
+          },
+          "english": {
+            "je": "I must / I have to",
+            "tu": "you must / you have to",
+            "il/elle": "he/she must / has to",
+            "nous": "we must / we have to",
+            "vous": "you must / you have to",
+            "ils/elles": "they must / they have to"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai dû",
+            "tu": "tu as dû",
+            "il/elle": "il/elle a dû",
+            "nous": "nous avons dû",
+            "vous": "vous avez dû",
+            "ils/elles": "ils/elles ont dû"
+          },
+          "english": {
+            "je": "I had to",
+            "tu": "you had to",
+            "il/elle": "he/she had to",
+            "nous": "we had to",
+            "vous": "you had to",
+            "ils/elles": "they had to"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais devoir",
+            "tu": "tu vas devoir",
+            "il/elle": "il/elle va devoir",
+            "nous": "nous allons devoir",
+            "vous": "vous allez devoir",
+            "ils/elles": "ils/elles vont devoir"
+          },
+          "english": {
+            "je": "I am going to have to",
+            "tu": "you are going to have to",
+            "il/elle": "he/she is going to have to",
+            "nous": "we are going to have to",
+            "vous": "you are going to have to",
+            "ils/elles": "they are going to have to"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je devais",
+            "tu": "tu devais",
+            "il/elle": "il/elle devait",
+            "nous": "nous devions",
+            "vous": "vous deviez",
+            "ils/elles": "ils/elles devaient"
+          },
+          "english": {
+            "je": "I had to / I used to have to",
+            "tu": "you had to / you used to have to",
+            "il/elle": "he/she had to / used to have to",
+            "nous": "we had to / we used to have to",
+            "vous": "you had to / you used to have to",
+            "ils/elles": "they had to / they used to have to"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "savoir",
+      "english": "to know (facts / how to)",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je sais",
+            "tu": "tu sais",
+            "il/elle": "il/elle sait",
+            "nous": "nous savons",
+            "vous": "vous savez",
+            "ils/elles": "ils/elles savent"
+          },
+          "english": {
+            "je": "I know",
+            "tu": "you know",
+            "il/elle": "he/she knows",
+            "nous": "we know",
+            "vous": "you know",
+            "ils/elles": "they know"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai su",
+            "tu": "tu as su",
+            "il/elle": "il/elle a su",
+            "nous": "nous avons su",
+            "vous": "vous avez su",
+            "ils/elles": "ils/elles ont su"
+          },
+          "english": {
+            "je": "I knew / I found out",
+            "tu": "you knew",
+            "il/elle": "he/she knew",
+            "nous": "we knew",
+            "vous": "you knew",
+            "ils/elles": "they knew"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais savoir",
+            "tu": "tu vas savoir",
+            "il/elle": "il/elle va savoir",
+            "nous": "nous allons savoir",
+            "vous": "vous allez savoir",
+            "ils/elles": "ils/elles vont savoir"
+          },
+          "english": {
+            "je": "I am going to know",
+            "tu": "you are going to know",
+            "il/elle": "he/she is going to know",
+            "nous": "we are going to know",
+            "vous": "you are going to know",
+            "ils/elles": "they are going to know"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je savais",
+            "tu": "tu savais",
+            "il/elle": "il/elle savait",
+            "nous": "nous savions",
+            "vous": "vous saviez",
+            "ils/elles": "ils/elles savaient"
+          },
+          "english": {
+            "je": "I knew / I used to know",
+            "tu": "you knew / you used to know",
+            "il/elle": "he/she knew / used to know",
+            "nous": "we knew / we used to know",
+            "vous": "you knew / you used to know",
+            "ils/elles": "they knew / they used to know"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "dire",
+      "english": "to say / to tell",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je dis",
+            "tu": "tu dis",
+            "il/elle": "il/elle dit",
+            "nous": "nous disons",
+            "vous": "vous dites",
+            "ils/elles": "ils/elles disent"
+          },
+          "english": {
+            "je": "I say",
+            "tu": "you say",
+            "il/elle": "he/she says",
+            "nous": "we say",
+            "vous": "you say",
+            "ils/elles": "they say"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai dit",
+            "tu": "tu as dit",
+            "il/elle": "il/elle a dit",
+            "nous": "nous avons dit",
+            "vous": "vous avez dit",
+            "ils/elles": "ils/elles ont dit"
+          },
+          "english": {
+            "je": "I said",
+            "tu": "you said",
+            "il/elle": "he/she said",
+            "nous": "we said",
+            "vous": "you said",
+            "ils/elles": "they said"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais dire",
+            "tu": "tu vas dire",
+            "il/elle": "il/elle va dire",
+            "nous": "nous allons dire",
+            "vous": "vous allez dire",
+            "ils/elles": "ils/elles vont dire"
+          },
+          "english": {
+            "je": "I am going to say",
+            "tu": "you are going to say",
+            "il/elle": "he/she is going to say",
+            "nous": "we are going to say",
+            "vous": "you are going to say",
+            "ils/elles": "they are going to say"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je disais",
+            "tu": "tu disais",
+            "il/elle": "il/elle disait",
+            "nous": "nous disions",
+            "vous": "vous disiez",
+            "ils/elles": "ils/elles disaient"
+          },
+          "english": {
+            "je": "I was saying / I used to say",
+            "tu": "you were saying / you used to say",
+            "il/elle": "he/she was saying / used to say",
+            "nous": "we were saying / we used to say",
+            "vous": "you were saying / you used to say",
+            "ils/elles": "they were saying / they used to say"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "connaître",
+      "english": "to know (people / places)",
+      "level": "A2",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je connais",
+            "tu": "tu connais",
+            "il/elle": "il/elle connaît",
+            "nous": "nous connaissons",
+            "vous": "vous connaissez",
+            "ils/elles": "ils/elles connaissent"
+          },
+          "english": {
+            "je": "I know",
+            "tu": "you know",
+            "il/elle": "he/she knows",
+            "nous": "we know",
+            "vous": "you know",
+            "ils/elles": "they know"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai connu",
+            "tu": "tu as connu",
+            "il/elle": "il/elle a connu",
+            "nous": "nous avons connu",
+            "vous": "vous avez connu",
+            "ils/elles": "ils/elles ont connu"
+          },
+          "english": {
+            "je": "I knew / I met",
+            "tu": "you knew",
+            "il/elle": "he/she knew",
+            "nous": "we knew",
+            "vous": "you knew",
+            "ils/elles": "they knew"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais connaître",
+            "tu": "tu vas connaître",
+            "il/elle": "il/elle va connaître",
+            "nous": "nous allons connaître",
+            "vous": "vous allez connaître",
+            "ils/elles": "ils/elles vont connaître"
+          },
+          "english": {
+            "je": "I am going to know",
+            "tu": "you are going to know",
+            "il/elle": "he/she is going to know",
+            "nous": "we are going to know",
+            "vous": "you are going to know",
+            "ils/elles": "they are going to know"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je connaissais",
+            "tu": "tu connaissais",
+            "il/elle": "il/elle connaissait",
+            "nous": "nous connaissions",
+            "vous": "vous connaissiez",
+            "ils/elles": "ils/elles connaissaient"
+          },
+          "english": {
+            "je": "I knew / I used to know",
+            "tu": "you knew / you used to know",
+            "il/elle": "he/she knew / used to know",
+            "nous": "we knew / we used to know",
+            "vous": "you knew / you used to know",
+            "ils/elles": "they knew / they used to know"
+          }
+        }
+      }
+    },
+    {
+      "infinitive": "voir",
+      "english": "to see",
+      "level": "A1",
+      "auxiliary": "avoir",
+      "group": "core",
+      "tenses": {
+        "present": {
+          "label": "Présent",
+          "forms": {
+            "je": "je vois",
+            "tu": "tu vois",
+            "il/elle": "il/elle voit",
+            "nous": "nous voyons",
+            "vous": "vous voyez",
+            "ils/elles": "ils/elles voient"
+          },
+          "english": {
+            "je": "I see",
+            "tu": "you see",
+            "il/elle": "he/she sees",
+            "nous": "we see",
+            "vous": "you see",
+            "ils/elles": "they see"
+          }
+        },
+        "passe_compose": {
+          "label": "Passé composé",
+          "forms": {
+            "je": "j'ai vu",
+            "tu": "tu as vu",
+            "il/elle": "il/elle a vu",
+            "nous": "nous avons vu",
+            "vous": "vous avez vu",
+            "ils/elles": "ils/elles ont vu"
+          },
+          "english": {
+            "je": "I saw",
+            "tu": "you saw",
+            "il/elle": "he/she saw",
+            "nous": "we saw",
+            "vous": "you saw",
+            "ils/elles": "they saw"
+          }
+        },
+        "futur_proche": {
+          "label": "Futur proche",
+          "forms": {
+            "je": "je vais voir",
+            "tu": "tu vas voir",
+            "il/elle": "il/elle va voir",
+            "nous": "nous allons voir",
+            "vous": "vous allez voir",
+            "ils/elles": "ils/elles vont voir"
+          },
+          "english": {
+            "je": "I am going to see",
+            "tu": "you are going to see",
+            "il/elle": "he/she is going to see",
+            "nous": "we are going to see",
+            "vous": "you are going to see",
+            "ils/elles": "they are going to see"
+          }
+        },
+        "imparfait": {
+          "label": "Imparfait",
+          "forms": {
+            "je": "je voyais",
+            "tu": "tu voyais",
+            "il/elle": "il/elle voyait",
+            "nous": "nous voyions",
+            "vous": "vous voyiez",
+            "ils/elles": "ils/elles voyaient"
+          },
+          "english": {
+            "je": "I was seeing / I used to see",
+            "tu": "you were seeing / you used to see",
+            "il/elle": "he/she was seeing / used to see",
+            "nous": "we were seeing / we used to see",
+            "vous": "you were seeing / you used to see",
+            "ils/elles": "they were seeing / they used to see"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -4,13 +4,23 @@ import styles from './TopicFilter.module.css';
 interface TopicFilterProps {
   selectedTopics: string[];
   onToggle: (topic: string) => void;
+  onSelectAll?: () => void;
 }
 
-const TopicFilter: React.FC<TopicFilterProps> = ({ selectedTopics, onToggle }) => {
+const TopicFilter: React.FC<TopicFilterProps> = ({ selectedTopics, onToggle, onSelectAll }) => {
   const topics = vocabulary.metadata.topics;
+  const allSelected = selectedTopics.length === 0;
 
   return (
     <div className={styles.container}>
+      {onSelectAll && (
+        <button
+          className={`${styles.chip} ${allSelected ? styles.active : ''}`}
+          onClick={onSelectAll}
+        >
+          All
+        </button>
+      )}
       {topics.map((topic) => (
         <button
           key={topic}

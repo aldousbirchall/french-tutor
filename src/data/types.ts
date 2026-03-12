@@ -1,3 +1,42 @@
+// Conjugation types
+export interface ConjugationTense {
+  label: string;
+  forms: Record<string, string>;
+  english: Record<string, string>;
+}
+
+export interface ConjugationVerb {
+  infinitive: string;
+  english: string;
+  level: 'A1' | 'A2';
+  auxiliary: string;
+  group?: string;
+  impersonal?: boolean;
+  tenses: Record<string, ConjugationTense>;
+}
+
+export interface ConjugationCorpus {
+  version: string;
+  metadata: {
+    total_verbs: number;
+    tenses: string[];
+    pronouns: string[];
+  };
+  verbs: ConjugationVerb[];
+}
+
+// Flattened conjugation item for flashcard/quiz use
+export interface ConjugationItem {
+  id: string;
+  infinitive: string;
+  pronoun: string;
+  tense: string;
+  tenseLabel: string;
+  form: string;
+  english: string;
+  group?: string;
+}
+
 // Schedule types
 export interface Schedule {
   version: string;
@@ -139,6 +178,44 @@ export interface FormField {
   type: string;
   hint: string;
   options?: string[];
+}
+
+// Dialogue corpus types
+export interface DialogueTurn {
+  speaker: 'examiner' | 'candidate';
+  french: string;
+  english: string;
+}
+
+export interface ComprehensionQuestion {
+  id: string;
+  question: string;
+  type: 'gist' | 'response' | 'vocab_in_context';
+  context_turn: number;
+  options: string[];
+  correct_index: number;
+  explanation: string;
+}
+
+export interface ModelDialogue {
+  id: string;
+  scenario_type: string;
+  scenario_id: string;
+  title: string;
+  level: 'A1' | 'A2';
+  context: string;
+  turns: DialogueTurn[];
+  key_phrases: { french: string; english: string }[];
+  questions: ComprehensionQuestion[];
+}
+
+export interface DialogueCorpus {
+  version: string;
+  metadata: {
+    total_dialogues: number;
+    scenario_types: string[];
+  };
+  dialogues: ModelDialogue[];
 }
 
 // Letter writing scenario

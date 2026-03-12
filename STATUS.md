@@ -32,6 +32,17 @@ npm install && npm run dev
 # Open http://localhost:5173, enter Anthropic API key
 ```
 
+### Recent Changes (2026-03-04)
+- Vocabulary section split into three tabs: Spoken, Flashcards, Quiz
+  - Spoken: existing FSRS + voice mode (extracted to SpokenVocabulary.tsx)
+  - Flashcards: stateless flip cards, Fisher-Yates shuffle, prev/next nav
+  - Quiz: 20-question multiple-choice batches, POS-aware distractor generation
+  - Shared topic filter with "All" pill across all three tabs
+  - 7 new files, 3 modified files
+
+### Backlog
+- **Standard Conversations**: Generate a corpus of model exam-style dialogues covering all scenario types (role-plays, image descriptions, sequential narrations, open discussions, listening). Two drill modes: (1) multiple-choice comprehension quizzes derived from the dialogues, (2) reference reading to absorb patterns and expected vocabulary. No past papers exist, so simulate probable exam content and drill recognition without requiring a live Claude conversation each time.
+
 ### What's Next
 - Manual verification of all UX changes in browser
 - Conversation mode: consider adding translation toggle for flashcards (type English answer as alternative to voice)

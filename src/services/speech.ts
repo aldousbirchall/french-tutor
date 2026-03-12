@@ -144,24 +144,29 @@ export class SpeechService {
 
   private selectFrenchVoice(preferredLang?: string): SpeechSynthesisVoice | null {
     const voices = window.speechSynthesis.getVoices();
+    const frVoices = voices.filter((v) => v.lang.startsWith('fr'));
+    if (frVoices.length === 0) return null;
+
+    // Prefer high-quality named voices (macOS premium voices)
+    const preferredNames = ['Thomas', 'Jacques', 'Audrey', 'Aurelie'];
+    for (const name of preferredNames) {
+      const match = frVoices.find((v) => v.name === name);
+      if (match) return match;
+    }
+
+    // Avoid novelty voices
+    const novelty = new Set(['Eddy', 'Flo', 'Grandma', 'Grandpa', 'Rocko', 'Sandy', 'Shelley', 'Reed']);
+    const goodVoices = frVoices.filter((v) => {
+      const firstName = v.name.split(' ')[0].split('(')[0].trim();
+      return !novelty.has(firstName);
+    });
+
+    // Prefer fr-FR over fr-CA for European French
     const lang = preferredLang ?? 'fr-FR';
+    const langMatch = goodVoices.find((v) => v.lang === lang) ?? goodVoices[0];
+    if (langMatch) return langMatch;
 
-    // Prefer fr-CH
-    const chVoice = voices.find((v) => v.lang === 'fr-CH');
-    if (chVoice) return chVoice;
-
-    // Then exact match
-    const exactVoice = voices.find((v) => v.lang === lang);
-    if (exactVoice) return exactVoice;
-
-    // Then any fr-FR
-    const frVoice = voices.find((v) => v.lang === 'fr-FR');
-    if (frVoice) return frVoice;
-
-    // Then any fr-*
-    const anyFrVoice = voices.find((v) => v.lang.startsWith('fr'));
-    if (anyFrVoice) return anyFrVoice;
-
-    return null;
+    // Last resort: any French voice
+    return frVoices[0];
   }
 }

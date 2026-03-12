@@ -14,7 +14,12 @@
       "scenario": "The candidate comes to the pharmacy with a headache and a cold. They need to ask for medication, describe symptoms, and understand dosage instructions.",
       "opening": "Bonjour, bienvenue a la pharmacie. Qu'est-ce que je peux faire pour vous ?",
       "key_functions": ["describe symptoms", "ask for advice", "understand instructions", "ask about price"],
-      "expected_vocabulary": ["mal a la tete", "rhume", "medicament", "ordonnance", "comprime", "sirop", "fois par jour"]
+      "expected_vocabulary": ["mal a la tete", "rhume", "medicament", "ordonnance", "comprime", "sirop", "fois par jour"],
+      "teacher_phrases": {
+        "describing_symptoms": ["Je tousse", "J'ai mal a la gorge", "J'ai le nez qui coule", "J'ai mal a la tete", "J'ai froid", "Je suis fatigue(e)", "J'ai de la fievre", "J'ai des courbatures", "J'ai les yeux sensibles", "J'ai mal au ventre", "Ca me gratte"],
+        "at_pharmacy": ["J'achete un medicament", "Je demande un sirop", "Je presente mon ordonnance", "J'explique mes symptomes"],
+        "body_pain": ["J'ai mal a la tete", "J'ai mal au ventre", "J'ai mal a la gorge", "J'ai mal au dos", "J'ai mal aux yeux"]
+      }
     },
     {
       "id": "post_office",
@@ -30,7 +35,12 @@
       "scenario": "The candidate has a doctor's appointment because they have had stomach pain for several days. They describe symptoms, answer questions, and understand the doctor's advice.",
       "opening": "Bonjour, asseyez-vous. Alors, qu'est-ce qui ne va pas ?",
       "key_functions": ["describe symptoms with timeline", "answer medical questions", "understand diagnosis", "follow instructions"],
-      "expected_vocabulary": ["mal au ventre", "depuis", "fievre", "examiner", "analyse", "medicament", "rendez-vous"]
+      "expected_vocabulary": ["mal au ventre", "depuis", "fievre", "examiner", "analyse", "medicament", "rendez-vous"],
+      "teacher_phrases": {
+        "describing_symptoms": ["Je tousse", "J'ai mal a la gorge", "J'ai le nez qui coule", "J'ai de la fievre", "J'ai des courbatures", "J'ai mal au ventre"],
+        "body_parts": ["la tete", "le cou", "la gorge", "la poitrine", "le ventre", "le dos", "le bras", "la jambe", "le genou", "l'epaule"],
+        "medical_specialists": ["le medecin generaliste", "le cardiologue", "le dermatologue", "le pediatre", "l'ophtalmologue"]
+      }
     },
     {
       "id": "bakery",
@@ -38,7 +48,13 @@
       "scenario": "The candidate is buying bread and pastries for a family gathering. They need to ask what's available, choose items, ask about ingredients (allergy), and pay.",
       "opening": "Bonjour ! Qu'est-ce que je vous sers ?",
       "key_functions": ["ask what's available", "make choices", "ask about ingredients", "handle payment"],
-      "expected_vocabulary": ["pain", "croissant", "gateau", "combien", "morceau", "allergie", "gluten", "carte"]
+      "expected_vocabulary": ["pain", "croissant", "gateau", "combien", "morceau", "allergie", "gluten", "carte"],
+      "teacher_phrases": {
+        "ordering": ["Je voudrais...", "J'aimerais...", "Je vais prendre...", "Pour moi, ... s'il vous plait", "Pour moi, ca sera..."],
+        "asking_questions": ["Quel est le plat du jour ?", "Qu'est-ce que vous avez comme desserts ?", "Qu'est-ce qu'il y a dans ce plat ?"],
+        "paying": ["L'addition, s'il vous plait !", "Je pourrais avoir l'addition, s'il vous plait ?"],
+        "server_phrases": ["Bonjour, vous avez choisi ?", "Qu'est-ce que vous prendrez comme boisson ?", "Voulez-vous un dessert ?"]
+      }
     },
     {
       "id": "train_ticket",
@@ -70,7 +86,13 @@
       "scenario": "The candidate needs to register a change of address. They provide information and ask about required documents.",
       "opening": "Bonjour, vous avez pris rendez-vous ?",
       "key_functions": ["state purpose", "provide personal information", "ask about documents needed", "understand next steps"],
-      "expected_vocabulary": ["demenager", "adresse", "formulaire", "passeport", "permis", "attestation", "delai", "gratuit"]
+      "expected_vocabulary": ["demenager", "adresse", "formulaire", "passeport", "permis", "attestation", "delai", "gratuit"],
+      "teacher_phrases": {
+        "requesting_appointment": ["Bonjour, je voudrais prendre un rendez-vous svp.", "Bonjour, j'aimerais faire un rdv avec..."],
+        "proposing_date": ["C'est possible mardi prochain ?", "Ce serait pour quand ?", "Quand est-ce que vous avez des disponibilites ?", "A quelle heure etes-vous disponible ?"],
+        "accepting_date": ["Parfait, merci !", "C'est nickel !", "Tres bien, merci.", "Oui c'est bon pour moi."],
+        "refusing_date": ["Desolee, ce n'est pas possible pour moi.", "Un peu plus tard ou plus tot, c'est possible ?", "Je ne suis pas disponible."]
+      }
     }
   ],
   "scoring_criteria": {

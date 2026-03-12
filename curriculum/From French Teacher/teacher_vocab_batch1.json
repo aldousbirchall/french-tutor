@@ -1,0 +1,442 @@
+[
+  {
+    "french": "le plat principal",
+    "english": "main course",
+    "example_fr": "Comme plat principal, je prendrais le poulet roti.",
+    "example_en": "For the main course, I would have the roast chicken.",
+    "topic": "food",
+    "level": "A1",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "l'aperitif",
+    "english": "aperitif/pre-dinner drink",
+    "example_fr": "Vous desirez un aperitif avant le repas ?",
+    "example_en": "Would you like an aperitif before the meal?",
+    "topic": "food",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la carte",
+    "english": "menu (card)",
+    "example_fr": "J'aimerais le menu, s'il vous plait.",
+    "example_en": "I would like the menu, please.",
+    "topic": "food",
+    "level": "A1",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "la serveuse",
+    "english": "waitress",
+    "example_fr": "La serveuse nous a apporte l'addition.",
+    "example_en": "The waitress brought us the bill.",
+    "topic": "food",
+    "level": "A1",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "commander",
+    "english": "to order",
+    "example_fr": "Vous avez choisi ? Vous pouvez commander.",
+    "example_en": "Have you decided? You can order.",
+    "topic": "food",
+    "level": "A1",
+    "pos": "verb",
+    "gender": null
+  },
+  {
+    "french": "la cuisson",
+    "english": "cooking/doneness",
+    "example_fr": "Quelle cuisson pour votre steak ?",
+    "example_en": "How would you like your steak cooked?",
+    "topic": "food",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "saignant",
+    "english": "rare (meat)",
+    "example_fr": "Je voudrais mon steak saignant, s'il vous plait.",
+    "example_en": "I would like my steak rare, please.",
+    "topic": "food",
+    "level": "A2",
+    "pos": "adjective",
+    "gender": null
+  },
+  {
+    "french": "a point",
+    "english": "medium (meat)",
+    "example_fr": "Pour moi, un steak a point.",
+    "example_en": "For me, a medium steak.",
+    "topic": "food",
+    "level": "A2",
+    "pos": "expression",
+    "gender": null
+  },
+  {
+    "french": "bien cuit",
+    "english": "well done (meat)",
+    "example_fr": "Ma femme prefere la viande bien cuite.",
+    "example_en": "My wife prefers well-done meat.",
+    "topic": "food",
+    "level": "A2",
+    "pos": "expression",
+    "gender": null
+  },
+  {
+    "french": "le plat du jour",
+    "english": "dish of the day",
+    "example_fr": "Quel est le plat du jour ?",
+    "example_en": "What is the dish of the day?",
+    "topic": "food",
+    "level": "A1",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la glace",
+    "english": "ice cream",
+    "example_fr": "Comme dessert, je prendrais une glace a la vanille.",
+    "example_en": "For dessert, I would have a vanilla ice cream.",
+    "topic": "food",
+    "level": "A1",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "je voudrais",
+    "english": "I would like",
+    "example_fr": "Je voudrais une soupe de tomates en entree.",
+    "example_en": "I would like a tomato soup as a starter.",
+    "topic": "food",
+    "level": "A1",
+    "pos": "expression",
+    "gender": null
+  },
+  {
+    "french": "le cou",
+    "english": "neck",
+    "example_fr": "J'ai mal au cou depuis ce matin.",
+    "example_en": "My neck has been hurting since this morning.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la poitrine",
+    "english": "chest",
+    "example_fr": "J'ai une douleur a la poitrine.",
+    "example_en": "I have a pain in my chest.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "le poignet",
+    "english": "wrist",
+    "example_fr": "Je me suis fait mal au poignet.",
+    "example_en": "I hurt my wrist.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la cuisse",
+    "english": "thigh",
+    "example_fr": "J'ai des courbatures dans les cuisses.",
+    "example_en": "I have aches in my thighs.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "l'orteil",
+    "english": "toe",
+    "example_fr": "Je me suis cogne l'orteil contre la table.",
+    "example_en": "I stubbed my toe on the table.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la cheville",
+    "english": "ankle",
+    "example_fr": "Je me suis tordu la cheville en courant.",
+    "example_en": "I twisted my ankle while running.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "la nuque",
+    "english": "nape (of neck)",
+    "example_fr": "J'ai une tension dans la nuque.",
+    "example_en": "I have tension in the nape of my neck.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "le coude",
+    "english": "elbow",
+    "example_fr": "J'ai mal au coude droit.",
+    "example_en": "My right elbow hurts.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la hanche",
+    "english": "hip",
+    "example_fr": "Ma grand-mere a une prothese de la hanche.",
+    "example_en": "My grandmother has a hip replacement.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "le mollet",
+    "english": "calf (leg)",
+    "example_fr": "J'ai une crampe au mollet.",
+    "example_en": "I have a cramp in my calf.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "le talon",
+    "english": "heel",
+    "example_fr": "J'ai mal au talon quand je marche.",
+    "example_en": "My heel hurts when I walk.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "l'avant-bras",
+    "english": "forearm",
+    "example_fr": "J'ai une douleur dans l'avant-bras.",
+    "example_en": "I have a pain in my forearm.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "les courbatures",
+    "english": "body aches/muscle soreness",
+    "example_fr": "J'ai des courbatures apres le sport.",
+    "example_en": "I have body aches after exercising.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "ca me gratte",
+    "english": "it itches",
+    "example_fr": "Ca me gratte dans le dos, c'est insupportable.",
+    "example_en": "My back itches, it's unbearable.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "expression",
+    "gender": null
+  },
+  {
+    "french": "j'ai froid",
+    "english": "I am cold",
+    "example_fr": "J'ai froid et j'ai de la fievre.",
+    "example_en": "I am cold and I have a fever.",
+    "topic": "health",
+    "level": "A1",
+    "pos": "expression",
+    "gender": null
+  },
+  {
+    "french": "fatigue",
+    "english": "tired",
+    "example_fr": "Je suis tres fatigue depuis quelques jours.",
+    "example_en": "I have been very tired for a few days.",
+    "topic": "health",
+    "level": "A1",
+    "pos": "adjective",
+    "gender": null
+  },
+  {
+    "french": "le medecin generaliste",
+    "english": "general practitioner (GP)",
+    "example_fr": "Je dois consulter mon medecin generaliste.",
+    "example_en": "I need to see my GP.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "le specialiste",
+    "english": "specialist (doctor)",
+    "example_fr": "Mon medecin m'a envoye chez un specialiste.",
+    "example_en": "My doctor sent me to a specialist.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "le cardiologue",
+    "english": "cardiologist",
+    "example_fr": "Le cardiologue s'occupe du coeur.",
+    "example_en": "The cardiologist deals with the heart.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "le dermatologue",
+    "english": "dermatologist",
+    "example_fr": "Le dermatologue s'occupe des problemes de peau.",
+    "example_en": "The dermatologist deals with skin problems.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "le pediatre",
+    "english": "paediatrician",
+    "example_fr": "Le pediatre est le medecin des enfants.",
+    "example_en": "The paediatrician is the children's doctor.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "l'ophtalmologue",
+    "english": "ophthalmologist/eye doctor",
+    "example_fr": "L'ophtalmologue soigne les yeux.",
+    "example_en": "The ophthalmologist treats eyes.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "le cabinet",
+    "english": "doctor's office/practice",
+    "example_fr": "Les medecins recoivent les patients dans des cabinets.",
+    "example_en": "Doctors see patients in their practices.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la peau",
+    "english": "skin",
+    "example_fr": "J'ai un probleme de peau depuis une semaine.",
+    "example_en": "I have had a skin problem for a week.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "disponible",
+    "english": "available",
+    "example_fr": "A quelle heure etes-vous disponible ?",
+    "example_en": "What time are you available?",
+    "topic": "admin",
+    "level": "A2",
+    "pos": "adjective",
+    "gender": null
+  },
+  {
+    "french": "confirmer",
+    "english": "to confirm",
+    "example_fr": "Je confirme le rendez-vous de vendredi a 15h30.",
+    "example_en": "I confirm the appointment for Friday at 3:30pm.",
+    "topic": "admin",
+    "level": "A2",
+    "pos": "verb",
+    "gender": null
+  },
+  {
+    "french": "annuler",
+    "english": "to cancel",
+    "example_fr": "Je dois annuler mon rendez-vous de lundi.",
+    "example_en": "I need to cancel my Monday appointment.",
+    "topic": "admin",
+    "level": "A2",
+    "pos": "verb",
+    "gender": null
+  },
+  {
+    "french": "reporter",
+    "english": "to postpone/reschedule",
+    "example_fr": "Est-ce qu'on peut reporter le rendez-vous a la semaine prochaine ?",
+    "example_en": "Can we reschedule the appointment to next week?",
+    "topic": "admin",
+    "level": "A2",
+    "pos": "verb",
+    "gender": null
+  },
+  {
+    "french": "l'emploi du temps",
+    "english": "schedule/timetable",
+    "example_fr": "Attendez, je verifie son emploi du temps.",
+    "example_en": "Wait, I'll check his schedule.",
+    "topic": "admin",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "french": "la disponibilite",
+    "english": "availability",
+    "example_fr": "Quand est-ce que vous avez des disponibilites ?",
+    "example_en": "When do you have availability?",
+    "topic": "admin",
+    "level": "A2",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "french": "le nez qui coule",
+    "english": "runny nose",
+    "example_fr": "J'ai le nez qui coule depuis deux jours.",
+    "example_en": "I have had a runny nose for two days.",
+    "topic": "health",
+    "level": "A1",
+    "pos": "expression",
+    "gender": null
+  },
+  {
+    "french": "les yeux sensibles",
+    "english": "sensitive eyes",
+    "example_fr": "J'ai les yeux sensibles a la lumiere.",
+    "example_en": "My eyes are sensitive to light.",
+    "topic": "health",
+    "level": "A2",
+    "pos": "expression",
+    "gender": null
+  }
+]

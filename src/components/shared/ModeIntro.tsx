@@ -23,8 +23,9 @@ const ModeIntro: React.FC<ModeIntroProps> = ({ title, storageKey, children }) =>
 
   if (collapsed) {
     return (
-      <button className={styles.toggleBtn} onClick={toggle} title={title}>
-        ?
+      <button className={styles.expandBtn} onClick={toggle} title={title}>
+        <span className={styles.expandIcon}>?</span>
+        <span className={styles.expandLabel}>{title}</span>
       </button>
     );
   }
