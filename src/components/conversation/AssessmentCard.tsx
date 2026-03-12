@@ -24,7 +24,7 @@ const AssessmentCard: React.FC<AssessmentCardProps> = ({
         </div>
         <div className={styles.stat}>
           <span className={styles.statValue}>{wordCount}</span>
-          <span className={styles.statLabel}>Words Spoken</span>
+          <span className={styles.statLabel}>Words Written</span>
         </div>
       </div>
       <p className={styles.text}>{assessment}</p>

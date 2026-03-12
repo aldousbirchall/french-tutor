@@ -5,7 +5,6 @@ import { autoCompleteActivities } from '../../utils/scheduleAutoComplete';
 import ModeIntro from '../shared/ModeIntro';
 import ScaffoldingSelector from './ScaffoldingSelector';
 import MessageList from './MessageList';
-import VoiceInput from '../shared/VoiceInput';
 import ConversationControls from './ConversationControls';
 import AssessmentCard from './AssessmentCard';
 import TopicPicker from './TopicPicker';
@@ -33,7 +32,6 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
   } = useConversation();
 
   const [started, setStarted] = useState(!!initialTopic);
-  const [isListening, setIsListening] = useState(false);
   const [textInput, setTextInput] = useState('');
   const [duration, setDuration] = useState(0);
   const [wordCount, setWordCount] = useState(0);
@@ -61,13 +59,6 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
     setStarted(true);
     startTimeRef.current = Date.now();
   }, [setTopic]);
-
-  const handleVoiceTranscript = useCallback(
-    (text: string) => {
-      sendMessage(text);
-    },
-    [sendMessage]
-  );
 
   const handleTextSend = useCallback(() => {
     if (!textInput.trim() || streaming) return;
@@ -113,9 +104,9 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
       <>
         <ModeIntro title="How Conversation Mode Works" storageKey="conversation">
           <p>
-            Practice speaking French with an AI tutor. The tutor adapts to your
-            level using the scaffolding setting below. Use voice input (hold Space)
-            or type. The tutor will respond in French and read its reply aloud.
+            Practice French with an AI tutor. The tutor adapts to your level
+            using the scaffolding setting below. Type your responses in French
+            and the tutor will reply in French.
           </p>
         </ModeIntro>
         <TopicPicker
@@ -141,34 +132,22 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
         />
       </div>
       <div className={styles.inputArea}>
-        <div className={styles.voiceCol}>
-          <VoiceInput
-            onTranscript={handleVoiceTranscript}
-            lang="fr-CH"
-            isListening={isListening}
-            onListeningChange={setIsListening}
+        <div className={styles.textRow}>
+          <input
+            className={styles.textInput}
+            value={textInput}
+            onChange={(e) => setTextInput(e.target.value)}
+            placeholder="Type in French..."
+            onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
+            disabled={streaming}
           />
-          <span className={styles.inputHint}>Speak in French</span>
-        </div>
-        <div className={styles.divider} />
-        <div className={styles.textCol}>
-          <div className={styles.textRow}>
-            <input
-              className={styles.textInput}
-              value={textInput}
-              onChange={(e) => setTextInput(e.target.value)}
-              placeholder="Or type in French..."
-              onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
-              disabled={streaming}
-            />
-            <button
-              className={styles.sendBtn}
-              onClick={handleTextSend}
-              disabled={streaming || !textInput.trim()}
-            >
-              Send
-            </button>
-          </div>
+          <button
+            className={styles.sendBtn}
+            onClick={handleTextSend}
+            disabled={streaming || !textInput.trim()}
+          >
+            Send
+          </button>
         </div>
       </div>
       {error && <div className={styles.errorMsg}>{error.message}</div>}

@@ -10,11 +10,11 @@ const ConversationEmptyState: React.FC<ConversationEmptyStateProps> = ({ topic }
       <div className={styles.steps}>
         <div className={styles.step}>
           <span className={styles.stepNum}>1</span>
-          <span>Speak or type in French</span>
+          <span>Type in French</span>
         </div>
         <div className={styles.step}>
           <span className={styles.stepNum}>2</span>
-          <span>The tutor responds and reads aloud</span>
+          <span>The tutor responds in French</span>
         </div>
         <div className={styles.step}>
           <span className={styles.stepNum}>3</span>
@@ -28,7 +28,7 @@ const ConversationEmptyState: React.FC<ConversationEmptyStateProps> = ({ topic }
         Try: <em>"Bonjour, je voudrais parler de..."</em>
       </div>
       <div className={styles.hint}>
-        Press <kbd className={styles.kbd}>Space</kbd> to start voice input
+        Press <kbd className={styles.kbd}>Enter</kbd> to send
       </div>
     </div>
   );

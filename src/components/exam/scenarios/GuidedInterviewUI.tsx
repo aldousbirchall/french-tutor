@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
-import VoiceInput from '../../shared/VoiceInput';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
@@ -11,7 +10,6 @@ interface GuidedInterviewUIProps {
 
 const GuidedInterviewUI: React.FC<GuidedInterviewUIProps> = ({ scenarioId, onBack }) => {
   const { scenario, messages, streaming, streamingText, examScores, sendMessage, submitForScoring, reset } = useExamSession(scenarioId);
-  const [isListening, setIsListening] = useState(false);
   const [textInput, setTextInput] = useState('');
 
   const handleSend = useCallback((text: string) => {
@@ -47,12 +45,6 @@ const GuidedInterviewUI: React.FC<GuidedInterviewUIProps> = ({ scenarioId, onBac
       </div>
 
       <div className={styles.inputRow}>
-        <VoiceInput
-          onTranscript={(text) => handleSend(text)}
-          lang="fr-CH"
-          isListening={isListening}
-          onListeningChange={setIsListening}
-        />
         <input
           className={styles.textInput}
           value={textInput}

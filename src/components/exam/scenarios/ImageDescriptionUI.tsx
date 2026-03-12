@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
-import VoiceInput from '../../shared/VoiceInput';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
@@ -11,7 +10,6 @@ interface ImageDescriptionUIProps {
 
 const ImageDescriptionUI: React.FC<ImageDescriptionUIProps> = ({ scenarioId, onBack }) => {
   const { scenario, messages, streaming, streamingText, examScores, sendMessage, submitForScoring, reset } = useExamSession(scenarioId);
-  const [isListening, setIsListening] = useState(false);
   const [textInput, setTextInput] = useState('');
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
@@ -70,12 +68,6 @@ const ImageDescriptionUI: React.FC<ImageDescriptionUIProps> = ({ scenarioId, onB
       </div>
 
       <div className={styles.inputRow}>
-        <VoiceInput
-          onTranscript={(text) => handleSend(text)}
-          lang="fr-CH"
-          isListening={isListening}
-          onListeningChange={setIsListening}
-        />
         <input className={styles.textInput} value={textInput} onChange={(e) => setTextInput(e.target.value)} placeholder="Describe what you see..." onKeyDown={(e) => e.key === 'Enter' && handleSend(textInput)} disabled={streaming} />
         <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={() => handleSend(textInput)} disabled={streaming}>Send</button>
       </div>

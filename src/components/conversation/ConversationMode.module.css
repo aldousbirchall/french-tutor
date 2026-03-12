@@ -109,27 +109,6 @@
   flex-shrink: 0;
 }
 
-.voiceCol {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.inputHint {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-}
-
-.divider {
-  width: 1px;
-  height: 40px;
-  background: var(--color-border);
-}
-
-.textCol {
-  flex: 1;
-}
 
 .textRow {
   display: flex;
