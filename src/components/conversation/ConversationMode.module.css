@@ -77,16 +77,27 @@
   color: #fff;
 }
 
-/* LiveConversation styles (preserved from original) */
+/* LiveConversation styles */
 .header {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .topicLabel {
   font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--color-text);
-  margin-bottom: var(--space-2);
+  flex: 1;
+}
+
+.turnCounter {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .chat {

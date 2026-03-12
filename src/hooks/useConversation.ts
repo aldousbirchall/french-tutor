@@ -5,7 +5,15 @@ import schedule from '../data/schedule';
 import { getCurrentStudyDay } from '../utils/dateUtils';
 import type { AppError, ConversationSession } from '../services/types';
 
-const MAX_TURNS = 20;
+/**
+ * Target exchanges per conversation session, modelled on Fide oral exam tasks:
+ * - Self-introduction: 6-8 exchanges
+ * - Role-play: 6-10 exchanges
+ * - Open discussion: 4-6 questions with elaboration
+ * We target 8 as a good middle ground.
+ */
+const TARGET_EXCHANGES = 8;
+const MAX_CONTEXT_TURNS = 20;
 
 function getDefaultScaffolding(): ScaffoldingLevel {
   const dayNum = getCurrentStudyDay(schedule.start_date, new Date(), schedule.total_days);
@@ -17,13 +25,42 @@ function getDefaultScaffolding(): ScaffoldingLevel {
   return 'high';
 }
 
-const SYSTEM_PROMPT = `You are a French conversation partner. Speak only in French. Use vocabulary and grammar appropriate to CEFR A1-A2 level. Keep sentences short and clear. If the student makes an error, gently correct it in your next response.`;
+const SYSTEM_PROMPT = `You are an examiner conducting a Fide oral French exam at A1-A2 level. Your role is to guide a structured conversation, similar to the real exam format.
 
-const SCAFFOLDING_HIGH = `\n\nProvide heavy scaffolding: after each response, provide sentence starters and vocabulary words with translations to help the student respond. Include a translation of your response in parentheses. Correct all errors explicitly.`;
+Rules:
+- Speak only in French.
+- Use vocabulary and grammar appropriate to CEFR A1-A2.
+- Keep your sentences short and clear (2-3 sentences max per turn).
+- Ask one question per turn. Wait for the candidate's response before continuing.
+- Guide the conversation through the topic naturally, moving to different aspects.
+- If the candidate makes errors, gently rephrase their sentence correctly in your response before asking the next question.
 
-const SCAFFOLDING_MEDIUM = `\n\nProvide moderate scaffolding: correct errors by rephrasing the student's sentence correctly in your response. Do not provide translations. Only intervene when the student hesitates or makes repeated errors.`;
+Session structure:
+- You have roughly ${TARGET_EXCHANGES} exchanges total.
+- Start by introducing the topic and asking an opening question.
+- Progress through different aspects of the topic.
+- On your final turn (around exchange ${TARGET_EXCHANGES}), wrap up naturally with a closing remark like "Merci, c'est très bien" or "Merci pour cette conversation" — do NOT ask another question.`;
 
-const SCAFFOLDING_LOW = `\n\nProvide minimal scaffolding: respond naturally at A2 level. Only correct errors that significantly impede communication. Do not suggest phrases or provide translations.`;
+const SCAFFOLDING_HIGH = `
+
+Additional scaffolding (the candidate is a beginner):
+- After each response, suggest 2-3 useful phrases with English translations in parentheses to help the candidate respond.
+- If the candidate writes in English or seems stuck, provide a model answer they can adapt.
+- Correct all errors explicitly: write "Correction: [corrected sentence]" before continuing.`;
+
+const SCAFFOLDING_MEDIUM = `
+
+Additional scaffolding (the candidate has some experience):
+- Correct errors by naturally rephrasing the candidate's sentence in your response.
+- Do not provide translations unless the candidate seems stuck.
+- If the candidate gives very short answers, encourage elaboration with "Pouvez-vous expliquer un peu plus?"`;
+
+const SCAFFOLDING_LOW = `
+
+Minimal scaffolding (exam-realistic):
+- Respond naturally as a real examiner would.
+- Only correct errors that significantly impede communication.
+- Do not provide translations or vocabulary help.`;
 
 export type ScaffoldingLevel = 'high' | 'medium' | 'low';
 
@@ -46,6 +83,10 @@ export function useConversation() {
   const wordCountRef = useRef<number>(0);
   const [topic, setTopic] = useState('General conversation');
 
+  const userTurnCount = messages.filter((m) => m.role === 'user').length;
+  const isNearEnd = userTurnCount >= TARGET_EXCHANGES - 2;
+  const isAtLimit = userTurnCount >= TARGET_EXCHANGES;
+
   const getSystemPrompt = useCallback(() => {
     let prompt = SYSTEM_PROMPT;
     switch (scaffolding) {
@@ -59,8 +100,16 @@ export function useConversation() {
         prompt += SCAFFOLDING_LOW;
         break;
     }
+    prompt += `\n\nThe topic for this conversation is: "${topic}"`;
+    prompt += `\n\nThe candidate has made ${userTurnCount} responses so far out of ~${TARGET_EXCHANGES} total.`;
+    if (isNearEnd && !isAtLimit) {
+      prompt += ` You are approaching the end — begin wrapping up in the next 1-2 turns.`;
+    }
+    if (isAtLimit) {
+      prompt += ` This is the final exchange. Wrap up the conversation naturally with a closing remark. Do not ask another question.`;
+    }
     return prompt;
-  }, [scaffolding]);
+  }, [scaffolding, topic, userTurnCount, isNearEnd, isAtLimit]);
 
   const sendMessage = useCallback(
     (text: string) => {
@@ -71,9 +120,8 @@ export function useConversation() {
 
       setMessages((prev) => {
         const updated = [...prev, userMsg];
-        // Trim to MAX_TURNS (each turn = 1 user + 1 assistant)
-        if (updated.length > MAX_TURNS * 2) {
-          return updated.slice(-MAX_TURNS * 2);
+        if (updated.length > MAX_CONTEXT_TURNS * 2) {
+          return updated.slice(-MAX_CONTEXT_TURNS * 2);
         }
         return updated;
       });
@@ -82,7 +130,7 @@ export function useConversation() {
       setStreamingText('');
       setError(null);
 
-      const allMessages = [...messages, userMsg].slice(-MAX_TURNS * 2);
+      const allMessages = [...messages, userMsg].slice(-MAX_CONTEXT_TURNS * 2);
 
       abortRef.current = claude.sendMessage({
         systemPrompt: getSystemPrompt(),
@@ -106,7 +154,6 @@ export function useConversation() {
   );
 
   const endConversation = useCallback(async () => {
-    // Cancel any in-progress streaming response before requesting assessment
     if (abortRef.current) {
       abortRef.current.abort();
       abortRef.current = null;
@@ -116,20 +163,30 @@ export function useConversation() {
 
     if (messages.length === 0) return;
 
-    // Allow React state to settle and the SDK to clean up from the aborted stream
     await new Promise((r) => setTimeout(r, 50));
 
     const duration = Math.floor((Date.now() - startTimeRef.current) / 1000);
 
-    // Request assessment with a fresh AbortController
-    const assessmentPrompt = `Based on the following conversation, provide a brief assessment (2-3 sentences) of the student's French level, strengths, and areas to improve. Write the assessment in English.\n\nConversation:\n${messages.map((m) => `${m.role}: ${m.content}`).join('\n')}`;
+    const assessmentPrompt = `You are assessing a Fide A1-A2 French oral exam practice session. Based on the conversation below, provide:
+
+1. A brief overall assessment (1-2 sentences)
+2. Strengths (2-3 bullet points)
+3. Areas to improve (2-3 bullet points)
+4. Estimated CEFR level for this performance (A1, A1+, A2-, A2, A2+)
+
+Write the assessment in English. Be constructive and specific.
+
+Conversation topic: ${topic}
+Exchanges: ${userTurnCount}
+
+${messages.map((m) => `${m.role === 'user' ? 'Candidate' : 'Examiner'}: ${m.content}`).join('\n')}`;
 
     const assessmentAbort = new AbortController();
     abortRef.current = assessmentAbort;
 
     return new Promise<void>((resolve) => {
       claude.sendMessage({
-        systemPrompt: 'You are a French language assessor. Provide brief, constructive feedback in English.',
+        systemPrompt: 'You are a Fide French exam assessor. Provide structured, constructive feedback in English.',
         messages: [{ role: 'user', content: assessmentPrompt }],
         onToken: () => {},
         onComplete: async (assessmentText) => {
@@ -151,7 +208,7 @@ export function useConversation() {
         },
       });
     });
-  }, [claude, db, messages, topic]);
+  }, [claude, db, messages, topic, userTurnCount]);
 
   const startNew = useCallback((newTopic?: string) => {
     setMessages([]);
@@ -176,5 +233,7 @@ export function useConversation() {
     sendMessage,
     endConversation,
     startNew,
+    userTurnCount,
+    targetExchanges: TARGET_EXCHANGES,
   };
 }

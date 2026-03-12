@@ -29,6 +29,8 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
     sendMessage,
     endConversation,
     startNew,
+    userTurnCount,
+    targetExchanges,
   } = useConversation();
 
   const [started, setStarted] = useState(!!initialTopic);
@@ -81,6 +83,22 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
     startTimeRef.current = Date.now();
   }, [startNew]);
 
+  // Auto-end conversation when target exchanges reached and Claude has responded
+  const autoEndTriggered = useRef(false);
+  useEffect(() => {
+    if (
+      userTurnCount >= targetExchanges &&
+      !streaming &&
+      messages.length > 0 &&
+      messages[messages.length - 1].role === 'assistant' &&
+      !assessment &&
+      !autoEndTriggered.current
+    ) {
+      autoEndTriggered.current = true;
+      handleEnd();
+    }
+  }, [userTurnCount, targetExchanges, streaming, messages, assessment, handleEnd]);
+
   // Auto-mark conversation activity when assessment is received
   const markedRef2 = useRef(false);
   if (assessment && !markedRef2.current) {
@@ -104,9 +122,9 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
       <>
         <ModeIntro title="How Conversation Mode Works" storageKey="conversation">
           <p>
-            Practice French with an AI tutor. The tutor adapts to your level
-            using the scaffolding setting below. Type your responses in French
-            and the tutor will reply in French.
+            Practice French in exam-style conversations (~{targetExchanges} exchanges
+            each, matching the Fide oral format). The examiner guides you through
+            a topic, then provides an assessment at the end.
           </p>
         </ModeIntro>
         <TopicPicker
@@ -117,10 +135,16 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
     );
   }
 
+  const remaining = Math.max(0, targetExchanges - userTurnCount);
+  const inputDisabled = streaming || userTurnCount >= targetExchanges;
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.topicLabel}>{topic}</div>
+        <div className={styles.turnCounter}>
+          {userTurnCount}/{targetExchanges}
+        </div>
         <ScaffoldingSelector level={scaffolding} onChange={setScaffolding} />
       </div>
       <div className={styles.chat}>
@@ -131,25 +155,27 @@ const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => 
           topic={topic}
         />
       </div>
-      <div className={styles.inputArea}>
-        <div className={styles.textRow}>
-          <input
-            className={styles.textInput}
-            value={textInput}
-            onChange={(e) => setTextInput(e.target.value)}
-            placeholder="Type in French..."
-            onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
-            disabled={streaming}
-          />
-          <button
-            className={styles.sendBtn}
-            onClick={handleTextSend}
-            disabled={streaming || !textInput.trim()}
-          >
-            Send
-          </button>
+      {!inputDisabled && (
+        <div className={styles.inputArea}>
+          <div className={styles.textRow}>
+            <input
+              className={styles.textInput}
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              placeholder={remaining <= 2 ? `${remaining} exchange${remaining !== 1 ? 's' : ''} remaining...` : 'Type in French...'}
+              onKeyDown={(e) => e.key === 'Enter' && handleTextSend()}
+              disabled={inputDisabled}
+            />
+            <button
+              className={styles.sendBtn}
+              onClick={handleTextSend}
+              disabled={inputDisabled || !textInput.trim()}
+            >
+              Send
+            </button>
+          </div>
         </div>
-      </div>
+      )}
       {error && <div className={styles.errorMsg}>{error.message}</div>}
       <ConversationControls
         onEnd={handleEnd}
