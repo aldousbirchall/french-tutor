@@ -15,7 +15,6 @@ interface FormDef {
   fields: Array<{
     label: string;
     type: string;
-    hint: string;
     options?: string[];
   }>;
 }
@@ -76,7 +75,6 @@ const FormFillingUI: React.FC<FormFillingUIProps> = ({ scenarioId, onBack }) => 
         {currentForm.fields.map((field) => (
           <div key={field.label} className={styles.formField}>
             <label className={styles.formLabel}>{field.label}</label>
-            <span className={styles.formHint}>{field.hint}</span>
             {field.type === 'select' && field.options ? (
               <select
                 className={styles.formSelect}
@@ -94,7 +92,7 @@ const FormFillingUI: React.FC<FormFillingUIProps> = ({ scenarioId, onBack }) => 
                 type={field.type === 'date' ? 'text' : field.type}
                 value={fieldValues[field.label] ?? ''}
                 onChange={(e) => handleFieldChange(field.label, e.target.value)}
-                placeholder={field.hint}
+                placeholder={field.type === 'date' ? 'JJ.MM.AAAA' : ''}
               />
             )}
           </div>

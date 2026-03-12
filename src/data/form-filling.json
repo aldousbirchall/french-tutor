@@ -13,17 +13,17 @@
       "title": "Inscription a un cours de francais",
       "situation": "Vous voulez vous inscrire a un cours de francais a l'Ecole-club Migros. Remplissez le formulaire d'inscription.",
       "fields": [
-        {"label": "Nom", "type": "text", "hint": "family name"},
-        {"label": "Prenom", "type": "text", "hint": "first name"},
-        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
-        {"label": "Adresse", "type": "text", "hint": "street and number"},
-        {"label": "NPA / Ville", "type": "text", "hint": "postal code and city"},
-        {"label": "Telephone", "type": "text", "hint": "phone number"},
-        {"label": "Email", "type": "email", "hint": "email address"},
-        {"label": "Nationalite", "type": "text", "hint": "nationality"},
-        {"label": "Langue maternelle", "type": "text", "hint": "mother tongue"},
-        {"label": "Niveau souhaite", "type": "select", "options": ["A1", "A2", "B1"], "hint": "desired level"},
-        {"label": "Horaire prefere", "type": "select", "options": ["Matin", "Apres-midi", "Soir"], "hint": "preferred time"}
+        {"label": "Nom", "type": "text"},
+        {"label": "Prenom", "type": "text"},
+        {"label": "Date de naissance", "type": "date"},
+        {"label": "Adresse", "type": "text"},
+        {"label": "NPA / Ville", "type": "text"},
+        {"label": "Telephone", "type": "text"},
+        {"label": "Email", "type": "email"},
+        {"label": "Nationalite", "type": "text"},
+        {"label": "Langue maternelle", "type": "text"},
+        {"label": "Niveau souhaite", "type": "select", "options": ["A1", "A2", "B1"]},
+        {"label": "Horaire prefere", "type": "select", "options": ["Matin", "Apres-midi", "Soir"]}
       ]
     },
     {
@@ -31,17 +31,17 @@
       "title": "Fiche patient - Cabinet medical",
       "situation": "C'est votre premiere visite chez le medecin. Remplissez la fiche patient.",
       "fields": [
-        {"label": "Nom", "type": "text", "hint": "family name"},
-        {"label": "Prenom", "type": "text", "hint": "first name"},
-        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
-        {"label": "Adresse", "type": "text", "hint": "full address"},
-        {"label": "Telephone", "type": "text", "hint": "phone number"},
-        {"label": "Assurance maladie", "type": "text", "hint": "health insurance company"},
-        {"label": "Numero d'assure", "type": "text", "hint": "insurance number"},
-        {"label": "Medecin traitant", "type": "text", "hint": "current GP if any"},
-        {"label": "Allergies", "type": "text", "hint": "known allergies"},
-        {"label": "Medicaments actuels", "type": "text", "hint": "current medications"},
-        {"label": "Motif de la visite", "type": "text", "hint": "reason for visit"}
+        {"label": "Nom", "type": "text"},
+        {"label": "Prenom", "type": "text"},
+        {"label": "Date de naissance", "type": "date"},
+        {"label": "Adresse", "type": "text"},
+        {"label": "Telephone", "type": "text"},
+        {"label": "Assurance maladie", "type": "text"},
+        {"label": "Numero d'assure", "type": "text"},
+        {"label": "Medecin traitant", "type": "text"},
+        {"label": "Allergies", "type": "text"},
+        {"label": "Medicaments actuels", "type": "text"},
+        {"label": "Motif de la visite", "type": "text"}
       ]
     },
     {
@@ -49,16 +49,16 @@
       "title": "Annonce de demenagement - Commune",
       "situation": "Vous demenagez dans une nouvelle commune. Remplissez le formulaire de changement d'adresse.",
       "fields": [
-        {"label": "Nom et prenom", "type": "text", "hint": "full name"},
-        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
-        {"label": "Nationalite", "type": "text", "hint": "nationality"},
-        {"label": "Permis de sejour", "type": "select", "options": ["B", "C", "L", "Autre"], "hint": "residence permit type"},
-        {"label": "Ancienne adresse", "type": "text", "hint": "old address"},
-        {"label": "Nouvelle adresse", "type": "text", "hint": "new address"},
-        {"label": "Date du demenagement", "type": "date", "hint": "DD.MM.YYYY"},
-        {"label": "Nombre de personnes", "type": "number", "hint": "number of people moving"},
-        {"label": "Telephone", "type": "text", "hint": "phone number"},
-        {"label": "Signature", "type": "text", "hint": "your name as signature"}
+        {"label": "Nom et prenom", "type": "text"},
+        {"label": "Date de naissance", "type": "date"},
+        {"label": "Nationalite", "type": "text"},
+        {"label": "Permis de sejour", "type": "select", "options": ["B", "C", "L", "Autre"]},
+        {"label": "Ancienne adresse", "type": "text"},
+        {"label": "Nouvelle adresse", "type": "text"},
+        {"label": "Date du demenagement", "type": "date"},
+        {"label": "Nombre de personnes", "type": "number"},
+        {"label": "Telephone", "type": "text"},
+        {"label": "Signature", "type": "text"}
       ]
     },
     {
@@ -66,15 +66,15 @@
       "title": "Abonnement de transport - TPG/TL/Unireso",
       "situation": "Vous voulez acheter un abonnement de bus et tram. Remplissez le formulaire.",
       "fields": [
-        {"label": "Nom", "type": "text", "hint": "family name"},
-        {"label": "Prenom", "type": "text", "hint": "first name"},
-        {"label": "Date de naissance", "type": "date", "hint": "DD.MM.YYYY"},
-        {"label": "Adresse", "type": "text", "hint": "full address"},
-        {"label": "Type d'abonnement", "type": "select", "options": ["Mensuel", "Annuel"], "hint": "monthly or annual"},
-        {"label": "Zones", "type": "select", "options": ["Zone 10", "Zones 10-20", "Toutes zones"], "hint": "travel zones"},
-        {"label": "Date de debut", "type": "date", "hint": "DD.MM.YYYY"},
-        {"label": "Mode de paiement", "type": "select", "options": ["Carte bancaire", "Facture", "LSV/Debit direct"], "hint": "payment method"},
-        {"label": "Photo d'identite", "type": "checkbox", "hint": "photo attached yes/no"}
+        {"label": "Nom", "type": "text"},
+        {"label": "Prenom", "type": "text"},
+        {"label": "Date de naissance", "type": "date"},
+        {"label": "Adresse", "type": "text"},
+        {"label": "Type d'abonnement", "type": "select", "options": ["Mensuel", "Annuel"]},
+        {"label": "Zones", "type": "select", "options": ["Zone 10", "Zones 10-20", "Toutes zones"]},
+        {"label": "Date de debut", "type": "date"},
+        {"label": "Mode de paiement", "type": "select", "options": ["Carte bancaire", "Facture", "LSV/Debit direct"]},
+        {"label": "Photo d'identite", "type": "checkbox"}
       ]
     }
   ],
