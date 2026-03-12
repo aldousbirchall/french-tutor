@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useClaudeAvailability } from '../../contexts/ClaudeContext';
+import scenarios from '../../data/scenarios';
 import ExamTaskList from './ExamTaskList';
 import ExamSession from './ExamSession';
 import FullMockExam from './FullMockExam';
@@ -11,9 +13,28 @@ type ExamView =
   | { type: 'session'; scenarioId: string }
   | { type: 'mock'; examType: 'oral' | 'written' };
 
+function matchTaskToScenario(task: string): string | null {
+  const lower = task.toLowerCase();
+  const scenarioList = Object.values(scenarios);
+  // Try matching by scenario title prefix (e.g. "Form filling: ..." → form-filling)
+  for (const s of scenarioList) {
+    if (lower.startsWith(s.title.toLowerCase())) return s.id;
+  }
+  // Fuzzy: check if the task contains the scenario title
+  for (const s of scenarioList) {
+    if (lower.includes(s.title.toLowerCase())) return s.id;
+  }
+  return null;
+}
+
 const ExamMode: React.FC = () => {
   const { available } = useClaudeAvailability();
-  const [view, setView] = useState<ExamView>({ type: 'list' });
+  const [searchParams] = useSearchParams();
+  const taskFromSchedule = searchParams.get('task');
+  const initialScenario = taskFromSchedule ? matchTaskToScenario(taskFromSchedule) : null;
+  const [view, setView] = useState<ExamView>(
+    initialScenario ? { type: 'session', scenarioId: initialScenario } : { type: 'list' }
+  );
 
   if (!available) {
     return (

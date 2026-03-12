@@ -1,6 +1,8 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import type { Grade } from 'ts-fsrs';
 import { useCards } from '../../hooks/useCards';
+import { useSchedule } from '../../hooks/useSchedule';
+import { autoCompleteActivities } from '../../utils/scheduleAutoComplete';
 import VocabSummaryBar from './VocabSummaryBar';
 import FlashCard from './FlashCard';
 import SessionComplete from './SessionComplete';
@@ -14,6 +16,8 @@ interface SpokenVocabularyProps {
 
 const SpokenVocabulary: React.FC<SpokenVocabularyProps> = ({ selectedTopics }) => {
   const [sessionStats, setSessionStats] = useState({ reviewed: 0, newLearned: 0 });
+  const { studyDayNumber, isActivityComplete, markComplete } = useSchedule();
+  const markedRef = useRef(false);
 
   // Use the first selected topic for filtering, or undefined for all
   const filterTopic = selectedTopics.length === 1 ? selectedTopics[0] : undefined;
@@ -31,6 +35,13 @@ const SpokenVocabulary: React.FC<SpokenVocabularyProps> = ({ selectedTopics }) =
 
   const currentCard = filteredDueCards[0] ?? filteredNewCards[0] ?? null;
   const sessionDone = !loading && (isSessionDone || !currentCard);
+
+  // Auto-mark vocabulary schedule activities when session completes
+  useEffect(() => {
+    if (!sessionDone || markedRef.current) return;
+    markedRef.current = true;
+    autoCompleteActivities('vocabulary', studyDayNumber, isActivityComplete, markComplete);
+  }, [sessionDone, studyDayNumber, isActivityComplete, markComplete]);
 
   const handleRate = useCallback(
     async (card: CardState, rating: Grade) => {
@@ -50,13 +61,11 @@ const SpokenVocabulary: React.FC<SpokenVocabularyProps> = ({ selectedTopics }) =
 
   return (
     <>
-      <ModeIntro title="How Spoken Vocabulary Works" storageKey="vocabulary-spoken">
+      <ModeIntro title="How Learning Works" storageKey="vocabulary-learn">
         <p>
-          Each card shows a French word. Use the microphone to <strong>say the
-          word aloud in French</strong> (pronunciation practice), or click
-          &quot;Listen&quot; to hear it first. Then click &quot;Show Answer&quot; to see the English
-          translation. Rate how well you knew the word to schedule future reviews
-          via spaced repetition.
+          Each card shows a French word. Click &quot;Listen&quot; to hear the pronunciation,
+          then &quot;Show Answer&quot; to reveal the English translation. Rate how well you
+          knew the word to schedule future reviews via spaced repetition.
         </p>
       </ModeIntro>
       <VocabSummaryBar

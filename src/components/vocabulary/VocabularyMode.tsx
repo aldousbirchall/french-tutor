@@ -8,7 +8,7 @@ import ConjugationDrill from './ConjugationDrill';
 import styles from './VocabularyMode.module.css';
 
 const tabs = [
-  { id: 'spoken', label: 'Spoken' },
+  { id: 'spoken', label: 'Learn' },
   { id: 'flashcards', label: 'Flashcards' },
   { id: 'quiz', label: 'Quiz' },
   { id: 'conjugation', label: 'Conjugation' },

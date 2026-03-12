@@ -1,6 +1,7 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { useConversation } from '../../hooks/useConversation';
 import { useSchedule } from '../../hooks/useSchedule';
+import { autoCompleteActivities } from '../../utils/scheduleAutoComplete';
 import ModeIntro from '../shared/ModeIntro';
 import ScaffoldingSelector from './ScaffoldingSelector';
 import MessageList from './MessageList';
@@ -10,8 +11,12 @@ import AssessmentCard from './AssessmentCard';
 import TopicPicker from './TopicPicker';
 import styles from './ConversationMode.module.css';
 
-const LiveConversation: React.FC = () => {
-  const { currentDay } = useSchedule();
+interface LiveConversationProps {
+  initialTopic?: string | null;
+}
+
+const LiveConversation: React.FC<LiveConversationProps> = ({ initialTopic }) => {
+  const { currentDay, studyDayNumber, isActivityComplete, markComplete } = useSchedule();
   const {
     messages,
     streaming,
@@ -27,12 +32,22 @@ const LiveConversation: React.FC = () => {
     startNew,
   } = useConversation();
 
-  const [started, setStarted] = useState(false);
+  const [started, setStarted] = useState(!!initialTopic);
   const [isListening, setIsListening] = useState(false);
   const [textInput, setTextInput] = useState('');
   const [duration, setDuration] = useState(0);
   const [wordCount, setWordCount] = useState(0);
   const startTimeRef = useRef(Date.now());
+
+  // Auto-start with initial topic from schedule deep-link
+  const initialTopicApplied = useRef(false);
+  useEffect(() => {
+    if (initialTopic && !initialTopicApplied.current) {
+      initialTopicApplied.current = true;
+      setTopic(initialTopic);
+      startTimeRef.current = Date.now();
+    }
+  }, [initialTopic, setTopic]);
 
   // Get suggested topic from schedule
   const scheduleTopic = (() => {
@@ -74,6 +89,13 @@ const LiveConversation: React.FC = () => {
     setStarted(false);
     startTimeRef.current = Date.now();
   }, [startNew]);
+
+  // Auto-mark conversation activity when assessment is received
+  const markedRef2 = useRef(false);
+  if (assessment && !markedRef2.current) {
+    markedRef2.current = true;
+    autoCompleteActivities('conversation', studyDayNumber, isActivityComplete, markComplete);
+  }
 
   if (assessment) {
     return (

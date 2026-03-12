@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useClaudeAvailability } from '../../contexts/ClaudeContext';
 import LiveConversation from './LiveConversation';
 import DialogueReader from './DialogueReader';
@@ -16,7 +17,12 @@ type TabId = (typeof tabs)[number]['id'];
 
 const ConversationMode: React.FC = () => {
   const { available } = useClaudeAvailability();
-  const [activeTab, setActiveTab] = useState<TabId>(available ? 'live' : 'read');
+  const [searchParams] = useSearchParams();
+  const taskFromSchedule = searchParams.get('task');
+
+  // If navigated from schedule with a task and Claude is available, default to Live
+  const defaultTab: TabId = (taskFromSchedule && available) ? 'live' : (available ? 'live' : 'read');
+  const [activeTab, setActiveTab] = useState<TabId>(defaultTab);
   const [scenarioFilter, setScenarioFilter] = useState('all');
 
   return (
@@ -43,7 +49,7 @@ const ConversationMode: React.FC = () => {
         <ScenarioFilter selected={scenarioFilter} onChange={setScenarioFilter} />
       )}
       <div className={styles.content}>
-        {activeTab === 'live' && <LiveConversation />}
+        {activeTab === 'live' && <LiveConversation initialTopic={taskFromSchedule} />}
         {activeTab === 'read' && <DialogueReader scenarioFilter={scenarioFilter} />}
         {activeTab === 'quiz' && <DialogueQuiz scenarioFilter={scenarioFilter} />}
       </div>

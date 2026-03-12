@@ -18,16 +18,21 @@ const ActivityItem: React.FC<ActivityItemProps> = ({
 }) => {
   const navigate = useNavigate();
 
-  const modeRoutes: Record<string, string> = {
-    vocabulary: '/vocabulary',
-    conversation: '/conversation',
-    exam: '/exam',
-    dashboard: '/dashboard',
-  };
-
   const handleClick = () => {
-    const route = modeRoutes[activity.mode];
-    if (route) navigate(route);
+    const task = encodeURIComponent(activity.task);
+    switch (activity.mode) {
+      case 'vocabulary':
+        navigate('/vocabulary');
+        break;
+      case 'conversation':
+        navigate(`/conversation?task=${task}`);
+        break;
+      case 'exam':
+        navigate(`/exam?task=${task}`);
+        break;
+      default:
+        navigate('/dashboard');
+    }
   };
 
   return (
