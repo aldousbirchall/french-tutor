@@ -11,10 +11,11 @@ import styles from './ExamSession.module.css';
 
 interface ExamSessionProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
-const ExamSession: React.FC<ExamSessionProps> = ({ scenarioId, onBack }) => {
+const ExamSession: React.FC<ExamSessionProps> = ({ scenarioId, taskHint, onBack }) => {
   const scenario = scenarios[scenarioId];
   if (!scenario) {
     return <div>Scenario not found.</div>;
@@ -25,19 +26,19 @@ const ExamSession: React.FC<ExamSessionProps> = ({ scenarioId, onBack }) => {
       case 'guided_interview':
         return <GuidedInterviewUI scenarioId={scenarioId} onBack={onBack} />;
       case 'image_description':
-        return <ImageDescriptionUI scenarioId={scenarioId} onBack={onBack} />;
+        return <ImageDescriptionUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       case 'role_play':
-        return <RolePlayUI scenarioId={scenarioId} onBack={onBack} />;
+        return <RolePlayUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       case 'open_discussion':
-        return <OpenDiscussionUI scenarioId={scenarioId} onBack={onBack} />;
+        return <OpenDiscussionUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       case 'sequential_image_narration':
-        return <SequentialImagesUI scenarioId={scenarioId} onBack={onBack} />;
+        return <SequentialImagesUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       case 'listening':
-        return <ListeningComprehensionUI scenarioId={scenarioId} onBack={onBack} />;
+        return <ListeningComprehensionUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       case 'form_filling':
-        return <FormFillingUI scenarioId={scenarioId} onBack={onBack} />;
+        return <FormFillingUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       case 'letter_writing':
-        return <LetterWritingUI scenarioId={scenarioId} onBack={onBack} />;
+        return <LetterWritingUI scenarioId={scenarioId} taskHint={taskHint} onBack={onBack} />;
       default:
         return <div>Unknown scenario type: {scenario.type}</div>;
     }

@@ -1,19 +1,22 @@
 import { useState, useCallback } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHint } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface OpenDiscussionUIProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
-const OpenDiscussionUI: React.FC<OpenDiscussionUIProps> = ({ scenarioId, onBack }) => {
+const OpenDiscussionUI: React.FC<OpenDiscussionUIProps> = ({ scenarioId, taskHint, onBack }) => {
   const { scenario, messages, streaming, streamingText, examScores, sendMessage, submitForScoring, reset } = useExamSession(scenarioId);
   const [textInput, setTextInput] = useState('');
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
 
   const topics = (scenario?.topics as Array<{ id: string; title: string }>) ?? [];
+  const autoMatch = matchTaskHint(taskHint, topics.map((t) => ({ id: t.id, desc: t.title })));
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(autoMatch);
   const current = topics.find((t) => t.id === selectedTopic);
 
   const handleSend = useCallback((text: string) => {

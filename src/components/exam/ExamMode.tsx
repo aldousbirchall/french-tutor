@@ -10,20 +10,55 @@ import styles from './ExamMode.module.css';
 
 type ExamView =
   | { type: 'list' }
-  | { type: 'session'; scenarioId: string }
+  | { type: 'session'; scenarioId: string; taskHint?: string }
   | { type: 'mock'; examType: 'oral' | 'written' };
 
-function matchTaskToScenario(task: string): string | null {
+// Maps schedule task prefixes/keywords to scenario IDs where the schedule
+// wording doesn't match the scenario title exactly.
+const TASK_ALIASES: Record<string, string> = {
+  'letter writing': 'letter-writing',
+  'role-play': 'role-play',
+  'sequential image': 'sequential-images',
+};
+
+type MatchResult =
+  | { type: 'scenario'; scenarioId: string; taskHint: string }
+  | { type: 'mock'; examType: 'oral' | 'written' }
+  | null;
+
+/** Extract the specific task description after the "Scenario type: " prefix. */
+function extractTaskHint(task: string): string {
+  const colonIdx = task.indexOf(':');
+  return colonIdx >= 0 ? task.substring(colonIdx + 1).trim() : task;
+}
+
+function matchTaskToView(task: string): MatchResult {
   const lower = task.toLowerCase();
+
+  // Mock / simulation tasks → route to full mock view
+  if (lower.includes('oral exam simulation') || lower.includes('mock oral') || lower.includes('half mock oral')) {
+    return { type: 'mock', examType: 'oral' };
+  }
+  if (lower.includes('written exam simulation') || lower.includes('mock written') || lower.includes('written mock')) {
+    return { type: 'mock', examType: 'written' };
+  }
+
+  const hint = extractTaskHint(task);
+
+  // Check aliases first (handles mismatches between schedule wording and scenario titles)
+  for (const [prefix, scenarioId] of Object.entries(TASK_ALIASES)) {
+    if (lower.startsWith(prefix)) return { type: 'scenario', scenarioId, taskHint: hint };
+  }
+
+  // Then try matching by scenario title
   const scenarioList = Object.values(scenarios);
-  // Try matching by scenario title prefix (e.g. "Form filling: ..." → form-filling)
   for (const s of scenarioList) {
-    if (lower.startsWith(s.title.toLowerCase())) return s.id;
+    if (lower.startsWith(s.title.toLowerCase())) return { type: 'scenario', scenarioId: s.id, taskHint: hint };
   }
-  // Fuzzy: check if the task contains the scenario title
   for (const s of scenarioList) {
-    if (lower.includes(s.title.toLowerCase())) return s.id;
+    if (lower.includes(s.title.toLowerCase())) return { type: 'scenario', scenarioId: s.id, taskHint: hint };
   }
+
   return null;
 }
 
@@ -31,9 +66,13 @@ const ExamMode: React.FC = () => {
   const { available } = useClaudeAvailability();
   const [searchParams] = useSearchParams();
   const taskFromSchedule = searchParams.get('task');
-  const initialScenario = taskFromSchedule ? matchTaskToScenario(taskFromSchedule) : null;
+  const matchResult = taskFromSchedule ? matchTaskToView(taskFromSchedule) : null;
   const [view, setView] = useState<ExamView>(
-    initialScenario ? { type: 'session', scenarioId: initialScenario } : { type: 'list' }
+    matchResult
+      ? matchResult.type === 'scenario'
+        ? { type: 'session', scenarioId: matchResult.scenarioId, taskHint: matchResult.taskHint }
+        : { type: 'mock', examType: matchResult.examType }
+      : { type: 'list' }
   );
 
   if (!available) {
@@ -64,7 +103,7 @@ const ExamMode: React.FC = () => {
   if (view.type === 'session') {
     return (
       <div className={styles.page}>
-        <ExamSession scenarioId={view.scenarioId} onBack={handleBack} />
+        <ExamSession scenarioId={view.scenarioId} taskHint={view.taskHint} onBack={handleBack} />
       </div>
     );
   }

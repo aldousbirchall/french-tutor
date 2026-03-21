@@ -1,19 +1,22 @@
 import { useState, useCallback } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHint } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface SequentialImagesUIProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
-const SequentialImagesUI: React.FC<SequentialImagesUIProps> = ({ scenarioId, onBack }) => {
+const SequentialImagesUI: React.FC<SequentialImagesUIProps> = ({ scenarioId, taskHint, onBack }) => {
   const { scenario, messages, streaming, streamingText, examScores, sendMessage, submitForScoring, reset } = useExamSession(scenarioId);
   const [textInput, setTextInput] = useState('');
-  const [selectedSequence, setSelectedSequence] = useState<string | null>(null);
 
   const sequences = (scenario?.sequences as Array<{ id: string; title: string; images: string[] }>) ?? [];
+  const autoMatch = matchTaskHint(taskHint, sequences.map((s) => ({ id: s.id, desc: s.title })));
+  const [selectedSequence, setSelectedSequence] = useState<string | null>(autoMatch);
   const current = sequences.find((s) => s.id === selectedSequence);
 
   const handleSend = useCallback((text: string) => {

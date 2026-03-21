@@ -1,10 +1,12 @@
 import { useState, useCallback } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHint } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface LetterWritingUIProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
@@ -17,12 +19,13 @@ interface LetterPrompt {
   register: string;
 }
 
-const LetterWritingUI: React.FC<LetterWritingUIProps> = ({ scenarioId, onBack }) => {
+const LetterWritingUI: React.FC<LetterWritingUIProps> = ({ scenarioId, taskHint, onBack }) => {
   const { scenario, examScores, submitForScoring, reset } = useExamSession(scenarioId);
-  const [selectedPrompt, setSelectedPrompt] = useState<string | null>(null);
   const [text, setText] = useState('');
 
   const prompts = (scenario?.prompts as LetterPrompt[]) ?? [];
+  const autoMatch = matchTaskHint(taskHint, prompts.map((p) => ({ id: p.id, desc: p.situation })));
+  const [selectedPrompt, setSelectedPrompt] = useState<string | null>(autoMatch);
   const currentPrompt = prompts.find((p) => p.id === selectedPrompt);
 
   const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;

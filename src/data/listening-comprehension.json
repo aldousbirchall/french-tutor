@@ -12,7 +12,7 @@
       "id": "listen_announcement",
       "level": "A1",
       "type": "choose_illustration",
-      "passage": "Attention, le train numero 425 a destination de Lausanne va partir de la voie trois dans cinq minutes.",
+      "passage": "Attention, le train numéro 425 a destination de Lausanne va partir de la voie trois dans cinq minutes.",
       "word_count": 22,
       "questions": [
         {"question": "Ou va le train ?", "answer": "A Lausanne", "distractors": ["A Geneve", "A Berne", "A Zurich"]},
@@ -53,8 +53,8 @@
       "word_count": 42,
       "questions": [
         {"question": "Dans quelle direction faut-il tourner ?", "answer": "A gauche", "distractors": ["A droite", "Tout droit", "En arriere"]},
-        {"question": "Qu'est-ce qu'il y a au coin de la rue ?", "answer": "Une boulangerie", "distractors": ["Une banque", "La poste", "Un cafe"]},
-        {"question": "Ou est la poste ?", "answer": "En face de la boulangerie", "distractors": ["A cote de la boulangerie", "Derriere la banque", "Au coin de la rue"]}
+        {"question": "Qu'est-ce qu'il y a au coin de la rue ?", "answer": "Une boulangerie", "distractors": ["Une banque", "La poste", "Un café"]},
+        {"question": "Où est la poste ?", "answer": "En face de la boulangerie", "distractors": ["A cote de la boulangerie", "Derrière la banque", "Au coin de la rue"]}
       ],
       "plays": 2
     },
@@ -62,7 +62,7 @@
       "id": "listen_apartment_ad",
       "level": "A2",
       "type": "multiple_choice",
-      "passage": "A louer: bel appartement de trois pieces au deuxieme etage, dans un quartier calme pres du centre-ville. L'appartement a une cuisine equipee, une salle de bains et un balcon. Le loyer est de mille deux cents francs par mois, charges comprises. Animaux acceptes. Disponible a partir du premier avril. Pour visiter, appelez le zero vingt et un, quatre cent cinquante-six, soixante-dix-huit, quatre-vingt-dix.",
+      "passage": "A louer: bel appartement de trois pieces au deuxieme étage, dans un quartier calme pres du centre-ville. L'appartement a une cuisine equipee, une salle de bains et un balcon. Le loyer est de mille deux cents francs par mois, charges comprises. Animaux acceptes. Disponible a partir du premier avril. Pour visiter, appelez le zero vingt et un, quatre cent cinquante-six, soixante-dix-huit, quatre-vingt-dix.",
       "word_count": 65,
       "questions": [
         {"question": "Combien de pieces a l'appartement ?", "answer": "Trois pieces", "distractors": ["Deux pieces", "Quatre pieces", "Cinq pieces"]},

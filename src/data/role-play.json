@@ -14,11 +14,11 @@
       "scenario": "The candidate comes to the pharmacy with a headache and a cold. They need to ask for medication, describe symptoms, and understand dosage instructions.",
       "opening": "Bonjour, bienvenue a la pharmacie. Qu'est-ce que je peux faire pour vous ?",
       "key_functions": ["describe symptoms", "ask for advice", "understand instructions", "ask about price"],
-      "expected_vocabulary": ["mal a la tete", "rhume", "medicament", "ordonnance", "comprime", "sirop", "fois par jour"],
+      "expected_vocabulary": ["mal a la tête", "rhume", "medicament", "ordonnance", "comprime", "sirop", "fois par jour"],
       "teacher_phrases": {
-        "describing_symptoms": ["Je tousse", "J'ai mal a la gorge", "J'ai le nez qui coule", "J'ai mal a la tete", "J'ai froid", "Je suis fatigue(e)", "J'ai de la fievre", "J'ai des courbatures", "J'ai les yeux sensibles", "J'ai mal au ventre", "Ca me gratte"],
+        "describing_symptoms": ["Je tousse", "J'ai mal a la gorge", "J'ai le nez qui coule", "J'ai mal a la tête", "J'ai froid", "Je suis fatigue(e)", "J'ai de la fievre", "J'ai des courbatures", "J'ai les yeux sensibles", "J'ai mal au ventre", "Ca me gratte"],
         "at_pharmacy": ["J'achete un medicament", "Je demande un sirop", "Je presente mon ordonnance", "J'explique mes symptomes"],
-        "body_pain": ["J'ai mal a la tete", "J'ai mal au ventre", "J'ai mal a la gorge", "J'ai mal au dos", "J'ai mal aux yeux"]
+        "body_pain": ["J'ai mal a la tête", "J'ai mal au ventre", "J'ai mal a la gorge", "J'ai mal au dos", "J'ai mal aux yeux"]
       }
     },
     {
@@ -38,8 +38,8 @@
       "expected_vocabulary": ["mal au ventre", "depuis", "fievre", "examiner", "analyse", "medicament", "rendez-vous"],
       "teacher_phrases": {
         "describing_symptoms": ["Je tousse", "J'ai mal a la gorge", "J'ai le nez qui coule", "J'ai de la fievre", "J'ai des courbatures", "J'ai mal au ventre"],
-        "body_parts": ["la tete", "le cou", "la gorge", "la poitrine", "le ventre", "le dos", "le bras", "la jambe", "le genou", "l'epaule"],
-        "medical_specialists": ["le medecin generaliste", "le cardiologue", "le dermatologue", "le pediatre", "l'ophtalmologue"]
+        "body_parts": ["la tête", "le cou", "la gorge", "la poitrine", "le ventre", "le dos", "le bras", "la jambe", "le genou", "l'epaule"],
+        "medical_specialists": ["le médecin generaliste", "le cardiologue", "le dermatologue", "le pediatre", "l'ophtalmologue"]
       }
     },
     {
@@ -65,6 +65,14 @@
       "expected_vocabulary": ["billet", "aller-retour", "aller simple", "premiere classe", "deuxieme classe", "depart", "correspondance", "voie"]
     },
     {
+      "id": "hôtel",
+      "role": "a hôtel receptionist",
+      "scenario": "The candidate wants to book a hôtel room for two nights. They need to ask about availability, room types, price, and breakfast.",
+      "opening": "Bonsoir, bienvenue a l'Hôtel du Lac. Vous avez une reservation ?",
+      "key_functions": ["ask about availability", "choose room type", "ask about price and breakfast", "provide personal details"],
+      "expected_vocabulary": ["chambre", "nuit", "petit-dejeuner", "reservation", "simple", "double", "prix", "carte", "cle", "étage"]
+    },
+    {
       "id": "landlord",
       "role": "the building manager (regie)",
       "scenario": "The candidate calls to report a problem in their apartment (e.g., broken heating, water leak). They describe the problem, its location, and arrange for a repair visit.",
@@ -76,7 +84,7 @@
       "id": "school_meeting",
       "role": "a primary school teacher",
       "scenario": "The candidate is a parent meeting their child's teacher. They discuss their child's progress, ask about homework, and discuss a school event.",
-      "opening": "Bonsoir, merci d'etre venu. Asseyez-vous, je vous en prie.",
+      "opening": "Bonsoir, merci d'être venu. Asseyez-vous, je vous en prie.",
       "key_functions": ["ask about child's progress", "discuss difficulties", "understand recommendations", "ask about events"],
       "expected_vocabulary": ["enfant", "notes", "progres", "devoirs", "difficile", "ameliorer", "reunion", "sortie"]
     },
@@ -86,11 +94,11 @@
       "scenario": "The candidate needs to register a change of address. They provide information and ask about required documents.",
       "opening": "Bonjour, vous avez pris rendez-vous ?",
       "key_functions": ["state purpose", "provide personal information", "ask about documents needed", "understand next steps"],
-      "expected_vocabulary": ["demenager", "adresse", "formulaire", "passeport", "permis", "attestation", "delai", "gratuit"],
+      "expected_vocabulary": ["déménager", "adresse", "formulaire", "passeport", "permis", "attestation", "delai", "gratuit"],
       "teacher_phrases": {
         "requesting_appointment": ["Bonjour, je voudrais prendre un rendez-vous svp.", "Bonjour, j'aimerais faire un rdv avec..."],
         "proposing_date": ["C'est possible mardi prochain ?", "Ce serait pour quand ?", "Quand est-ce que vous avez des disponibilites ?", "A quelle heure etes-vous disponible ?"],
-        "accepting_date": ["Parfait, merci !", "C'est nickel !", "Tres bien, merci.", "Oui c'est bon pour moi."],
+        "accepting_date": ["Parfait, merci !", "C'est nickel !", "Très bien, merci.", "Oui c'est bon pour moi."],
         "refusing_date": ["Desolee, ce n'est pas possible pour moi.", "Un peu plus tard ou plus tot, c'est possible ?", "Je ne suis pas disponible."]
       }
     }

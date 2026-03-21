@@ -1,20 +1,23 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHint } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface RolePlayUIProps {
   scenarioId: string;
+  taskHint?: string;
   subScenarioId?: string;
   onBack: () => void;
 }
 
-const RolePlayUI: React.FC<RolePlayUIProps> = ({ scenarioId, subScenarioId, onBack }) => {
+const RolePlayUI: React.FC<RolePlayUIProps> = ({ scenarioId, taskHint, subScenarioId, onBack }) => {
   const { scenario, messages, streaming, streamingText, examScores, sendMessage, submitForScoring, reset } = useExamSession(scenarioId);
   const [textInput, setTextInput] = useState('');
-  const [selectedScenario, setSelectedScenario] = useState<string | undefined>(subScenarioId);
 
   const subScenarios = (scenario?.scenarios as Array<{ id: string; role: string; scenario: string; opening: string }>) ?? [];
+  const autoMatch = subScenarioId ?? matchTaskHint(taskHint, subScenarios.map((s) => ({ id: s.id, desc: `${s.role} ${s.scenario}` }))) ?? undefined;
+  const [selectedScenario, setSelectedScenario] = useState<string | undefined>(autoMatch);
   const current = subScenarios.find((s) => s.id === selectedScenario) ?? subScenarios[0];
 
   // Auto-start with opening message

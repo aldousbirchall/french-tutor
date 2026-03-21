@@ -11,14 +11,14 @@
     {
       "id": "market",
       "description": "A busy outdoor market in a Swiss town. People buying fruit and vegetables. A church tower visible in the background. Sunny day.",
-      "expected_vocabulary": ["marche", "legumes", "fruits", "acheter", "vendre", "soleil", "gens", "eglise"],
-      "follow_up_questions": ["Qu'est-ce que les gens font ?", "C'est quelle saison ?", "Vous aimez aller au marche ?"]
+      "expected_vocabulary": ["marché", "legumes", "fruits", "acheter", "vendre", "soleil", "gens", "église"],
+      "follow_up_questions": ["Qu'est-ce que les gens font ?", "C'est quelle saison ?", "Vous aimez aller au marché ?"]
     },
     {
       "id": "train_station",
       "description": "A Swiss train station platform. A red CFF train arriving. People waiting with suitcases. A departure board showing destinations.",
       "expected_vocabulary": ["gare", "train", "quai", "voyageur", "valise", "horaire", "attendre", "partir"],
-      "follow_up_questions": ["Ou est-ce que le train va ?", "Vous prenez souvent le train ?", "Qu'est-ce que vous voyez sur le panneau ?"]
+      "follow_up_questions": ["Où est-ce que le train va ?", "Vous prenez souvent le train ?", "Qu'est-ce que vous voyez sur le panneau ?"]
     },
     {
       "id": "restaurant",
@@ -48,7 +48,7 @@
   "scoring_criteria": {
     "description_completeness": "Identifies main elements of the scene",
     "vocabulary_range": "Uses appropriate descriptive vocabulary",
-    "spatial_language": "Uses prepositions correctly (devant, derriere, a gauche)",
+    "spatial_language": "Uses prepositions correctly (devant, derrière, a gauche)",
     "grammar": "Present tense used correctly, il y a construction",
     "fluency": "Speaks in sentences, not just listing items"
   },

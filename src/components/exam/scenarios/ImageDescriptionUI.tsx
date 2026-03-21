@@ -1,19 +1,23 @@
 import { useState, useCallback } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHintIndex } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface ImageDescriptionUIProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
-const ImageDescriptionUI: React.FC<ImageDescriptionUIProps> = ({ scenarioId, onBack }) => {
+const ImageDescriptionUI: React.FC<ImageDescriptionUIProps> = ({ scenarioId, taskHint, onBack }) => {
   const { scenario, messages, streaming, streamingText, examScores, sendMessage, submitForScoring, reset } = useExamSession(scenarioId);
   const [textInput, setTextInput] = useState('');
-  const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
   const imagePrompts = (scenario?.image_prompts as Array<{ id: string; description: string }>) ?? [];
+  const [currentImageIdx, setCurrentImageIdx] = useState(() =>
+    matchTaskHintIndex(taskHint, imagePrompts.map((p) => ({ id: p.id, desc: p.description })))
+  );
   const currentImage = imagePrompts[currentImageIdx];
 
   const handleSend = useCallback((text: string) => {

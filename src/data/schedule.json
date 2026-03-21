@@ -38,7 +38,7 @@
         {"mode": "exam", "task": "Form filling: personal details registration form", "minutes": 10},
         {"mode": "vocabulary", "task": "Review any due cards", "minutes": 15}
       ],
-      "grammar_focus": "Present tense of etre and avoir",
+      "grammar_focus": "Present tense of être and avoir",
       "topics": ["greetings", "personal_info"]
     },
     {
@@ -83,7 +83,7 @@
         {"mode": "exam", "task": "Letter writing: report a problem to your landlord", "minutes": 10},
         {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
       ],
-      "grammar_focus": "Prepositions of place (dans, sur, sous, devant, derriere)",
+      "grammar_focus": "Prepositions of place (dans, sur, sous, devant, derrière)",
       "topics": ["housing"]
     },
     {
@@ -142,7 +142,7 @@
         {"mode": "conversation", "task": "Free conversation covering all topics, past tense intro", "minutes": 15},
         {"mode": "exam", "task": "Mini mock: form filling + letter + image description", "minutes": 25}
       ],
-      "grammar_focus": "Passe compose introduction (avoir + etre verbs)",
+      "grammar_focus": "Passe compose introduction (avoir + être verbs)",
       "topics": ["review"]
     },
     {
@@ -158,7 +158,7 @@
         {"mode": "exam", "task": "Image description: a street market scene", "minutes": 15},
         {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
       ],
-      "grammar_focus": "Passe compose fluency (avoir + etre verbs mixed)",
+      "grammar_focus": "Passe compose fluency (avoir + être verbs mixed)",
       "topics": ["travel", "leisure"]
     },
     {
@@ -171,7 +171,7 @@
         {"mode": "vocabulary", "task": "Learn 15 new words: plans, adjectives, comparisons", "minutes": 15, "new_words": 15},
         {"mode": "conversation", "task": "Discuss plans for the weekend and future goals", "minutes": 15},
         {"mode": "conversation", "task": "Compare your city to another", "minutes": 15},
-        {"mode": "exam", "task": "Role-play: book a hotel room", "minutes": 15},
+        {"mode": "exam", "task": "Role-play: book a hôtel room", "minutes": 15},
         {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
       ],
       "grammar_focus": "Future (aller + infinitif), comparatives (plus/moins/aussi...que)",
@@ -235,7 +235,7 @@
         {"mode": "vocabulary", "task": "Learn 15 new words: restaurant, hobbies, sports", "minutes": 15, "new_words": 15},
         {"mode": "conversation", "task": "Order a meal and discuss food preferences", "minutes": 15},
         {"mode": "conversation", "task": "Discuss hobbies and invite someone to an activity", "minutes": 15},
-        {"mode": "exam", "task": "Sequential image narration: restaurant visit", "minutes": 15},
+        {"mode": "exam", "task": "Sequential image description: restaurant visit", "minutes": 15},
         {"mode": "vocabulary", "task": "Review due cards", "minutes": 15}
       ],
       "grammar_focus": "Jouer a/de, faire de, opinion expressions",

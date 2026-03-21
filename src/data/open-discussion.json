@@ -12,12 +12,12 @@
       "id": "housing_life",
       "title": "Ou vous habitez",
       "questions": [
-        "Ou est-ce que vous habitez ?",
+        "Où est-ce que vous habitez ?",
         "Vous aimez votre quartier ? Pourquoi ?",
         "Qu'est-ce qu'il y a pres de chez vous ?",
         "Comment est votre appartement ?",
         "Si vous pouviez changer quelque chose, qu'est-ce que vous changeriez ?",
-        "Vous avez deja demenage en Suisse ?"
+        "Vous avez déjà demenage en Suisse ?"
       ],
       "expected_structures": ["il y a", "j'aime / je n'aime pas", "c'est + adjective", "pres de / loin de"]
     },
@@ -79,9 +79,9 @@
       "questions": [
         "Comment allez-vous en general ?",
         "Qu'est-ce que vous faites pour rester en forme ?",
-        "Vous allez souvent chez le medecin ?",
-        "Vous avez deja ete malade en Suisse ?",
-        "Qu'est-ce que vous mangez pour etre en bonne sante ?",
+        "Vous allez souvent chez le médecin ?",
+        "Vous avez déjà ete malade en Suisse ?",
+        "Qu'est-ce que vous mangez pour être en bonne sante ?",
         "Le systeme de sante en Suisse, c'est comment ?"
       ],
       "expected_structures": ["pour + infinitive", "frequency expressions", "passe compose", "opinion expressions"]

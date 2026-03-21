@@ -1610,7 +1610,7 @@
             "The candidate decides not to buy a ticket",
             "The candidate buys a return ticket to Bern with discount",
             "The candidate only asks for train times",
-            "The candidate books a hotel in Bern"
+            "The candidate books a hôtel in Bern"
           ],
           "correct_index": 1,
           "explanation": "The candidate successfully purchases a return ticket to Bern using their half-fare subscription."
@@ -2152,7 +2152,7 @@
         },
         {
           "speaker": "candidate",
-          "french": "Bonjour madame. Je vous appelle parce que j'ai un problème dans mon appartement. Mon lave-vaisselle ne marche plus.",
+          "french": "Bonjour madame. Je vous appelle parce que j'ai un problème dans mon appartement. Mon lave-vaisselle ne marché plus.",
           "english": "Hello madam. I'm calling you because I have a problem in my apartment. My dishwasher isn't working anymore."
         },
         {
@@ -2198,7 +2198,7 @@
       ],
       "key_phrases": [
         {
-          "french": "Mon lave-vaisselle ne marche plus",
+          "french": "Mon lave-vaisselle ne marché plus",
           "english": "My dishwasher isn't working anymore"
         },
         {
@@ -3292,7 +3292,7 @@
         {
           "speaker": "candidate",
           "french": "Euh... on peut se promener au bord du lac, c'est très joli. Il y a aussi un petit cinéma et plusieurs restaurants. En été, il y a souvent des festivals.",
-          "english": "Um... we can walk along the lake shore, it's very pretty. There's also a small cinema and several restaurants. In summer, there are often festivals."
+          "english": "Um... we can walk along the lake shore, it's very pretty. There's also a small cinéma and several restaurants. In summer, there are often festivals."
         },
         {
           "speaker": "examiner",
@@ -5020,7 +5020,7 @@
         },
         {
           "speaker": "candidate",
-          "french": "Oui, je fais un peu de sport. Je marche beaucoup et... comment dit-on... je fais du vélo le weekend. Et vous ?",
+          "french": "Oui, je fais un peu de sport. Je marché beaucoup et... comment dit-on... je fais du vélo le weekend. Et vous ?",
           "english": "Yes, I do some sports. I walk a lot and... how do you say... I cycle on weekends. And you?"
         },
         {
@@ -5094,7 +5094,7 @@
           "context_turn": 2,
           "options": [
             "Je travaille dans un bureau",
-            "Oui, je fais du vélo et je marche",
+            "Oui, je fais du vélo et je marché",
             "J'aime regarder la télévision",
             "Non, je n'ai pas d'argent"
           ],
@@ -6944,7 +6944,7 @@
             "Elle dort encore",
             "Vers huit heures, je pense",
             "Elle ne mange pas",
-            "Le réveil ne marche pas"
+            "Le réveil ne marché pas"
           ],
           "correct_index": 1,
           "explanation": "The examiner asks for an opinion about breakfast time, so giving a time estimate is the most appropriate response."
@@ -7365,7 +7365,7 @@
         },
         {
           "speaker": "candidate",
-          "french": "Euh... dans la troisième image, l'homme marche dans la rue. Il porte ses sacs de courses et il regarde son téléphone.",
+          "french": "Euh... dans la troisième image, l'homme marché dans la rue. Il porte ses sacs de courses et il regarde son téléphone.",
           "english": "Um... in the third image, the man is walking in the street. He's carrying his shopping bags and he's looking at his phone."
         },
         {
@@ -7732,7 +7732,7 @@
         {
           "speaker": "candidate",
           "french": "Je travaille comme femme de ménage dans un hôtel à Montreux. C'est un travail difficile mais... mes collègues sont gentilles.",
-          "english": "I work as a cleaner in a hotel in Montreux. It's difficult work but... my colleagues are nice."
+          "english": "I work as a cleaner in a hôtel in Montreux. It's difficult work but... my colleagues are nice."
         },
         {
           "speaker": "examiner",
@@ -7776,7 +7776,7 @@
           "context_turn": 0,
           "options": [
             "A candidate introducing herself and her life in Switzerland",
-            "A job interview for a hotel position",
+            "A job interview for a hôtel position",
             "A discussion about Swiss education system",
             "A complaint about living costs in Switzerland"
           ],
@@ -9017,7 +9017,7 @@
     },
     {
       "title": "Getting Directions to the Post Office",
-      "context": "A tourist asks for directions to the post office from their hotel reception.",
+      "context": "A tourist asks for directions to the post office from their hôtel reception.",
       "turns": [
         {
           "speaker": "examiner",
@@ -9102,7 +9102,7 @@
             "Getting directions to the post office",
             "Asking about opening hours",
             "Looking for a pharmacy",
-            "Booking a hotel room"
+            "Booking a hôtel room"
           ],
           "correct_index": 0,
           "explanation": "The candidate asks for directions to the post office and receives detailed instructions."

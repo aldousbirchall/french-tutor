@@ -1,11 +1,13 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useSpeechService } from '../../../contexts/SpeechContext';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHintIndex } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface ListeningComprehensionUIProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
@@ -21,10 +23,13 @@ interface Exercise {
   }>;
 }
 
-const ListeningComprehensionUI: React.FC<ListeningComprehensionUIProps> = ({ scenarioId, onBack }) => {
+const ListeningComprehensionUI: React.FC<ListeningComprehensionUIProps> = ({ scenarioId, taskHint, onBack }) => {
   const { scenario, examScores, submitForScoring, reset } = useExamSession(scenarioId);
   const speech = useSpeechService();
-  const [currentExIdx, setCurrentExIdx] = useState(0);
+  const exercises0 = useMemo(() => (scenario?.exercises as Exercise[]) ?? [], [scenario]);
+  const [currentExIdx, setCurrentExIdx] = useState(() =>
+    matchTaskHintIndex(taskHint, exercises0.map((e) => ({ id: e.id, desc: e.passage })))
+  );
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [playsUsed, setPlaysUsed] = useState<Record<number, number>>({});
 

@@ -1,10 +1,12 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useExamSession } from '../../../hooks/useExamSession';
+import { matchTaskHint } from '../../../utils/taskHintMatch';
 import ExamScoreCard from '../ExamScoreCard';
 import styles from './scenarios.module.css';
 
 interface FormFillingUIProps {
   scenarioId: string;
+  taskHint?: string;
   onBack: () => void;
 }
 
@@ -19,15 +21,16 @@ interface FormDef {
   }>;
 }
 
-const FormFillingUI: React.FC<FormFillingUIProps> = ({ scenarioId, onBack }) => {
+const FormFillingUI: React.FC<FormFillingUIProps> = ({ scenarioId, taskHint, onBack }) => {
   const { scenario, examScores, submitForScoring, reset } = useExamSession(scenarioId);
-  const [selectedForm, setSelectedForm] = useState<string | null>(null);
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
 
   const forms = (scenario?.forms as FormDef[]) ?? [];
+  const autoMatch = matchTaskHint(taskHint, forms.map((f) => ({ id: f.id, desc: `${f.title} ${f.situation}` })));
+  const [selectedForm, setSelectedForm] = useState<string | null>(autoMatch);
   const currentForm = forms.find((f) => f.id === selectedForm);
 
-  // Auto-select first form when forms are available
+  // Auto-select first form when forms are available and no hint match
   useEffect(() => {
     if (forms.length > 0 && !selectedForm) {
       setSelectedForm(forms[0].id);

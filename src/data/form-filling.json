@@ -11,14 +11,14 @@
     {
       "id": "registration",
       "title": "Inscription a un cours de francais",
-      "situation": "Vous voulez vous inscrire a un cours de francais a l'Ecole-club Migros. Remplissez le formulaire d'inscription.",
+      "situation": "Vous voulez vous inscrire a un cours de francais a l'École-club Migros. Remplissez le formulaire d'inscription.",
       "fields": [
         {"label": "Nom", "type": "text"},
         {"label": "Prenom", "type": "text"},
         {"label": "Date de naissance", "type": "date"},
         {"label": "Adresse", "type": "text"},
         {"label": "NPA / Ville", "type": "text"},
-        {"label": "Telephone", "type": "text"},
+        {"label": "Téléphone", "type": "text"},
         {"label": "Email", "type": "email"},
         {"label": "Nationalite", "type": "text"},
         {"label": "Langue maternelle", "type": "text"},
@@ -29,16 +29,16 @@
     {
       "id": "doctor_registration",
       "title": "Fiche patient - Cabinet medical",
-      "situation": "C'est votre premiere visite chez le medecin. Remplissez la fiche patient.",
+      "situation": "C'est votre premiere visite chez le médecin. Remplissez la fiche patient.",
       "fields": [
         {"label": "Nom", "type": "text"},
         {"label": "Prenom", "type": "text"},
         {"label": "Date de naissance", "type": "date"},
         {"label": "Adresse", "type": "text"},
-        {"label": "Telephone", "type": "text"},
+        {"label": "Téléphone", "type": "text"},
         {"label": "Assurance maladie", "type": "text"},
-        {"label": "Numero d'assure", "type": "text"},
-        {"label": "Medecin traitant", "type": "text"},
+        {"label": "Numéro d'assure", "type": "text"},
+        {"label": "Médecin traitant", "type": "text"},
         {"label": "Allergies", "type": "text"},
         {"label": "Medicaments actuels", "type": "text"},
         {"label": "Motif de la visite", "type": "text"}
@@ -57,8 +57,41 @@
         {"label": "Nouvelle adresse", "type": "text"},
         {"label": "Date du demenagement", "type": "date"},
         {"label": "Nombre de personnes", "type": "number"},
-        {"label": "Telephone", "type": "text"},
+        {"label": "Téléphone", "type": "text"},
         {"label": "Signature", "type": "text"}
+      ]
+    },
+    {
+      "id": "appointment_booking",
+      "title": "Prise de rendez-vous - Cabinet medical",
+      "situation": "Vous voulez prendre un rendez-vous chez le médecin. Remplissez le formulaire en ligne.",
+      "fields": [
+        {"label": "Nom", "type": "text"},
+        {"label": "Prenom", "type": "text"},
+        {"label": "Date de naissance", "type": "date"},
+        {"label": "Téléphone", "type": "text"},
+        {"label": "Email", "type": "email"},
+        {"label": "Numéro d'assure", "type": "text"},
+        {"label": "Motif de la visite", "type": "select", "options": ["Controle annuel", "Maladie", "Renouvellement ordonnance", "Autre"]},
+        {"label": "Date souhaitee", "type": "date"},
+        {"label": "Horaire prefere", "type": "select", "options": ["Matin", "Apres-midi"]},
+        {"label": "Remarques", "type": "text"}
+      ]
+    },
+    {
+      "id": "loyalty_card",
+      "title": "Carte de fidelite - Supermarche",
+      "situation": "Vous voulez une carte de fidelite au supermarche. Remplissez le formulaire d'inscription.",
+      "fields": [
+        {"label": "Nom", "type": "text"},
+        {"label": "Prenom", "type": "text"},
+        {"label": "Date de naissance", "type": "date"},
+        {"label": "Adresse", "type": "text"},
+        {"label": "NPA / Ville", "type": "text"},
+        {"label": "Email", "type": "email"},
+        {"label": "Téléphone", "type": "text"},
+        {"label": "Nombre de personnes dans le menage", "type": "select", "options": ["1", "2", "3", "4", "5+"]},
+        {"label": "Newsletter par email", "type": "checkbox"}
       ]
     },
     {

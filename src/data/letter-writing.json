@@ -32,7 +32,7 @@
       ],
       "word_target": [30, 50],
       "register": "informal",
-      "model_answer": "Cher Marc,\n\nMerci beaucoup d'avoir garde mon chat pendant mes vacances. Nous etions en Italie, c'etait super ! Pour te remercier, je t'invite a diner ce week-end.\n\nA bientot !"
+      "model_answer": "Cher Marc,\n\nMerci beaucoup d'avoir garde mon chat pendant mes vacances. Nous etions en Italie, c'etait super ! Pour te remercier, je t'invite a diner ce week-end.\n\nA bientôt !"
     },
     {
       "id": "request_info",
@@ -48,6 +48,45 @@
       "model_answer": "Madame, Monsieur,\n\nJe voudrais inscrire mon fils de 8 ans a un cours de natation. Pourriez-vous me donner les horaires et les prix ? Qu'est-ce qu'il faut apporter ?\n\nMerci d'avance.\nCordialement"
     },
     {
+      "id": "introduce_neighbour",
+      "level": "A1",
+      "situation": "Vous venez d'emménager dans un nouvel appartement. Ecrivez un petit mot a votre voisin pour vous presenter.",
+      "required_points": [
+        "Say your name and where you come from",
+        "Say when you moved in",
+        "Suggest meeting for a coffee"
+      ],
+      "word_target": [30, 50],
+      "register": "informal",
+      "model_answer": "Bonjour,\n\nJe m'appelle Maria et je viens d'emménager dans l'appartement 3B. Je suis arrivee la semaine derniere. Je viens du Portugal. Est-ce que vous voudriez prendre un café un jour ?\n\nA bientôt !"
+    },
+    {
+      "id": "report_landlord",
+      "level": "A1",
+      "situation": "Il y a un probleme dans votre appartement (par exemple, le chauffage ne marché pas). Ecrivez un email a votre proprietaire.",
+      "required_points": [
+        "Describe the problem",
+        "Say when it started",
+        "Ask for a repair"
+      ],
+      "word_target": [30, 50],
+      "register": "formal",
+      "model_answer": "Madame, Monsieur,\n\nJe vous ecris pour signaler un probleme dans mon appartement au 3eme étage. Le chauffage ne marché plus depuis lundi. Il fait très froid. Pourriez-vous envoyer un technicien rapidement ?\n\nCordialement"
+    },
+    {
+      "id": "cancel_appointment",
+      "level": "A1",
+      "situation": "Vous avez un rendez-vous chez le médecin jeudi a 10h00, mais vous etes malade et ne pouvez pas sortir. Ecrivez un email au cabinet medical pour annuler.",
+      "required_points": [
+        "Say you need to cancel your appointment",
+        "Explain why (you are sick)",
+        "Ask for a new appointment next week"
+      ],
+      "word_target": [30, 50],
+      "register": "formal",
+      "model_answer": "Madame, Monsieur,\n\nJe dois annuler mon rendez-vous de jeudi a 10h00. Je suis très malade et je ne peux pas sortir de chez moi. Est-il possible d'avoir un nouveau rendez-vous la semaine prochaine ?\n\nMerci. Cordialement"
+    },
+    {
       "id": "complaint_order",
       "level": "A2",
       "situation": "Vous avez commande un meuble en ligne mais vous avez recu le mauvais article. Ecrivez un email au magasin.",
@@ -58,12 +97,12 @@
       ],
       "word_target": [50, 80],
       "register": "formal",
-      "model_answer": "Madame, Monsieur,\n\nLe 15 mars, j'ai commande une table basse sur votre site (commande numero 4567). Aujourd'hui, j'ai recu le colis mais c'est une etagere, pas une table. Je voudrais recevoir la bonne table ou etre rembourse. Comment puis-je vous renvoyer l'etagere ?\n\nCordialement"
+      "model_answer": "Madame, Monsieur,\n\nLe 15 mars, j'ai commande une table basse sur votre site (commande numéro 4567). Aujourd'hui, j'ai recu le colis mais c'est une etagere, pas une table. Je voudrais recevoir la bonne table ou être rembourse. Comment puis-je vous renvoyer l'etagere ?\n\nCordialement"
     },
     {
       "id": "invite_friend",
       "level": "A2",
-      "situation": "Vous organisez une fete pour votre anniversaire samedi prochain. Ecrivez un message a un ami pour l'inviter.",
+      "situation": "Vous organisez une fête pour votre anniversaire samedi prochain. Ecrivez un message a un ami pour l'inviter.",
       "required_points": [
         "Invite to the party",
         "Give the date, time, and address",
@@ -71,7 +110,7 @@
       ],
       "word_target": [50, 80],
       "register": "informal",
-      "model_answer": "Salut Sophie !\n\nC'est mon anniversaire samedi prochain et j'organise une petite fete chez moi a partir de 19h. L'adresse, c'est 12 rue du Lac. Il y aura a manger et a boire. Tu peux venir ? Si tu veux, apporte un dessert. Dis-moi si ca te va !\n\nBisous"
+      "model_answer": "Salut Sophie !\n\nC'est mon anniversaire samedi prochain et j'organise une petite fête chez moi a partir de 19h. L'adresse, c'est 12 rue du Lac. Il y aura a manger et a boire. Tu peux venir ? Si tu veux, apporte un dessert. Dis-moi si ca te va !\n\nBisous"
     },
     {
       "id": "sick_note",
@@ -84,7 +123,7 @@
       ],
       "word_target": [30, 50],
       "register": "formal",
-      "model_answer": "Bonjour Monsieur Muller,\n\nJe suis malade aujourd'hui, j'ai de la fievre et mal a la gorge. Je ne pourrai pas venir travailler. Je pense revenir mercredi. Je vais voir le medecin cet apres-midi.\n\nCordialement"
+      "model_answer": "Bonjour Monsieur Muller,\n\nJe suis malade aujourd'hui, j'ai de la fievre et mal a la gorge. Je ne pourrai pas venir travailler. Je pense revenir mercredi. Je vais voir le médecin cet apres-midi.\n\nCordialement"
     }
   ],
   "scoring_criteria": {
