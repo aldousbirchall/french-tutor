@@ -11,16 +11,19 @@ interface ListeningComprehensionUIProps {
   onBack: () => void;
 }
 
+interface ExerciseQuestion {
+  question: string;
+  answer?: string;
+  distractors?: string[];
+  expected_answer?: string;
+}
+
 interface Exercise {
   id: string;
   level: string;
   passage: string;
   plays: number;
-  questions: Array<{
-    question: string;
-    answer: string;
-    distractors: string[];
-  }>;
+  questions: ExerciseQuestion[];
 }
 
 const ListeningComprehensionUI: React.FC<ListeningComprehensionUIProps> = ({ scenarioId, taskHint, onBack }) => {
@@ -55,7 +58,8 @@ const ListeningComprehensionUI: React.FC<ListeningComprehensionUIProps> = ({ sce
       responseLines.push(`Exercise: ${ex.id}`);
       ex.questions.forEach((q, qIdx) => {
         const key = `${eIdx}-${qIdx}`;
-        responseLines.push(`Q: ${q.question} A: ${answers[key] ?? 'No answer'} (Correct: ${q.answer})`);
+        const correct = q.answer ?? q.expected_answer ?? '';
+        responseLines.push(`Q: ${q.question} A: ${answers[key] ?? 'No answer'} (Correct: ${correct})`);
       });
     });
     submitForScoring(responseLines.join('\n'));
@@ -84,19 +88,29 @@ const ListeningComprehensionUI: React.FC<ListeningComprehensionUIProps> = ({ sce
 
       {currentEx.questions.map((q, qIdx) => {
         const key = `${currentExIdx}-${qIdx}`;
-        const allOptions = [q.answer, ...q.distractors].sort();
+        const isMultipleChoice = q.answer != null && q.distractors != null;
         return (
           <div key={qIdx} className={styles.questionCard}>
             <div className={styles.questionText}>{q.question}</div>
-            {allOptions.map((opt) => (
-              <button
-                key={opt}
-                className={`${styles.option} ${answers[key] === opt ? styles.optionSelected : ''}`}
-                onClick={() => selectAnswer(qIdx, opt)}
-              >
-                {opt}
-              </button>
-            ))}
+            {isMultipleChoice ? (
+              [q.answer!, ...q.distractors!].sort().map((opt) => (
+                <button
+                  key={opt}
+                  className={`${styles.option} ${answers[key] === opt ? styles.optionSelected : ''}`}
+                  onClick={() => selectAnswer(qIdx, opt)}
+                >
+                  {opt}
+                </button>
+              ))
+            ) : (
+              <input
+                type="text"
+                className={styles.textInput}
+                placeholder="Votre reponse..."
+                value={answers[key] ?? ''}
+                onChange={(e) => selectAnswer(qIdx, e.target.value)}
+              />
+            )}
           </div>
         );
       })}
